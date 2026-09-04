@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智慧课堂 | 梁金玲 Portfolio</title>
+  <meta name="description" content="智慧课堂 UI/UX 设计 Case Study - 真实课堂授课端界面设计、设计系统与核心教学环节优化。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-light">
+<div class="page-topbar">
+    <a class="page-back" href="all-projects.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">智慧课堂</span>
+  </div>
+  <!-- 滚动进度条 -->
+  <div class="cs-progress" id="cs-progress"></div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">梁金玲 · Portfolio</a>
+      <nav class="nav">
+        <a href="index.html#works" class="nav-link">作品</a>
+        <a href="index.html#contact" class="nav-link">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 01 · HERO -->
+    <header class="cs-header cs-reveal" id="cs-top">
+      <div class="cs-header-deco"></div>
+      <p class="cs-label">Education Product · UI / UX</p>
+      <h1 class="cs-title">智慧课堂</h1>
+      <p class="cs-positioning">面向真实课堂场景的教师授课端体验优化——从进入课堂、课堂互动，到实时答题反馈与学情数据分析的完整界面体系。</p>
+      <div class="cs-tags">
+        <span class="tag">B 端产品</span>
+        <span class="tag">UI 设计</span>
+        <span class="tag">设计系统</span>
+      </div>
+    </header>
+
+    <figure class="monitor monitor--hero cs-reveal" id="cs-01">
+      <figcaption class="monitor-bar">
+        <span class="monitor-dots"><i></i><i></i><i></i></span>
+        <span class="monitor-title">智慧课堂 · 教师进入课堂选课界面</span>
+      </figcaption>
+      <span class="monitor-screen">
+        <img src="assets/images/eteach-course-select.png" alt="智慧课堂 · 教师进入课堂选课界面（真实运行 UI）" />
+      </span>
+    </figure>
+
+    <!-- 章节索引 / Contents -->
+    <nav class="cs-contents cs-reveal" aria-label="章节索引">
+      <span class="cs-contents-label">Contents</span>
+      <ol class="cs-contents-list">
+        <li><a href="#cs-01"><b>01</b> 封面 Cover</a></li>
+        <li><a href="#cs-02"><b>02</b> 项目背景 Context</a></li>
+        <li><a href="#cs-03"><b>03</b> 设计挑战 Challenge</a></li>
+        <li><a href="#cs-04"><b>04</b> 设计策略 Strategy</a></li>
+        <li><a href="#cs-045"><b>04.5</b> 授课端全貌 Overview</a></li>
+        <li><a href="#cs-05"><b>05</b> 课堂互动 Interaction</a></li>
+        <li><a href="#cs-06"><b>06</b> 核心界面 Core UI</a></li>
+        <li><a href="#cs-07"><b>07</b> 实时反馈 Real-time</a></li>
+        <li><a href="#cs-08"><b>08</b> 数据分析 Data</a></li>
+        <li><a href="#cs-09"><b>09</b> 设计规范 Design System</a></li>
+        <li><a href="#cs-10"><b>10</b> 缩屏适配 Responsive</a></li>
+        <li><a href="#cs-11"><b>11</b> 项目总结 Summary</a></li>
+      </ol>
+    </nav>
+
+    <!-- 项目信息 / Project Info -->
+    <div class="cs-meta cs-reveal">
+      <div class="cs-meta-item"><h4>Role</h4><p>UI / UX Designer</p></div>
+      <div class="cs-meta-item"><h4>Platform</h4><p>教师授课端</p></div>
+      <div class="cs-meta-item"><h4>Deliverables</h4><p>UI 设计 · 设计规范</p></div>
+      <div class="cs-meta-item"><h4>Scope</h4><p>选课 · 互动 · 答题 · 学情</p></div>
+    </div>
+
+    <!-- 02 · PROJECT CONTEXT -->
+    <section class="cs-sec cs-reveal" id="cs-02">
+      <span class="cs-sec-watermark">02</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">02</span>
+        <div>
+          <span class="cs-sec-kicker">Project Context</span>
+          <h2 class="cs-sec-title">真实课堂场景下的授课端</h2>
+        </div>
+      </div>
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <p>授课端是教师在真实课堂环境中使用的多媒体授课工具，覆盖从进入课堂到教学闭环的核心工作流。</p>
+          <p>界面设计需要服务一条清晰的教师路径——选班选课、发起互动、查看学生实时状态、回收答题数据并据此调整教学。</p>
+          <ul class="cs-flow">
+            <li>进入课堂</li>
+            <li>选择班级 / 科目</li>
+            <li>发起课堂互动</li>
+            <li>学生参与</li>
+            <li>实时状态</li>
+            <li>数据反馈</li>
+          </ul>
+        </div>
+        <figure class="monitor">
+          <figcaption class="monitor-bar">
+            <span class="monitor-dots"><i></i><i></i><i></i></span>
+            <span class="monitor-title">课程活动功能</span>
+          </figcaption>
+          <span class="monitor-screen">
+            <img src="assets/images/eteach-activity.png" alt="智慧课堂 · 课程活动功能界面（真实运行 UI）" />
+          </span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 · DESIGN CHALLENGE -->
+    <section class="cs-sec cs-reveal" id="cs-03">
+      <span class="cs-sec-watermark">03</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">03</span>
+        <div>
+          <span class="cs-sec-kicker">Design Challenge</span>
+          <h2 class="cs-sec-title">真实产品面对的核心问题</h2>
+        </div>
+      </div>
+      <div class="cs-challenge">
+        <div class="cs-prob-row">
+          <div class="cs-prob-card">
+            <p class="cs-prob-no">CHALLENGE 01</p>
+            <h3>重点信息不突出</h3>
+            <p>课堂场景下信息密度高，教师需要在短时间内定位关键学情，原有界面层级不够清晰。</p>
+          </div>
+          <div class="cs-prob-card">
+            <p class="cs-prob-no">CHALLENGE 02</p>
+            <h3>课堂远距离可读性弱</h3>
+            <p>投屏教学时，后排学生与教师均需快速读取数据，图表与分布的可读性需要强化。</p>
+          </div>
+          <div class="cs-prob-card">
+            <p class="cs-prob-no">CHALLENGE 03</p>
+            <h3>功能入口识别成本高</h3>
+            <p>提问、测试、点名等高频互动入口分散，教师在授课节奏中需要更快进入对应功能。</p>
+          </div>
+        </div>
+        <div class="ms-wall ms-wall--3">
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">学生答题情况列表</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-student-list.png" alt="学生答题情况列表（真实 UI）" /></span>
+          </figure>
+          <figure class="monitor monitor--wide">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">学生答题分布</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-student-dist.png" alt="学生答题分布（真实 UI）" /></span>
+          </figure>
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">题目待设置答案</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-answer-pending.png" alt="题目待设置答案界面（真实 UI）" /></span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · DESIGN STRATEGY -->
+    <section class="cs-sec cs-reveal" id="cs-04">
+      <span class="cs-sec-watermark">04</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">04</span>
+        <div>
+          <span class="cs-sec-kicker">Design Strategy</span>
+          <h2 class="cs-sec-title">四个核心设计策略</h2>
+        </div>
+      </div>
+      <div class="cs-strategy">
+        <div class="cs-strat monitor-wrap">
+          <div class="cs-strat-head">
+            <p class="cs-strat-no">01 · Information Hierarchy</p>
+            <h3>信息层级优化</h3>
+            <p>强化重点学情与操作路径的视觉权重，让关键数据在课堂节奏中一眼可读。</p>
+          </div>
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">设置答案后 · 学生答题情况</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-answer-status.png" alt="设置答案后学生答题情况（真实 UI）" /></span>
+          </figure>
+        </div>
+        <div class="cs-strat monitor-wrap">
+          <div class="cs-strat-head">
+            <p class="cs-strat-no">02 · Classroom Interaction</p>
+            <h3>课堂互动流程</h3>
+            <p>收敛并前置提问、测试、点名等互动入口，贴合教师真实授课动线。</p>
+          </div>
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">发起提问功能</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-ask.png" alt="发起提问功能界面（真实 UI）" /></span>
+          </figure>
+        </div>
+        <div class="cs-strat">
+          <p class="cs-strat-no">03 · Visual System</p>
+          <h3>视觉规范统一</h3>
+          <p>沉淀主色、组件与状态规范，让多个教学模块共享同一套设计语言，详见第 09 节设计规范。</p>
+        </div>
+        <div class="cs-strat">
+          <p class="cs-strat-no">04 · Real-time Feedback</p>
+          <h3>实时状态反馈</h3>
+          <p>让学生参与、答题分布与正确率以清晰的状态反馈呈现，支撑教师即时决策，详见第 07 节。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04.5 · SYSTEM OVERVIEW（NurseLink 整图构图 · 6 屏 2 排） -->
+    <section class="cs-sec cs-reveal" id="cs-045">
+      <span class="cs-sec-watermark">04.5</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">04.5</span>
+        <div>
+          <span class="cs-sec-kicker">System Overview</span>
+          <h2 class="cs-sec-title">授课端全貌</h2>
+        </div>
+      </div>
+
+      <!-- NurseLink 整图构图：6 屏 2 排，中央大屏为主 -->
+      <div class="cs-nurse-wall">
+        <!-- 第 1 排 -->
+        <figure class="monitor cs-nurse-card cs-nurse-card--sm">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">课程活动</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-activity.png" alt="课程活动功能界面（真实 UI）" /></span>
+        </figure>
+
+        <figure class="monitor cs-nurse-card cs-nurse-card--lg">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">测试编排 · 完整授课界面</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-test-setup.png" alt="测试编排完整授课界面（真实 UI）" /></span>
+        </figure>
+
+        <figure class="monitor cs-nurse-card cs-nurse-card--md">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">错题排行</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-wrong-rank.png" alt="错题排列表（真实 UI）" /></span>
+        </figure>
+
+        <!-- 第 2 排 -->
+        <figure class="monitor cs-nurse-card cs-nurse-card--md">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">课堂点名</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-rollcall-ui.png" alt="课堂点名界面（真实 UI）" /></span>
+        </figure>
+
+        <figure class="monitor cs-nurse-card cs-nurse-card--md">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">答题反馈 · 单题分布明细</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-answer-detail.png" alt="单题答案分布明细（真实 UI）" /></span>
+        </figure>
+
+        <figure class="monitor cs-nurse-card cs-nurse-card--sm">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">题目竞赛</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-contest.png" alt="学生题目竞赛表（真实 UI）" /></span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 编辑式陈述 01 -->
+    <section class="cs-statement cs-reveal">
+      <p>好的课堂工具，不是功能的堆叠，<br />而是让教师在节奏中<span>一眼读懂学生</span>。</p>
+    </section>
+
+    <!-- 05 · CLASSROOM INTERACTION -->
+    <section class="cs-sec cs-reveal" id="cs-05">
+      <span class="cs-sec-watermark">05</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">05</span>
+        <div>
+          <span class="cs-sec-kicker">Classroom Interaction</span>
+          <h2 class="cs-sec-title">课堂互动流程</h2>
+        </div>
+      </div>
+      <div class="ms-wall ms-wall--3">
+        <figure class="monitor">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">多题提问</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-ask-multi.png" alt="多题提问界面（真实 UI）" /></span>
+        </figure>
+        <figure class="monitor">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">课堂点名</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-rollcall.png" alt="课堂点名（真实 UI）" /></span>
+        </figure>
+        <figure class="monitor">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">点名界面</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-rollcall-ui.png" alt="课堂点名界面（真实 UI）" /></span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 06 · CORE UI -->
+    <section class="cs-sec cs-reveal" id="cs-06">
+      <span class="cs-sec-watermark">06</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">06</span>
+        <div>
+          <span class="cs-sec-kicker">Core UI</span>
+          <h2 class="cs-sec-title">核心页面展示</h2>
+        </div>
+      </div>
+      <div class="cs-core">
+        <div class="ms-wall ms-wall--2">
+          <figure class="monitor monitor--wide">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">单题答案分布明细</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-answer-detail.png" alt="单道题目设置答案后学生答案分布明细（真实 UI）" /></span>
+          </figure>
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">单题设置答案</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-answer-set.png" alt="单道题目设置答案界面（真实 UI）" /></span>
+          </figure>
+        </div>
+        <p class="cs-pair-label">答题设置 · 单题答案分布</p>
+
+        <div class="ms-wall ms-wall--2">
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">试卷出题 · 学生答题明细</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-paper-detail.png" alt="试卷出题学生答题明细（真实 UI）" /></span>
+          </figure>
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">课堂发起测试</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-test-launch.png" alt="老师在课堂发起测试界面（真实 UI）" /></span>
+          </figure>
+        </div>
+        <p class="cs-cap">从单题答案分布、答题设置，到试卷明细与课堂发起测试，核心页面构成课堂数据闭环的关键界面。</p>
+      </div>
+    </section>
+
+    <!-- 07 · REAL-TIME FEEDBACK -->
+    <section class="cs-sec cs-reveal" id="cs-07">
+      <span class="cs-sec-watermark">07</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">07</span>
+        <div>
+          <span class="cs-sec-kicker">Real-time Feedback</span>
+          <h2 class="cs-sec-title">实时状态反馈</h2>
+        </div>
+      </div>
+      <div class="cs-rtf">
+        <!-- 左：主界面 -->
+        <figure class="monitor cs-rtf-screen">
+          <figcaption class="monitor-bar">
+            <span class="monitor-dots"><i></i><i></i><i></i></span>
+            <span class="monitor-title">学生答题分布 · 实时反馈</span>
+          </figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-answer-dist.png" alt="单道题目学生答题分布界面（真实 UI）" /></span>
+        </figure>
+        <!-- 右：数据注解 -->
+        <aside class="cs-rtf-anno">
+          <span class="cs-rtf-tag">Live Signal</span>
+          <h3>学生提交即更新</h3>
+          <p>每收到一份学生答题，分布柱、正确率与排名同步刷新——教师无需等待收齐即可看到整体趋势。</p>
+          <ul class="cs-rtf-points">
+            <li><b>实时分布</b><span>作答提交即时反映在柱状图</span></li>
+            <li><b>正确率</b><span>聚合数据自动计算并以大字号呈现</span></li>
+            <li><b>逐人明细</b><span>可下钻到每位学生的具体作答</span></li>
+          </ul>
+        </aside>
+      </div>
+      <p class="cs-cap">学生参与后的实时分布与状态反馈，让教师无需等待即可调整课堂节奏。</p>
+    </section>
+
+    <!-- 08 · DATA & ANALYSIS -->
+    <section class="cs-sec cs-reveal" id="cs-08">
+      <span class="cs-sec-watermark">08</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">08</span>
+        <div>
+          <span class="cs-sec-kicker">Data &amp; Analysis</span>
+          <h2 class="cs-sec-title">课堂数据分析</h2>
+        </div>
+      </div>
+      <div class="ms-wall ms-wall--3">
+        <figure class="monitor">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">错题排行</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-wrong-rank.png" alt="老师判断学生错题排列表（真实 UI）" /></span>
+        </figure>
+        <figure class="monitor">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">题目竞赛表</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-contest.png" alt="学生题目竞赛表（真实 UI）" /></span>
+        </figure>
+        <figure class="monitor">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">答题时间统计</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-stats-time.png" alt="学生答题统计时间（真实 UI）" /></span>
+        </figure>
+      </div>
+      <p class="cs-cap">从错题排行、竞赛表到时间维度统计，数据分析帮助教师识别共性问题与个体差异。</p>
+    </section>
+
+    <!-- 编辑式陈述 02 -->
+    <section class="cs-statement cs-reveal">
+      <p>数据本身没有意义，<br />能<span>驱动下一次教学调整</span>的数据才有。</p>
+    </section>
+
+    <!-- 09 · DESIGN SYSTEM -->
+    <section class="cs-sec cs-reveal" id="cs-09">
+      <span class="cs-sec-watermark">09</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">09</span>
+        <div>
+          <span class="cs-sec-kicker">Design System</span>
+          <h2 class="cs-sec-title">视觉规范</h2>
+        </div>
+      </div>
+      <div class="cs-ds">
+        <div class="cs-ds-index">
+          <span class="is-on">Color</span>
+          <span>Typography</span>
+          <span>Button</span>
+          <span>Card</span>
+          <span>Status</span>
+          <span>Icon</span>
+        </div>
+        <figure class="cs-ds-img">
+          <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">授课端色彩体系</span></figcaption>
+          <span class="monitor-screen"><img src="assets/images/eteach-color-system.png" alt="授课端色彩体系（真实 UI 设计规范）" /></span>
+        </figure>
+      </div>
+      <p class="cs-cap">以真实项目的主色系统为基石，统一色彩、组件与状态表达，为后续迭代提供一致的设计语言。图中实际涵盖的维度以素材为准。</p>
+
+      <!-- 设计规范 · 设计变量（呈现层补充，非截图改动） -->
+      <div class="cs-spec">
+        <div class="cs-spec-block">
+          <h5>Color · 色彩</h5>
+          <div class="cs-swatches">
+            <div class="cs-swatch"><span class="chip" style="background: var(--eteach-green);"></span><span class="meta"><b>Primary 主色</b>品牌绿</span></div>
+            <div class="cs-swatch"><span class="chip" style="background: #0F172A;"></span><span class="meta"><b>Ink 墨色</b>主文字</span></div>
+            <div class="cs-swatch"><span class="chip" style="background: #475569;"></span><span class="meta"><b>Slate 岩灰</b>次级文字</span></div>
+            <div class="cs-swatch"><span class="chip" style="background: #F1F5F9;"></span><span class="meta"><b>Surface 面板</b>背景</span></div>
+            <div class="cs-swatch"><span class="chip" style="background: #E2E8F0;"></span><span class="meta"><b>Border 描边</b>分隔</span></div>
+          </div>
+        </div>
+        <div class="cs-spec-block">
+          <h5>Typography · 字体层级</h5>
+          <div class="cs-type-row">
+            <span class="t s1">Aa</span><span class="lab">Display / 标题</span>
+            <span class="t s2">Aa</span><span class="lab">Heading / 小标题</span>
+            <span class="t s3">Aa</span><span class="lab">Body / 正文</span>
+          </div>
+        </div>
+        <div class="cs-spec-block">
+          <h5>Components · 组件</h5>
+          <div class="cs-chips">
+            <span>按钮 Button</span><span>卡片 Card</span><span>标签 Tag</span><span>状态 Status</span><span>图表 Chart</span><span>列表 List</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · RESPONSIVE -->
+    <section class="cs-sec cs-reveal" id="cs-10">
+      <span class="cs-sec-watermark">10</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">10</span>
+        <div>
+          <span class="cs-sec-kicker">Responsive</span>
+          <h2 class="cs-sec-title">缩屏适配</h2>
+        </div>
+      </div>
+      <div class="cs-resp">
+        <div class="cs-resp-side">
+          <span class="cs-resp-badge">Desktop</span>
+          <p class="cs-resp-meta">完整宽屏 · 全部教学模块并列</p>
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">完整授课界面</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-test-setup.png" alt="授课端宽屏界面（真实 UI）" /></span>
+          </figure>
+        </div>
+        <div class="cs-resp-arrow" aria-hidden="true">
+          <span class="cs-resp-arrow-line"></span>
+          <span class="cs-resp-arrow-tip">↔ 缩放</span>
+        </div>
+        <div class="cs-resp-side">
+          <span class="cs-resp-badge cs-resp-badge--alt">Compact</span>
+          <p class="cs-resp-meta">缩屏状态 · 关键模块优先保留</p>
+          <figure class="monitor">
+            <figcaption class="monitor-bar"><span class="monitor-dots"><i></i><i></i><i></i></span><span class="monitor-title">缩屏状态</span></figcaption>
+            <span class="monitor-screen"><img src="assets/images/eteach-responsive.png" alt="授课端缩屏状态（真实 UI）" /></span>
+          </figure>
+        </div>
+      </div>
+      <p class="cs-cap">同一套界面在完整宽屏与缩屏状态下保持信息完整，布局随空间收敛而不丢失关键教学路径。</p>
+    </section>
+
+    <!-- 11 · PROJECT SUMMARY -->
+    <section class="cs-sec cs-reveal" id="cs-11">
+      <span class="cs-sec-watermark">11</span>
+      <div class="cs-sec-head">
+        <span class="cs-sec-num">11</span>
+        <div>
+          <span class="cs-sec-kicker">Project Summary</span>
+          <h2 class="cs-sec-title">项目总结</h2>
+        </div>
+      </div>
+      <div class="cs-summary">
+        <p>智慧课堂是一套已在真实课堂场景落地的教师授课端界面。设计围绕「教师—课堂—互动—学生—实时反馈—数据分析」的教学闭环展开，通过强化信息层级、收敛高频互动入口、统一视觉规范，提升课堂信息的可读性与教师操作的顺畅度。</p>
+        <p>项目沉淀了以真实主色系统为基础的设计规范，使多个教学模块共享一致的设计语言与组件体系，为后续迭代提供可复用的基础。</p>
+        <div class="cs-summary-tags">
+          <span class="tag">B 端产品</span>
+          <span class="tag">教育</span>
+          <span class="tag">UI 设计</span>
+          <span class="tag">设计系统</span>
+          <span class="tag">交互优化</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 上下篇导航 -->
+    <nav class="project-nav">
+      <a href="project-heritage.html" class="project-nav-item">
+        <span class="project-nav-label">&#8592; 上一个项目</span>
+        <span class="project-nav-title">非遗数字化设计</span>
+      </a>
+      <a href="project-toyverse.html" class="project-nav-item next">
+        <span class="project-nav-label">下一个项目 &#8594;</span>
+        <span class="project-nav-title">UI Design Showcase</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer-cta" style="margin-top: 0;">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">Let's Work Together</h2>
+      <p class="footer-cta-desc">继续浏览更多作品，或直接与我开始合作。</p>
+      <div class="footer-cta-contacts">
+        <a href="all-projects.html">查看全部作品</a>
+        <a href="index.html#contact">联系我</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // 仅作用于作品集展示层的滚动浮现动效
+    (function () {
+      var els = document.querySelectorAll('.cs-reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (e) { e.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (e) { io.observe(e); });
+    })();
+
+    // 顶部滚动进度条
+    (function () {
+      var bar = document.getElementById('cs-progress');
+      if (!bar) return;
+      function update() {
+        var h = document.documentElement;
+        var sc = h.scrollTop || document.body.scrollTop;
+        var sh = (h.scrollHeight || document.body.scrollHeight) - h.clientHeight;
+        var pct = sh > 0 ? (sc / sh) * 100 : 0;
+        bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
+</body>
+</html>
