@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>自助下单 App · UI 设计规范 | 梁金玲 Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design-system.css" />
+</head>
+<body class="ds-page">
+<div class="page-topbar">
+      <a class="page-back" href="project-vending.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">自助下单移动端 · UI 设计规范</span>
+    </div>
+
+  <!-- 顶部导航 -->
+  <nav class="ds-nav">
+    <div class="ds-nav-inner">
+      <a class="ds-nav-brand" href="project-vending.html">梁金玲 · Portfolio</a>
+      <div class="ds-nav-links">
+        <a href="#s01">原则</a>
+        <a href="#s02">色彩</a>
+        <a href="#s03">字体</a>
+        <a href="#s04">间距</a>
+        <a href="#s05">圆角</a>
+        <a href="#s06">按钮</a>
+        <a href="#s07">导航</a>
+        <a href="#s09">商品卡</a>
+        <a href="#s12">Banner</a>
+        <a href="#s16">二维码</a>
+        <a href="#s18">层级</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="ds-wrap">
+  <div class="container">
+    
+  </div>
+
+    <!-- Hero -->
+    <header class="ds-hero">
+      <span class="ds-hero-eyebrow">UI Design System · 设计系统</span>
+      <h1>自助下单移动端<br /><span>UI 设计规范</span></h1>
+      <p class="ds-hero-lead">以橄榄绿建立品牌识别，暖白构建舒适内容空间，橙色强化价格与购买行为。通过卡片化布局、圆角组件与线性图标，建立统一、轻量、具有消费场景感的移动端视觉体系。</p>
+      <div class="ds-hero-tags">
+        <span>Foundations</span>
+        <span>Components</span>
+        <span>Patterns</span>
+        <span>Pages</span>
+        <span>4px 间距系统</span>
+        <span>橄榄绿 #6E7D48</span>
+      </div>
+    </header>
+
+    <!-- ========== 01 Principles ========== -->
+    <section class="ds-section" id="s01">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">01</span>
+        <h2 class="ds-sec-title">Design Principles <small>设计原则</small></h2>
+        <p class="ds-sec-desc">整体视觉关键词与色彩逻辑，作为后续所有规范的统一出发点。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">视觉关键词</p>
+          <div class="ds-keywords">
+            <span>自然</span><span>温暖</span><span>简洁</span><span>轻消费</span><span>高识别</span>
+          </div>
+          <p class="ds-sec-desc" style="margin-top:16px;font-size:14px;">保持界面轻量，减少复杂装饰；商品图片作为主要视觉内容；卡片化组织商品与功能；圆角、留白与图标风格统一。</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">色彩逻辑</p>
+          <div class="ds-flow">
+            <span class="ds-flow-step c1">橄榄绿 品牌识别</span>
+            <span class="ds-flow-arrow">→</span>
+            <span class="ds-flow-step c2">暖白 降低压力</span>
+            <span class="ds-flow-arrow">→</span>
+            <span class="ds-flow-step c3">橙色 强化消费</span>
+            <span class="ds-flow-arrow">→</span>
+            <span class="ds-flow-step c4">咖啡棕 饮品场景</span>
+          </div>
+          <p class="ds-sec-desc" style="margin-top:16px;font-size:14px;">绿色统一品牌识别，橙色突出价格与购买行为，咖啡棕补充饮品相关场景氛围。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 02 Color ========== -->
+    <section class="ds-section" id="s02">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">02</span>
+        <h2 class="ds-sec-title">Color System <small>色彩系统</small></h2>
+        <p class="ds-sec-desc">品牌色 / 强调色 / 中性色 / 功能色四组 Token，统一控制全产品视觉。</p>
+      </div>
+
+      <p class="ds-color-group-title">Brand 品牌色 <span>Primary</span></p>
+      <div class="ds-grid c5" style="margin-bottom:28px;">
+        <div class="ds-card ds-color" style="--c:#6E7D48;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Primary 500</span><span class="ds-color-hex">#6E7D48</span><span class="ds-color-use">主按钮、底部导航、选中状态</span></div></div>
+        <div class="ds-card ds-color" style="--c:#3E4528;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Primary 700</span><span class="ds-color-hex">#3E4528</span><span class="ds-color-use">深色 Header、启动页</span></div></div>
+        <div class="ds-card ds-color" style="--c:#323720;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Primary 800</span><span class="ds-color-hex">#323720</span><span class="ds-color-use">深色信息模块</span></div></div>
+        <div class="ds-card ds-color" style="--c:#F1F3EE;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Primary 100</span><span class="ds-color-hex">#F1F3EE</span><span class="ds-color-use">浅色卡片、功能区域</span></div></div>
+        <div class="ds-card ds-color" style="--c:#F7F8F5;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Primary 50</span><span class="ds-color-hex">#F7F8F5</span><span class="ds-color-use">大面积辅助背景</span></div></div>
+      </div>
+
+      <p class="ds-color-group-title">Accent 强调色 <span>Orange · Coffee</span></p>
+      <div class="ds-grid c4" style="margin-bottom:28px;">
+        <div class="ds-card ds-color" style="--c:#E0780A;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Orange 500</span><span class="ds-color-hex">#E0780A</span><span class="ds-color-use">价格、CTA、购买操作</span></div></div>
+        <div class="ds-card ds-color" style="--c:#F1B652;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Orange 300</span><span class="ds-color-hex">#F1B652</span><span class="ds-color-use">活动、优惠辅助</span></div></div>
+        <div class="ds-card ds-color" style="--c:#A16E4B;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Coffee 500</span><span class="ds-color-hex">#A16E4B</span><span class="ds-color-use">咖啡类视觉辅助</span></div></div>
+        <div class="ds-card ds-color" style="--c:#D7A67C;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Coffee 300</span><span class="ds-color-hex">#D7A67C</span><span class="ds-color-use">暖色装饰</span></div></div>
+      </div>
+
+      <p class="ds-color-group-title">Neutral 中性色 <span>Gray</span></p>
+      <div class="ds-grid c4" style="margin-bottom:28px;">
+        <div class="ds-card ds-color" style="--c:#FFFFFF;"><div class="ds-color-block" style="border-bottom:1px solid #eee;"></div><div class="ds-color-meta"><span class="ds-color-name">White</span><span class="ds-color-hex">#FFFFFF</span><span class="ds-color-use">卡片、底部导航</span></div></div>
+        <div class="ds-card ds-color" style="--c:#FEFEFE;"><div class="ds-color-block" style="border-bottom:1px solid #eee;"></div><div class="ds-color-meta"><span class="ds-color-name">Gray 50</span><span class="ds-color-hex">#FEFEFE</span><span class="ds-color-use">页面背景</span></div></div>
+        <div class="ds-card ds-color" style="--c:#F1F3EE;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Gray 100</span><span class="ds-color-hex">#F1F3EE</span><span class="ds-color-use">商品信息区</span></div></div>
+        <div class="ds-card ds-color" style="--c:#D9D8D0;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Gray 200</span><span class="ds-color-hex">#D9D8D0</span><span class="ds-color-use">边框、分割线</span></div></div>
+        <div class="ds-card ds-color" style="--c:#A7AAA0;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Gray 400</span><span class="ds-color-hex">#A7AAA0</span><span class="ds-color-use">禁用状态</span></div></div>
+        <div class="ds-card ds-color" style="--c:#787B71;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Gray 500</span><span class="ds-color-hex">#787B71</span><span class="ds-color-use">辅助文字</span></div></div>
+        <div class="ds-card ds-color" style="--c:#4A5231;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Gray 700</span><span class="ds-color-hex">#4A5231</span><span class="ds-color-use">次级标题</span></div></div>
+        <div class="ds-card ds-color" style="--c:#22271A;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Gray 900</span><span class="ds-color-hex">#22271A</span><span class="ds-color-use">主标题、正文</span></div></div>
+      </div>
+
+      <p class="ds-color-group-title">Functional 功能色 <span>Status</span></p>
+      <div class="ds-grid c4">
+        <div class="ds-card ds-color" style="--c:#6E7D48;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Success</span><span class="ds-color-hex">#6E7D48</span><span class="ds-color-use">成功、完成</span></div></div>
+        <div class="ds-card ds-color" style="--c:#E0780A;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Warning</span><span class="ds-color-hex">#E0780A</span><span class="ds-color-use">优惠、价格提醒</span></div></div>
+        <div class="ds-card ds-color" style="--c:#CE1813;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Error</span><span class="ds-color-hex">#CE1813</span><span class="ds-color-use">删除、错误</span></div></div>
+        <div class="ds-card ds-color" style="--c:#8A96B0;"><div class="ds-color-block"></div><div class="ds-color-meta"><span class="ds-color-name">Info</span><span class="ds-color-hex">#8A96B0</span><span class="ds-color-use">提示、辅助信息</span></div></div>
+      </div>
+    </section>
+
+    <!-- ========== 03 Typography ========== -->
+    <section class="ds-section" id="s03">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">03</span>
+        <h2 class="ds-sec-title">Typography <small>字体与字阶</small></h2>
+        <p class="ds-sec-desc">中文标题偏粗、正文清晰、价格突出，形成「标题 &gt; 商品名 &gt; 描述 &gt; 价格」的层级。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Font 字体</p>
+          <div class="ds-font-stack">中文：PingFang SC / 苹方</div>
+          <div class="ds-font-stack" style="margin-bottom:0;">英文数字：SF Pro / Arial</div>
+          <p class="ds-sec-desc" style="font-size:13px;margin-top:14px;">通用回退栈：<br /><code style="background:var(--ds-g100);padding:2px 6px;border-radius:6px;font-family:var(--ds-font-en);">PingFang SC, Microsoft YaHei, sans-serif</code></p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">文字层级示例</p>
+          <div class="ds-hier">
+            <span class="h-name">美式咖啡</span>
+            <span class="h-desc">大师亲研，臻选 IIAC 金奖配方</span>
+            <span class="h-price">¥ 4.00</span>
+          </div>
+          <p class="ds-hier-note">标题 20px/700 → 描述 14px/400 → 价格 24px/700/Orange</p>
+        </div>
+      </div>
+      <div class="ds-grid c3" style="margin-top:18px;">
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:32px;font-weight:700;">Ag 32</span><div class="ds-type-meta"><b>Display</b><br>32px / 700 · 页面核心数字</div></div>
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:24px;font-weight:700;">Ag 24</span><div class="ds-type-meta"><b>H1</b><br>24px / 700 · 页面标题</div></div>
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:20px;font-weight:700;">Ag 20</span><div class="ds-type-meta"><b>H2</b><br>20px / 700 · 区块标题</div></div>
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:18px;font-weight:600;">Ag 18</span><div class="ds-type-meta"><b>H3</b><br>18px / 600 · 商品标题</div></div>
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:16px;font-weight:500;">Ag 16</span><div class="ds-type-meta"><b>Body L</b><br>16px / 500 · 重要正文</div></div>
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:14px;font-weight:400;">Ag 14</span><div class="ds-type-meta"><b>Body M</b><br>14px / 400 · 普通正文</div></div>
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:12px;font-weight:400;">Ag 12</span><div class="ds-type-meta"><b>Caption</b><br>12px / 400 · 辅助说明</div></div>
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:24px;font-weight:700;color:var(--ds-org-500);">¥24</span><div class="ds-type-meta"><b>Price</b><br>24px / 700 · 商品价格</div></div>
+        <div class="ds-card ds-type-card"><span class="ds-type-sample" style="font-size:18px;font-weight:700;color:var(--ds-org-500);">¥18</span><div class="ds-type-meta"><b>Price S</b><br>18px / 700 · 列表价格</div></div>
+      </div>
+    </section>
+
+    <!-- ========== 04 Spacing ========== -->
+    <section class="ds-section" id="s04">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">04</span>
+        <h2 class="ds-sec-title">Spacing System <small>间距系统</small></h2>
+        <p class="ds-sec-desc">统一采用 4px 基础间距系统；页面左右边距 24px。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Spacing Scale</p>
+          <div class="ds-space-row"><span class="ds-space-val">4</span><span class="ds-space-bar" style="width:8%;"></span><span class="ds-space-label">极小间距</span></div>
+          <div class="ds-space-row"><span class="ds-space-val">8</span><span class="ds-space-bar" style="width:16%;"></span><span class="ds-space-label">图标与文字</span></div>
+          <div class="ds-space-row"><span class="ds-space-val">12</span><span class="ds-space-bar" style="width:24%;"></span><span class="ds-space-label">小组件内部</span></div>
+          <div class="ds-space-row"><span class="ds-space-val">16</span><span class="ds-space-bar" style="width:32%;"></span><span class="ds-space-label">常规组件间距</span></div>
+          <div class="ds-space-row"><span class="ds-space-val">20</span><span class="ds-space-bar" style="width:40%;"></span><span class="ds-space-label">卡片内部</span></div>
+          <div class="ds-space-row"><span class="ds-space-val">24</span><span class="ds-space-bar" style="width:48%;"></span><span class="ds-space-label">页面左右边距</span></div>
+          <div class="ds-space-row"><span class="ds-space-val">32</span><span class="ds-space-bar" style="width:64%;"></span><span class="ds-space-label">模块间距</span></div>
+          <div class="ds-space-row"><span class="ds-space-val">40</span><span class="ds-space-bar" style="width:80%;"></span><span class="ds-space-label">大模块间距</span></div>
+          <div class="ds-space-row"><span class="ds-space-val">48</span><span class="ds-space-bar" style="width:100%;"></span><span class="ds-space-label">页面主要区块</span></div>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">页面边距规范</p>
+          <div class="ds-margin-demo">
+            <span class="tag-l">← 24px</span>
+            <div class="box">Content</div>
+            <span class="tag-r">24px →</span>
+          </div>
+          <p class="ds-sec-desc" style="font-size:13px;margin-top:16px;">模块间距 24–32px · 标题与内容 16px · 卡片内部 16px · 商品卡之间 12–16px</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 05 Radius ========== -->
+    <section class="ds-section" id="s05">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">05</span>
+        <h2 class="ds-sec-title">Corner Radius <small>圆角</small></h2>
+        <p class="ds-sec-desc">圆角是本套 UI 的重要视觉特征：商品卡 16px、Banner 20px、底部导航 24px、分类按钮 999px。</p>
+      </div>
+      <div class="ds-grid c6">
+        <div class="ds-card ds-radius-card"><div class="ds-radius-shape" style="border-radius:8px;"></div><div class="ds-radius-meta"><b>Radius XS</b><span>8px · 小按钮/标签</span></div></div>
+        <div class="ds-card ds-radius-card"><div class="ds-radius-shape" style="border-radius:12px;"></div><div class="ds-radius-meta"><b>Radius S</b><span>12px · 输入框/小卡</span></div></div>
+        <div class="ds-card ds-radius-card"><div class="ds-radius-shape" style="border-radius:16px;"></div><div class="ds-radius-meta"><b>Radius M</b><span>16px · 商品卡片</span></div></div>
+        <div class="ds-card ds-radius-card"><div class="ds-radius-shape" style="border-radius:20px;"></div><div class="ds-radius-meta"><b>Radius L</b><span>20px · 大型 Banner</span></div></div>
+        <div class="ds-card ds-radius-card"><div class="ds-radius-shape" style="border-radius:24px;"></div><div class="ds-radius-meta"><b>Radius XL</b><span>24px · 大模块</span></div></div>
+        <div class="ds-card ds-radius-card"><div class="ds-radius-shape" style="border-radius:999px;"></div><div class="ds-radius-meta"><b>Radius Full</b><span>999px · 分类/胶囊</span></div></div>
+      </div>
+    </section>
+
+    <!-- ========== 06 Button ========== -->
+    <section class="ds-section" id="s06">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">06</span>
+        <h2 class="ds-sec-title">Button System <small>按钮系统</small></h2>
+        <p class="ds-sec-desc">主按钮承载品牌操作，强调按钮承载核心购买行为，图标按钮用于商品卡增量。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Primary / Accent Button</p>
+          <div class="ds-comp-row">
+            <span class="ds-btn ds-btn-primary">立即结算</span>
+            <span class="ds-btn ds-btn-accent">立即下单</span>
+          </div>
+          <p class="ds-spec-line"><b>Primary</b> 背景 #6E7D48 · 文字 #FFF · 高 52 · 圆角 16<br><b>Accent</b> 背景 #E0780A · 用于活动/核心购买</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">Icon Button / Quantity</p>
+          <div class="ds-comp-row">
+            <span class="ds-icon-btn">+</span>
+            <span class="ds-qty"><button>−</button><span>1</span><button>+</button></span>
+          </div>
+          <p class="ds-spec-line"><b>Icon</b> 48×48 · 圆角 12 · 背景 #6E7D48 · 图标 24<br><b>Quantity</b> 操作 48×48 · 数字 40 · 间距 8 · 主色绿</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 07 Navigation ========== -->
+    <section class="ds-section" id="s07">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">07</span>
+        <h2 class="ds-sec-title">Navigation System <small>导航系统</small></h2>
+        <p class="ds-sec-desc">底部导航是整个产品统一的标志性组件：绿色栏 + 白色选中块 + 橙色 Icon。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Bottom Navigation</p>
+          <div class="ds-bottom-nav">
+            <div class="ds-nav-item active"><span class="ic">⌂</span>首页</div>
+            <div class="ds-nav-item"><span class="ic">🛒</span>购物车</div>
+            <div class="ds-nav-item"><span class="ic">▦</span>扫码</div>
+            <div class="ds-nav-item"><span class="ic">📋</span>订单</div>
+            <div class="ds-nav-item"><span class="ic">☻</span>我的</div>
+          </div>
+          <p class="ds-nav-note">高度 88–96px · 左右边距 24px · 圆角 24px · 背景 #6E7D48 · 5 个一级入口。当前页：白色圆角容器 + 橙色 Icon。</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">Active State</p>
+          <div class="ds-comp-row" style="margin-bottom:12px;">
+            <span class="ds-btn ds-btn-primary" style="height:40px;padding:0 18px;font-size:13px;">素白选中</span>
+          </div>
+          <p class="ds-sec-desc" style="font-size:13px;">选中态使用白色圆角块承载当前入口，Icon 切换为橙色 #E0780A，与绿色导航栏形成强对比，保持高识别度。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 08 Icon ========== -->
+    <section class="ds-section" id="s08">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">08</span>
+        <h2 class="ds-sec-title">Icon System <small>图标系统</small></h2>
+        <p class="ds-sec-desc">统一线性图标风格，避免线性与填充混用。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Icon Style</p>
+          <div class="ds-icon-grid">
+            <div class="ds-icon-cell">⌂</div><div class="ds-icon-cell">🛒</div><div class="ds-icon-cell">▦</div><div class="ds-icon-cell">☻</div>
+            <div class="ds-icon-cell">♡</div><div class="ds-icon-cell">⌕</div><div class="ds-icon-cell">⚙</div><div class="ds-icon-cell">▸</div>
+          </div>
+          <p class="ds-spec-line">线性图标 · Stroke 2px · 尺寸 24px · 圆角端点</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">Icon Colors</p>
+          <div class="ds-icon-color-row" style="margin-bottom:12px;">
+            <span class="ds-icon-color"><span class="ds-icon-swatch" style="background:#6E7D48;"></span>默认 #6E7D48</span>
+            <span class="ds-icon-color"><span class="ds-icon-swatch" style="background:#E0780A;"></span>选中 #E0780A</span>
+          </div>
+          <div class="ds-icon-color-row">
+            <span class="ds-icon-color"><span class="ds-icon-swatch" style="background:#22271A;"></span>正文 #22271A</span>
+            <span class="ds-icon-color"><span class="ds-icon-swatch" style="background:#A7AAA0;"></span>禁用 #A7AAA0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 09 Product Card ========== -->
+    <section class="ds-section" id="s09">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">09</span>
+        <h2 class="ds-sec-title">Product Card <small>商品卡</small></h2>
+        <p class="ds-sec-desc">整个项目最核心的业务组件。两列布局，图片比例约 1:1，信息区承载名称 / 描述 / 价格 / 操作。</p>
+      </div>
+      <div class="ds-grid c3">
+        <div class="ds-product">
+          <div class="img"><span class="ph">☕</span></div>
+          <div class="info">
+            <div class="pname">美式咖啡</div>
+            <div class="pdesc">大师亲研，臻选 IIAC 金奖配方</div>
+            <div class="pfoot"><span class="pprice">¥ 4.00</span><span class="padd">+</span></div>
+          </div>
+        </div>
+        <div class="ds-product">
+          <div class="img"><span class="ph">🍵</span></div>
+          <div class="info">
+            <div class="pname">茉莉系列</div>
+            <div class="pdesc">惊喜上市，清新花香回甘</div>
+            <div class="pfoot"><span class="pprice">¥ 9.00</span><span class="padd">+</span></div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">Card Spec</p>
+          <p class="ds-spec-line">
+            <b>布局</b> 两列 · 间距 12–16px<br>
+            <b>圆角</b> 16px<br>
+            <b>图片</b> 比例约 1:1<br>
+            <b>内容</b> 内距 16px<br>
+            <b>名称</b> 18–20px / 700<br>
+            <b>描述</b> 14px<br>
+            <b>价格</b> 20–24px / 700 · #E0780A<br>
+            <b>操作</b> + 按钮 #6E7D48
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 10 Search ========== -->
+    <section class="ds-section" id="s10">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">10</span>
+        <h2 class="ds-sec-title">Search System <small>搜索</small></h2>
+        <p class="ds-sec-desc">统一的搜索框规范，首页建议使用更大的视觉层级。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Search Box</p>
+          <div class="ds-search"><span class="s-ic">⌕</span>搜索</div>
+          <p class="ds-spec-line"><b>Height</b> 52–56px · <b>Radius</b> 12px · <b>BG</b> #FFF · <b>Border</b> #D9D8D0<br><b>Icon</b> #6E7D48 · <b>Placeholder</b> #A7AAA0</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">结构</p>
+          <div style="font-family:var(--ds-font-en);background:var(--ds-g100);border-radius:var(--ds-radius-m);padding:16px;font-size:13px;color:var(--ds-g700);">⌕&nbsp;&nbsp;搜索 — 带品牌绿图标的浅描边输入框</div>
+          <p class="ds-sec-desc" style="font-size:13px;margin-top:14px;">首页搜索框建议提升高度与留白，强化一级操作入口地位。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 11 Category Chips ========== -->
+    <section class="ds-section" id="s11">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">11</span>
+        <h2 class="ds-sec-title">Category Chips <small>分类胶囊</small></h2>
+        <p class="ds-sec-desc">Filter Chip 形态：全部 / 咖啡 / 果饮 / 茶。选中态切换为品牌绿底。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Default / Selected</p>
+          <div class="ds-chip-row" style="margin-bottom:12px;">
+            <span class="ds-chip sel"><span class="c-ic">✦</span>全部</span>
+            <span class="ds-chip"><span class="c-ic">☕</span>咖啡</span>
+            <span class="ds-chip"><span class="c-ic">🍊</span>果饮</span>
+            <span class="ds-chip"><span class="c-ic">🍵</span>茶</span>
+          </div>
+          <p class="ds-spec-line"><b>Default</b> BG #F1F3EE · 文字 #22271A · 高 48 · 圆角 999<br><b>Selected</b> BG #6E7D48 · 文字 #FFF · 图标白</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">使用场景</p>
+          <p class="ds-sec-desc" style="font-size:14px;">用于商品列表与首页的分类筛选，与商品卡、Banner 形成统一的胶囊 / 圆角语言。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 12 Banner ========== -->
+    <section class="ds-section" id="s12">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">12</span>
+        <h2 class="ds-sec-title">Banner System <small>横幅</small></h2>
+        <p class="ds-sec-desc">首页重要的品牌视觉组件，左侧文字 + 右侧产品图，深色 / 浅色两版可切换。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Dark Banner</p>
+          <div class="ds-banner dark">
+            <div class="b-text"><h4>茉莉系列</h4><p>惊喜上市！</p><span class="b-cta">立即下单 →</span></div>
+            <div class="b-img">🍵</div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">Light Banner</p>
+          <div class="ds-banner light">
+            <div class="b-text"><h4>会员专享</h4><p>吃货豆翻倍</p><span class="b-cta">查看权益 →</span></div>
+            <div class="b-img">🎁</div>
+          </div>
+        </div>
+        <div class="ds-card" style="grid-column:1/-1;">
+          <p class="ds-card-title">Spec</p>
+          <p class="ds-spec-line"><b>Height</b> 约 215px · <b>Radius</b> 20px · 左文字 + 右产品图<br><b>Dark</b> BG #3E4528 · <b>Light</b> BG #F1F3EE · <b>Accent</b> #E0780A</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 13 Membership ========== -->
+    <section class="ds-section" id="s13">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">13</span>
+        <h2 class="ds-sec-title">Information Module <small>会员信息卡</small></h2>
+        <p class="ds-sec-desc">首页会员 / 吃货豆 / 优惠券统一为 Membership Summary Card。</p>
+      </div>
+      <div class="ds-card">
+        <div class="ds-member">
+          <div class="m-col"><div class="m-ic">♛</div><div class="m-val">Lv.1</div><div class="m-label">会员</div></div>
+          <div class="m-col"><div class="m-ic">●</div><div class="m-val">200</div><div class="m-label">吃货豆</div></div>
+          <div class="m-col"><div class="m-ic">🎫</div><div class="m-val">2</div><div class="m-label">优惠券</div></div>
+        </div>
+        <p class="ds-spec-line" style="margin-top:14px;"><b>BG</b> #323720 · <b>主文字</b> #FFF · <b>图标</b> #E0780A · <b>分隔线</b> #6E7D48</p>
+      </div>
+    </section>
+
+    <!-- ========== 14 Shopping Cart ========== -->
+    <section class="ds-section" id="s14">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">14</span>
+        <h2 class="ds-sec-title">Shopping Cart <small>购物车条目</small></h2>
+        <p class="ds-sec-desc">左图 + 右信息结构，价格用橙色、数量控制用品牌绿。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Cart Item</p>
+          <div class="ds-cart-item">
+            <div class="c-img">☕</div>
+            <div class="c-body">
+              <div class="c-name">美式咖啡</div>
+              <div class="c-desc">大师亲研，臻选 IIAC 金奖配方</div>
+              <div class="ds-qty" style="background:transparent;padding:0;"><button>−</button><span>1</span><button>+</button></div>
+            </div>
+            <div class="c-price">¥4.00</div>
+          </div>
+          <p class="ds-spec-line" style="margin-top:14px;"><b>高</b> 110–140px · 图片 40% · 内容 60% · 圆角 16 · 间距 12 · 价格橙 · 数量绿</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">结构</p>
+          <div class="ds-cart-item"><div class="c-img">🍵</div><div class="c-body"><div class="c-name">茉莉系列</div><div class="c-desc">惊喜上市</div></div><div class="c-price">¥9.00</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 15 Profile ========== -->
+    <section class="ds-section" id="s15">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">15</span>
+        <h2 class="ds-sec-title">Profile System <small>个人中心</small></h2>
+        <p class="ds-sec-desc">深绿 Header + 浅灰功能卡片，功能列表逐项分隔。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">Profile Layout</p>
+          <div class="ds-profile-header"><div class="p-av">☻</div><div><div class="p-name">梁金玲</div><div class="p-sub">Lv.1 会员 · 吃货豆 200</div></div></div>
+          <div class="ds-list" style="margin-top:12px;">
+            <div class="ds-list-item"><span class="l-ic">📍</span><span class="l-text">地址</span><span class="l-arrow">›</span></div>
+            <div class="ds-list-item"><span class="l-ic">💳</span><span class="l-text">卡片</span><span class="l-arrow">›</span></div>
+            <div class="ds-list-item"><span class="l-ic">🌐</span><span class="l-text">语言</span><span class="l-arrow">›</span></div>
+            <div class="ds-list-item"><span class="l-ic">🔒</span><span class="l-text">隐私和政策</span><span class="l-arrow">›</span></div>
+          </div>
+          <p class="ds-spec-line" style="margin-top:14px;"><b>Item</b> 高 72–80 · 圆角 16 · BG #F7F8F5 · 图标 24 · 箭头 20</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">结构层级</p>
+          <div class="ds-hier" style="gap:10px;">
+            <span class="h-name" style="font-size:16px;">Header 深绿</span>
+            <span class="h-desc">↓ Profile Card 会员信息</span>
+            <span class="h-name" style="font-size:16px;">↓ 功能列表</span>
+            <span class="h-desc">↓ 退出</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 16 QR Code ========== -->
+    <section class="ds-section" id="s16">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">16</span>
+        <h2 class="ds-sec-title">QR Code Page <small>二维码页</small></h2>
+        <p class="ds-sec-desc">沉浸式功能页：深绿 + 白 + 橙三色关系，不再加入多余颜色。</p>
+      </div>
+      <div class="ds-grid c2">
+        <div class="ds-card">
+          <p class="ds-card-title">QR Page</p>
+          <div class="ds-qr-page">
+            <div class="qr-box">▦</div>
+            <div class="qr-title">我的二维码</div>
+            <div class="qr-sub">到店扫码，积分自动入账</div>
+            <span class="qr-cta">保存二维码</span>
+          </div>
+          <p class="ds-spec-line" style="margin-top:14px;"><b>BG</b> #323720 · <b>QR 边框</b> #6E7D48 · <b>圆角</b> 24 · <b>CTA</b> #E0780A</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">配色约束</p>
+          <p class="ds-sec-desc" style="font-size:14px;">仅使用深绿背景、白色二维码容器与橙色 CTA，保持极简沉浸感，强化扫码即用的功能指向。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 17 Image ========== -->
+    <section class="ds-section" id="s17">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">17</span>
+        <h2 class="ds-sec-title">Image Guidelines <small>图片规范</small></h2>
+        <p class="ds-sec-desc">商品图片是设计系统的一部分，应保证主体完整、背景干净、可复用。</p>
+      </div>
+      <div class="ds-do-dont">
+        <div class="ds-gd-card ok"><h5>✓ Do</h5><p>统一比例 · 主体居中完整 · 不裁切 Logo · 背景干净 · 同一商品跨页使用相同图。</p></div>
+        <div class="ds-gd-card no"><h5>✗ Don't</h5><p>不在商品图里叠加价格 / 文字等 UI 信息；图片只承载视觉，信息交给组件。</p></div>
+      </div>
+    </section>
+
+    <!-- ========== 18 Layer ========== -->
+    <section class="ds-section" id="s18">
+      <div class="ds-sec-head">
+        <span class="ds-sec-num">18</span>
+        <h2 class="ds-sec-title">UI Layer System <small>体系层级</small></h2>
+        <p class="ds-sec-desc">整个 Design System 由四层构成：Foundations → Components → Patterns → Pages。</p>
+      </div>
+      <div class="ds-layer">
+        <div class="ds-grid c4">
+          <div class="ds-layer-col"><div class="ds-layer-head l1">01 Foundations</div>
+            <div class="ds-layer-item">Color</div><div class="ds-layer-item">Typography</div><div class="ds-layer-item">Spacing</div><div class="ds-layer-item">Radius</div><div class="ds-layer-item">Shadow</div><div class="ds-layer-item">Icon</div>
+          </div>
+          <div class="ds-layer-col"><div class="ds-layer-head l2">02 Components</div>
+            <div class="ds-layer-item">Button</div><div class="ds-layer-item">Search</div><div class="ds-layer-item">Chip</div><div class="ds-layer-item">Product Card</div><div class="ds-layer-item">Banner</div><div class="ds-layer-item">Navigation</div><div class="ds-layer-item">Quantity</div><div class="ds-layer-item">List Item</div>
+          </div>
+          <div class="ds-layer-col"><div class="ds-layer-head l3">03 Patterns</div>
+            <div class="ds-layer-item">Home</div><div class="ds-layer-item">Product List</div><div class="ds-layer-item">Shopping Cart</div><div class="ds-layer-item">Profile</div><div class="ds-layer-item">Payment</div><div class="ds-layer-item">QR Code</div>
+          </div>
+          <div class="ds-layer-col"><div class="ds-layer-head l4">04 Pages</div>
+            <div class="ds-layer-item">首页</div><div class="ds-layer-item">商品</div><div class="ds-layer-item">购物车</div><div class="ds-layer-item">卡片</div><div class="ds-layer-item">我的</div><div class="ds-layer-item">二维码</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 总结 -->
+    <section class="ds-wrap" style="padding:0;">
+      <div class="ds-summary">
+        <span class="s-label">Design Principle</span>
+        <p class="s-text">以<em>橄榄绿</em>作为品牌与交互核心色，以<em>暖白</em>构建舒适的内容空间，以<em>橙色</em>强化价格与购买行为，通过卡片化布局、圆角组件和线性图标建立统一、轻量且具有消费场景感的移动端视觉体系。</p>
+      </div>
+      
+    </section>
+
+  </main>
+</body>
+</html>
