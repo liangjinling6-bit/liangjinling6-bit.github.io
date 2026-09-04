@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>易教智慧课堂 | 梁金玲 Portfolio</title>
+  <meta name="description" content="易教智慧课堂 UI/UX 设计 Case Study - 教育 B 端产品界面设计、设计系统与核心页面优化。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-light">
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">梁金玲 · Portfolio</a>
+      <nav class="nav">
+        <a href="index.html#works" class="nav-link">作品</a>
+        <a href="index.html#about" class="nav-link">关于</a>
+        <a href="index.html#contact" class="nav-link">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a href="index.html#works" class="detail-back">← 返回作品集</a>
+
+    <!-- 项目头部 -->
+    <header class="cs-header">
+      <p class="cs-label">UI / UX Design · Case Study</p>
+      <h1 class="cs-title">易教智慧课堂</h1>
+      <p class="cs-positioning">面向教师授课场景的智慧课堂教学管理后台，覆盖备课、授课、作业与学情分析全流程的界面设计与设计系统搭建。</p>
+      <div class="cs-tags">
+        <span class="tag">B 端产品</span>
+        <span class="tag">UI 设计</span>
+        <span class="tag">设计系统</span>
+      </div>
+    </header>
+
+    <!-- 沉浸式 Hero：真实 UI -->
+    <figure class="cs-hero reveal">
+      <img src="assets/images/eteach-8.png" alt="易教智慧课堂 真实 UI 主视觉" />
+    </figure>
+
+    <!-- 项目基本信息 -->
+    <div class="cs-meta reveal">
+      <div class="cs-meta-item">
+        <h4>角色</h4>
+        <p>UI 设计师</p>
+      </div>
+      <div class="cs-meta-item">
+        <h4>平台</h4>
+        <p>Web 端</p>
+      </div>
+      <div class="cs-meta-item">
+        <h4>类型</h4>
+        <p>教育 B 端产品</p>
+      </div>
+    </div>
+
+    <!-- 01 大图展示 -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">01</span>
+        <h2 class="cs-block-title">核心界面总览</h2>
+      </div>
+      <figure class="cs-figure">
+        <img src="assets/images/eteach-12.png" alt="易教智慧课堂 核心界面" />
+      </figure>
+      <p class="cs-cap">易教授课端核心界面 — 真实运行截图，呈现整体信息层级与布局骨架。</p>
+    </section>
+
+    <!-- 02 左文右图 -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">02</span>
+        <h2 class="cs-block-title">信息架构优化</h2>
+      </div>
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <p>以「备课 — 授课 — 作业 — 学情」为主轴重组导航，减少页面跳转层级，让教师的关键操作在更少步骤内可达。</p>
+          <ul class="cs-split-list">
+            <li>梳理教学全流程，建立清晰的功能分组</li>
+            <li>收敛深层入口，高频功能前置</li>
+            <li>统一页面结构，降低跨模块切换成本</li>
+          </ul>
+        </div>
+        <figure class="cs-figure">
+          <img src="assets/images/eteach-10.png" alt="易教智慧课堂 界面展示" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 完整 UI + 组件细节（右侧为独立真实组件截图，不与整页重复） -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">03</span>
+        <h2 class="cs-block-title">界面与组件细节</h2>
+      </div>
+      <div class="cs-detail">
+        <figure class="cs-figure">
+          <img src="assets/images/eteach-14.png" alt="易教智慧课堂 完整界面" />
+        </figure>
+        <div class="cs-detail-aside">
+          <figure class="cs-figure">
+            <img src="assets/images/eteach-18.png" alt="易教智慧课堂 组件细节" />
+          </figure>
+          <p class="cs-cap">组件与状态细节 — 取自真实截图，未重绘、未改动。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 双图组合 -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">04</span>
+        <h2 class="cs-block-title">多场景界面</h2>
+      </div>
+      <div class="cs-dual">
+        <figure class="cs-figure">
+          <img src="assets/images/eteach-9.png" alt="易教智慧课堂 界面一" />
+        </figure>
+        <figure class="cs-figure">
+          <img src="assets/images/eteach-11.png" alt="易教智慧课堂 界面二" />
+        </figure>
+      </div>
+      <p class="cs-cap">同一套设计语言在不同教学场景下的落地表现。</p>
+    </section>
+
+    <!-- 05 数据界面大图 -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">05</span>
+        <h2 class="cs-block-title">学情数据呈现</h2>
+      </div>
+      <figure class="cs-figure">
+        <img src="assets/images/eteach-15.png" alt="易教智慧课堂 数据界面" />
+      </figure>
+      <p class="cs-cap">学情数据以可视化方式呈现，帮助教师快速掌握课堂整体情况。</p>
+    </section>
+
+    <!-- 06 组件库：真实组件截图网格 -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">06</span>
+        <h2 class="cs-block-title">组件与状态</h2>
+      </div>
+      <div class="cs-components">
+        <figure class="cs-figure">
+          <img src="assets/images/eteach-6.png" alt="易教智慧课堂 组件细节一" />
+        </figure>
+        <figure class="cs-figure">
+          <img src="assets/images/eteach-17.png" alt="易教智慧课堂 组件细节二" />
+        </figure>
+        <figure class="cs-figure">
+          <img src="assets/images/eteach-19.png" alt="易教智慧课堂 组件细节三" />
+        </figure>
+      </div>
+      <p class="cs-cap">关键组件与状态样式 — 真实截图，保持原始布局、字体与配色，不做任何重绘。</p>
+    </section>
+
+    <!-- 07 Design System -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">07</span>
+        <h2 class="cs-block-title">Design System</h2>
+      </div>
+      <div class="cs-ds">
+        <div class="cs-ds-index">
+          <span>COLOR</span>
+          <span>TYPOGRAPHY</span>
+          <span>BUTTON</span>
+          <span>CARD</span>
+          <span>STATUS</span>
+        </div>
+        <figure class="cs-ds-img">
+          <img src="assets/images/eteach-design-system.png" alt="易教授课端 主色系统与设计规范总览" />
+        </figure>
+      </div>
+      <p class="cs-cap">易教授课端主色系统与设计规范总览（真实素材）。COLOR / TYPOGRAPHY / BUTTON / CARD / STATUS 为该系统涵盖的维度，具体对应区域以实际素材为准。</p>
+    </section>
+
+    <!-- 08 Responsive -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">08</span>
+        <h2 class="cs-block-title">Responsive / 布局适配</h2>
+      </div>
+      <div class="cs-responsive">
+        <figure class="cs-figure">
+          <img src="assets/images/eteach-7.png" alt="易教智慧课堂 宽屏界面" />
+        </figure>
+        <div class="cs-resp-narrow-wrap">
+          <figure class="cs-figure cs-resp-narrow">
+            <img src="assets/images/eteach-responsive.png" alt="易教智慧课堂 缩屏状态" />
+          </figure>
+        </div>
+      </div>
+      <p class="cs-cap">同一套界面在宽屏与缩屏状态下的呈现，布局随窗口尺寸自适应调整。</p>
+    </section>
+
+    <!-- 09 设计价值 -->
+    <section class="cs-block reveal">
+      <div class="cs-block-head">
+        <span class="cs-num">09</span>
+        <h2 class="cs-block-title">设计价值</h2>
+      </div>
+      <div class="cs-values">
+        <div class="cs-value">
+          <h3>提升课堂信息的可读性</h3>
+          <p>通过统一的视觉层级与排版节奏，让备课、授课与学情信息更清晰易读。</p>
+        </div>
+        <div class="cs-value">
+          <h3>强化功能层级</h3>
+          <p>以信息架构重组梳理功能优先级，帮助教师快速定位所需操作。</p>
+        </div>
+        <div class="cs-value">
+          <h3>降低教师操作认知成本</h3>
+          <p>收敛深层入口、前置高频功能，减少跨页面跳转带来的认知负担。</p>
+        </div>
+        <div class="cs-value">
+          <h3>建立统一的视觉规范</h3>
+          <p>沉淀主色系统、组件与状态规范，为后续迭代提供一致的设计语言。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 上下篇导航 -->
+    <nav class="project-nav">
+      <a href="project-heritage.html" class="project-nav-item">
+        <span class="project-nav-label">&#8592; 上一个项目</span>
+        <span class="project-nav-title">非遗数字化设计</span>
+      </a>
+      <a href="project-ui.html" class="project-nav-item next">
+        <span class="project-nav-label">下一个项目 &#8594;</span>
+        <span class="project-nav-title">UI Design Showcase</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer-cta" style="margin-top: 0;">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">Let's Work Together</h2>
+      <p class="footer-cta-desc">继续浏览更多作品，或直接与我开始合作。</p>
+      <div class="footer-cta-contacts">
+        <a href="all-projects.html">查看全部作品</a>
+        <a href="index.html#contact">联系我</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
