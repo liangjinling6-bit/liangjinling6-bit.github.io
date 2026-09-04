@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>视觉实验 · AIGC × 动效设计 | 梁金玲 Portfolio</title>
+<meta name="description" content="视觉实验 — 从 AI 生成视觉到手绘动效的完整视觉实验 Case Study。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+
+<style>
+/* ================================================================
+   VISUAL EXPERIMENTS — AIGC × MOTION DESIGN
+   Editorial · Premium · Experimental · Minimal
+   Video-first. Large typography. Strong grid.
+   ================================================================ */
+
+:root {
+  /* ── Palette ── */
+  --ve-black: #0A0A0B;
+  --ve-dark: #111113;
+  --ve-dark-2: #1A1A1D;
+  --ve-surface: #222228;
+  --ve-bg: #FAFAF8;
+  --ve-bg-alt: #F0EDE8;
+  --ve-white: #FFFFFF;
+
+  --ve-text: #1A1A1D;
+  --ve-text-secondary: #6B6B76;
+  --ve-text-muted: #9A9AA5;
+  --ve-text-inverse: rgba(255,255,255,.88);
+  --ve-text-inv-muted: rgba(255,255,255,.48);
+
+  /* Accent — warm coral for AIGC side */
+  --ve-coral: #E85D40;
+  --ve-coral-light: #FF7A5C;
+
+  /* Accent — cool teal for Motion side */
+  --ve-teal: #2BB3C0;
+  --ve-teal-light: #46E0E6;
+
+  /* Neutral line */
+  --ve-line: rgba(255,255,255,.08);
+  --ve-line-dark: rgba(0,0,0,.07);
+
+  /* Spacing */
+  --ve-pad: clamp(64px, 10vw, 140px);
+  --ve-pad-sm: clamp(40px, 6vw, 80px);
+  --ve-container: 1280px;
+  --ve-wide: 1440px;
+
+  /* Radius — intentionally restrained */
+  --ve-rs: 8px;
+  --ve-rm: 14px;
+  --ve-rl: 20px;
+
+  /* Shadows */
+  --ve-shadow-sm: 0 2px 12px rgba(0,0,0,.06);
+  --ve-shadow-md: 0 8px 32px rgba(0,0,0,.10);
+  --ve-shadow-lg: 0 20px 60px rgba(0,0,0,.16);
+  --ve-shadow-video: 0 32px 80px rgba(0,0,0,.35);
+
+  /* Typography scale */
+  --ve-f-hero: clamp(48px, 9vw, 120px);
+  --ve-f-h1: clamp(36px, 6vw, 72px);
+  --ve-f-h2: clamp(28px, 4vw, 48px);
+  --ve-f-h3: clamp(18px, 2.5vw, 28px);
+  --ve-f-body: clamp(15px, 1.4vw, 18px);
+  --ve-f-small: clamp(13px, 1.1vw, 15px);
+  --ve-f-label: 11px;
+}
+
+/* ── Reset & Base ── */
+.ve-page {
+  background: var(--ve-bg);
+  color: var(--ve-text);
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.ve-page * { box-sizing: border-box; }
+.ve-page img { display: block; max-width: 100%; height: auto; }
+.ve-page video { display: block; max-width: 100%; background: #000; }
+
+/* ── Containers ── */
+.ve-container { max-width: var(--ve-container); margin: 0 auto; padding: 0 clamp(24px, 4vw, 56px); }
+.ve-wide { max-width: var(--ve-wide); margin: 0 auto; padding: 0 clamp(24px, 4vw, 56px); }
+
+/* ── Section Base ── */
+.ve-section { padding: var(--ve-pad) 0; position: relative; }
+.ve-section--dark { background: var(--ve-black); color: var(--ve-text-inverse); }
+.ve-section--dark-2 { background: var(--ve-dark); color: var(--ve-text-inverse); }
+.ve-section--alt { background: var(--ve-bg-alt); }
+
+/* ── Label Tag ── */
+.ve-label {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: var(--ve-f-label);
+  font-weight: 600;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--ve-coral);
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.ve-section--dark .ve-label,
+.ve-section--dark-2 .ve-label { color: var(--ve-coral-light); }
+
+/* ── Typography ── */
+.ve-title {
+  font-size: var(--ve-f-h1);
+  font-weight: 900;
+  letter-spacing: -1.8px;
+  line-height: 1.05;
+}
+.ve-subtitle {
+  font-size: var(--ve-f-h3);
+  font-weight: 600;
+  color: var(--ve-text-secondary);
+  margin-top: 12px;
+  line-height: 1.4;
+}
+.ve-body-lg {
+  font-size: var(--ve-f-body);
+  font-weight: 400;
+  color: var(--ve-text-secondary);
+  max-width: 640px;
+  line-height: 1.75;
+}
+.ve-section--dark .ve-body-lg,
+.ve-section--dark-2 .ve-body-lg { color: var(--ve-text-inv-muted); }
+
+/* ================================================================
+   01 HERO
+   ================================================================ */
+.ve-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--ve-black);
+  color: #fff;
+  overflow: hidden;
+}
+
+.ve-hero__bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+.ve-hero__bg video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .22;
+  filter: saturate(.6) contrast(1.1);
+}
+
+.ve-hero__overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(10,10,11,.55) 0%,
+      rgba(10,10,11,.72) 50%,
+      rgba(10,10,11,.95) 100%
+    );
+  z-index: 1;
+}
+
+.ve-hero__content {
+  position: relative;
+  z-index: 2;
+  padding: clamp(60px, 8vw, 120px) clamp(24px, 5vw, 56px);
+  max-width: var(--ve-wide);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ve-hero__label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--ve-f-label);
+  font-weight: 600;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+  color: var(--ve-coral-light);
+  margin-bottom: 24px;
+}
+
+.ve-hero__title {
+  font-size: var(--ve-f-hero);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: .95;
+  margin-bottom: 20px;
+}
+
+.ve-hero__subtitle {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(16px, 2.2vw, 26px);
+  font-weight: 500;
+  color: rgba(255,255,255,.5);
+  letter-spacing: 1px;
+  margin-bottom: 36px;
+}
+
+.ve-hero__tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ve-hero__tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.55);
+  padding: 8px 18px;
+  border-radius: 100px;
+  transition: all .25s ease;
+}
+.ve-hero__tag:hover {
+  border-color: var(--ve-coral-light);
+  color: #fff;
+}
+
+.ve-hero__scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,.25);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: ve-bounce 2s ease infinite;
+}
+@keyframes ve-bounce {
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(6px)}
+}
+
+/* ================================================================
+   02 PROJECT STATEMENT
+   ================================================================ */
+.ve-statement-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  margin-top: 52px;
+  align-items: start;
+}
+@media(max-width:768px){ .ve-statement-grid{ grid-template-columns:1fr; gap:36px; } .ve-divider-center{ display:none; } }
+
+.ve-statement-col h3 {
+  font-size: var(--ve-f-h3);
+  font-weight: 800;
+  letter-spacing: -.5px;
+  margin-bottom: 16px;
+}
+.ve-statement-col p {
+  font-size: var(--ve-f-body);
+  color: var(--ve-text-secondary);
+  line-height: 1.75;
+}
+.ve-statement-col ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 16px;
+}
+.ve-statement-col li {
+  font-size: var(--ve-f-small);
+  color: var(--ve-text-muted);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--ve-line-dark);
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Grotesk', monospace;
+}
+.ve-statement-col li span:last-child {
+  color: var(--ve-coral);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .5px;
+}
+
+.ve-divider-center {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--ve-line-dark), transparent);
+  align-self: stretch;
+  margin: 0 -20px;
+}
+
+/* ================================================================
+   03 / 06 EXPERIMENT VIDEO SECTIONS
+   ================================================================ */
+.ve-exp-header {
+  margin-bottom: 40px;
+}
+.ve-exp-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(64px, 10vw, 140px);
+  font-weight: 900;
+  color: rgba(255,255,255,.04);
+  line-height: 1;
+  position: absolute;
+  top: -10px;
+  right: 24px;
+  pointer-events: none;
+}
+.ve-exp-title {
+  font-size: var(--ve-f-h2);
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  margin-bottom: 8px;
+}
+.ve-exp-subtitle {
+  font-size: var(--ve-f-body);
+  color: var(--ve-text-inv-muted);
+  font-weight: 400;
+}
+
+.ve-video-showcase {
+  position: relative;
+  border-radius: var(--ve-rl);
+  overflow: hidden;
+  box-shadow: var(--ve-shadow-video);
+  background: #000;
+}
+.ve-video-showcase video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.ve-video-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.ve-vc-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: .8px;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 100px;
+  transition: all .2s ease;
+  text-transform: uppercase;
+}
+.ve-vc-btn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.ve-vc-spacer { flex: 1; }
+.ve-vc-time {
+  font-size: 11px;
+  color: rgba(255,255,255,.35);
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* ── Featured Dual Video (front showcase) ── */
+.ve-featured { background: var(--ve-black); color: var(--ve-text-inverse); }
+.ve-featured-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(36px, 5vw, 64px);
+}
+.ve-featured-head .ve-label { color: var(--ve-coral-light); }
+.ve-featured-head h2 {
+  font-size: var(--ve-f-h1);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.04;
+  margin: 0;
+}
+.ve-featured-head p {
+  color: var(--ve-text-inv-muted);
+  font-size: var(--ve-f-body);
+  margin-top: 18px;
+  line-height: 1.6;
+}
+.ve-dual-video {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+.ve-featured-cap {
+  margin-top: 16px;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  text-align: center;
+}
+@media (max-width: 860px) {
+  .ve-dual-video { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ================================================================
+   04 AIGC PROCESS
+   ================================================================ */
+.ve-process-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 52px;
+  align-items: start;
+}
+@media(max-width:1024px){ .ve-process-flow{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:640px){ .ve-process-flow{ grid-template-columns:1fr 1fr; } }
+
+.ve-process-step {
+  text-align: center;
+}
+.ve-process-step-img {
+  border-radius: var(--ve-rm);
+  overflow: hidden;
+  border: 1px solid var(--ve-line-dark);
+  margin-bottom: 14px;
+  aspect-ratio: 9/19;
+  background: var(--ve-bg-alt);
+}
+.ve-process-step-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s cubic-bezier(.22,1,.36,1);
+}
+.ve-process-step-img:hover img { transform: scale(1.03); }
+
+.ve-process-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ve-coral);
+  margin-bottom: 4px;
+}
+.ve-process-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+}
+.ve-process-desc {
+  font-size: 12px;
+  color: var(--ve-text-muted);
+  margin-top: 4px;
+  line-height: 1.45;
+}
+
+/* Process arrow connector (desktop) */
+.ve-process-arrow {
+  display: none;
+  position: absolute;
+  top: 28%;
+  color: var(--ve-text-muted);
+  font-size: 18px;
+}
+@media(min-width:1025px){
+  .ve-process-flow { position: relative; }
+  .ve-process-arrow { display: block; }
+}
+
+/* ================================================================
+   05 TRANSITION
+   ================================================================ */
+.ve-transition {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ve-transition__line {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--ve-coral), transparent);
+  margin-bottom: 40px;
+}
+
+.ve-transition__from {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ve-coral-light);
+  margin-bottom: 12px;
+}
+
+.ve-transition__arrow {
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--ve-text-muted);
+  margin: 16px 0;
+  animation: ve-pulse-arrow 1.8s ease infinite;
+}
+@keyframes ve-pulse-arrow {
+  0%,100%{opacity:.4; transform:translateY(0)}
+  50%{opacity:1; transform:translateY(4px)}
+}
+
+.ve-transition__to {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ve-teal-light);
+  margin-bottom: 32px;
+}
+
+.ve-transition__chain {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 720px;
+}
+.ve-transition__step {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ve-text-muted);
+  padding: 10px 20px;
+  border: 1px solid var(--ve-line-dark);
+  border-radius: 100px;
+  transition: all .25s ease;
+}
+.ve-transition__step:hover {
+  border-color: var(--ve-teal);
+  color: var(--ve-teal);
+}
+
+/* ================================================================
+   07 MOTION BREAKDOWN
+   ================================================================ */
+.ve-motion-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+@media(max-width:900px){ .ve-motion-gallery{ grid-template-columns:1fr 1fr; } }
+@media(max-width:560px){ .ve-motion-gallery{ grid-template-columns:1fr; } }
+
+.ve-motion-card {
+  border-radius: var(--ve-rm);
+  overflow: hidden;
+  background: var(--ve-surface);
+  border: 1px solid var(--ve-line);
+  transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease;
+}
+.ve-motion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ve-shadow-lg);
+}
+.ve-motion-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.ve-motion-card__caption {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ve-motion-card__name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ve-text-inverse);
+  letter-spacing: .3px;
+}
+.ve-motion-card__tool {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ve-teal-light);
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* Full pattern below gallery */
+.ve-pattern-full {
+  margin-top: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px; /* 整体等比缩小一半：640px → 320px，图片完整显示不裁剪 */
+  border-radius: var(--ve-rl);
+  overflow: hidden;
+  border: 1px solid var(--ve-line);
+  box-shadow: var(--ve-shadow-md);
+}
+.ve-pattern-full img {
+  width: 100%;
+  height: auto; /* 高度随宽度等比缩放，完整显示 */
+  display: block;
+}
+.ve-pattern-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: var(--ve-surface);
+  border-top: 1px solid var(--ve-line);
+}
+.ve-pattern-caption span:first-child {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ve-text-inverse);
+}
+.ve-pattern-caption span:last-child {
+  font-size: 11px;
+  color: var(--ve-text-inv-muted);
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* ================================================================
+   08 TWO VISUAL LANGUAGES
+   ================================================================ */
+.ve-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--ve-line-dark);
+  border-radius: var(--ve-rl);
+  overflow: hidden;
+  margin-top: 52px;
+}
+@media(max-width:768px){ .ve-compare{ grid-template-columns:1fr; } }
+
+.ve-compare__side {
+  padding: clamp(36px, 5vw, 56px) clamp(28px, 4vw, 44px);
+  background: var(--ve-white);
+}
+.ve-compare__side--aigc { background: #FFF9F6; }
+.ve-compare__side--ae { background: #F0FAFB; }
+
+.ve-compare__badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.ve-compare__side--aigc .ve-compare__badge {
+  background: rgba(232,93,64,.1); color: var(--ve-coral);
+}
+.ve-compare__side--ae .ve-compare__badge {
+  background: rgba(43,179,192,.1); color: var(--ve-teal);
+}
+
+.ve-compare__title {
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 900;
+  letter-spacing: -.8px;
+  margin-bottom: 8px;
+}
+.ve-compare__desc {
+  font-size: var(--ve-f-small);
+  color: var(--ve-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.ve-compare__attrs {
+  list-style: none;
+  padding: 0;
+}
+.ve-compare__attrs li {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  color: var(--ve-text);
+}
+.ve-compare__side--ae .ve-compare__attrs li { color: var(--ve-text); }
+
+.ve-compare__footer {
+  grid-column: 1 / -1;
+  background: var(--ve-dark);
+  color: var(--ve-text-inv-muted);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .3px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ================================================================
+   09 FINAL SHOWCASE
+   ================================================================ */
+.ve-final-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 52px;
+}
+@media(max-width:768px){ .ve-final-grid{ grid-template-columns:1fr; } }
+
+.ve-final-card {
+  border-radius: var(--ve-rl);
+  overflow: hidden;
+  background: var(--ve-surface);
+  border: 1px solid var(--ve-line);
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+}
+.ve-final-card:hover { transform: translateY(-3px); }
+
+.ve-final-card__video {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.ve-final-card__video video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.ve-final-card__play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.ve-final-card__play::after {
+  content: '';
+  width: 0; height: 0;
+  border-left: 14px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  margin-left: 3px;
+}
+.ve-final-card__play:hover {
+  background: rgba(255,255,255,.28);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.ve-final-card__info {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ve-final-card__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ve-coral-light);
+  margin-bottom: 4px;
+}
+.ve-final-card__title {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+}
+.ve-final-card:nth-child(2) .ve-final-card__label { color: var(--ve-teal-light); }
+
+/* Next project CTA */
+.ve-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 56px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ve-text-secondary);
+  text-decoration: none;
+  padding: 14px 28px;
+  border: 1px solid var(--ve-line-dark);
+  border-radius: 100px;
+  transition: all .25s ease;
+}
+.ve-next:hover {
+  border-color: var(--ve-text);
+  color: var(--ve-text);
+}
+.ve-next::after {
+  content: '→';
+  transition: transform .25s ease;
+}
+.ve-next:hover::after { transform: translateX(4px); }
+
+/* ================================================================
+   REVEAL ANIMATION
+   ================================================================ */
+.ve-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: none;
+  transition: opacity .8s cubic-bezier(.22,1,.36,1),
+              transform .8s cubic-bezier(.22,1,.36,1),
+              filter .8s cubic-bezier(.22,1,.36,1);
+}
+.ve-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.ve-reveal-delay-1 { transition-delay: .1s; }
+.ve-reveal-delay-2 { transition-delay: .2s; }
+.ve-reveal-delay-3 { transition-delay: .3s; }
+.ve-reveal-delay-4 { transition-delay: .4s; }
+
+/* ================================================================
+   NAV HEADER (shared with other case studies)
+   ================================================================ */
+.ve-nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(250,250,248,.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  transition: all .3s ease;
+}
+.ve-nav--scrolled {
+  background: rgba(250,250,248,.94);
+  box-shadow: 0 2px 20px rgba(0,0,0,.06);
+}
+.ve-nav__back {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-decoration: none;
+  color: var(--ve-text-secondary);
+  padding: 7px 16px;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 100px;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+.ve-nav__back:hover { border-color: var(--ve-text); color: var(--ve-text); }
+.ve-nav__brand {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ve-text);
+  letter-spacing: -.3px;
+}
+
+/* ── 09 项目总结：回顾卡片 ── */
+.ve-recap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  margin-top: clamp(32px, 5vw, 56px);
+}
+.ve-recap-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.ve-recap-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.08);
+}
+.ve-recap-card__media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--ve-bg-alt);
+}
+.ve-recap-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ve-recap-card__info {
+  padding: 22px 24px 26px;
+}
+.ve-recap-card__label {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--ve-coral);
+  margin-bottom: 8px;
+}
+.ve-recap-card:nth-child(2) .ve-recap-card__label { color: var(--ve-teal); }
+.ve-recap-card__title {
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: var(--ve-text);
+}
+.ve-recap-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ve-text-secondary);
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .ve-recap-grid { grid-template-columns: 1fr; }
+}
+
+/* ── 统一实验段「静帧展示」说明，避免与视频播放器混淆 ── */
+.ve-exp-header { margin-bottom: clamp(20px, 3vw, 32px); }
+.ve-dual-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media(max-width:768px){ .ve-dual-images{ grid-template-columns:1fr; gap:16px; } }
+.ve-still-note {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: var(--ve-text-inv-muted, rgba(255,255,255,.5));
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+</style>
+</head>
+
+<body class="ve-page cs-page page-dark page-loaded">
+<div class="page-topbar">
+      <a class="page-back" href="all-projects.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">Visual Experiments</span>
+    </div>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav class="ve-nav" id="veNav">
+  
+  <span class="ve-nav__brand">视觉实验</span>
+</nav>
+
+<!-- ═══════════════════════ 01 HERO ═══════════════════════ -->
+  <div class="container">
+    
+  </div>
+<section class="ve-hero">
+  <div class="ve-hero__bg">
+    <video autoplay muted loop playsinline preload="metadata"
+      poster="assets/visual-experiments/aigc-character.png">
+      <source src="assets/visual-experiments/aigc-film.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="ve-hero__overlay"></div>
+  <div class="ve-hero__content">
+    <div class="ve-hero__label">作品集案例研究</div>
+    <h1 class="ve-hero__title">视觉<br/>实验</h1>
+    <p class="ve-hero__subtitle">AIGC × 动效设计</p>
+    <p style="font-size:15px;color:rgba(255,255,255,.38);max-width:480px;line-height:1.7;margin-top:8px;">
+      通过 AI 生成与动效设计探索视觉叙事的边界。
+    </p>
+    <div class="ve-hero__tags">
+      <span class="ve-hero__tag">AI 视觉生成</span>
+      <span class="ve-hero__tag">动效设计</span>
+      <span class="ve-hero__tag">视觉叙事</span>
+      <span class="ve-hero__tag">AE 后期</span>
+    </div>
+  </div>
+  <div class="ve-hero__scroll-hint">
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>
+    Scroll
+  </div>
+</section>
+
+<!-- ═══════════════════════ FEATURED — TWO FILMS ═══════════════════════ -->
+<section class="ve-section ve-featured">
+  <div class="ve-wide">
+    <div class="ve-featured-head ve-reveal">
+      <span class="ve-label">核心作品</span>
+      <h2>两项实验，<br/>一种视觉语言</h2>
+      <p>两支核心影片 —— AIGC 影像叙事与 AE 文化纹样动效，完整呈现本次视觉实验的两个方向。</p>
+    </div>
+
+    <div class="ve-dual-video">
+      <!-- AIGC Film -->
+      <div class="ve-reveal">
+        <div class="ve-video-showcase">
+          <video id="aigcVideo" controlsList="nodownload" preload="auto"
+            autoplay muted loop playsinline
+            poster="assets/visual-experiments/aigc-storyboard-strip.png">
+            <source src="assets/visual-experiments/aigc-film.mp4" type="video/mp4" />
+          </video>
+          <div class="ve-video-controls">
+            <button class="ve-vc-btn" onclick="document.getElementById('aigcVideo').play()">Play</button>
+            <button class="ve-vc-btn" onclick="document.getElementById('aigcVideo').pause()">Pause</button>
+            <button class="ve-vc-btn" onclick="var v=document.getElementById('aigcVideo');v.muted=!v.muted;this.textContent=v.muted?'Unmute':'Mute'">Mute</button>
+            <button class="ve-vc-btn" onclick="var v=document.getElementById('aigcVideo');v.currentTime=0;v.play()">Replay</button>
+            <span class="ve-vc-spacer"></span>
+            <span class="ve-vc-time">AIGC 影片</span>
+          </div>
+        </div>
+        <p class="ve-featured-cap">实验 01 — AI 生成视觉叙事</p>
+      </div>
+
+      <!-- Motion Design -->
+      <div class="ve-reveal ve-reveal-delay-1">
+        <div class="ve-video-showcase">
+          <video id="motionVideo" controlsList="nodownload" preload="auto"
+            autoplay muted loop playsinline
+            poster="assets/visual-experiments/ae-screenshot-title.jpg">
+            <source src="assets/visual-experiments/motion-design.mp4" type="video/mp4" />
+          </video>
+          <div class="ve-video-controls">
+            <button class="ve-vc-btn" onclick="document.getElementById('motionVideo').play()">Play</button>
+            <button class="ve-vc-btn" onclick="document.getElementById('motionVideo').pause()">Pause</button>
+            <button class="ve-vc-btn" onclick="var v=document.getElementById('motionVideo');v.muted=!v.muted;this.textContent=v.muted?'Unmute':'Mute'">Mute</button>
+            <button class="ve-vc-btn" onclick="var v=document.getElementById('motionVideo');v.currentTime=0;v.play()">Replay</button>
+            <span class="ve-vc-spacer"></span>
+            <span class="ve-vc-time">动效设计</span>
+          </div>
+        </div>
+        <p class="ve-featured-cap">实验 02 — 文化纹样动效设计</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 02 项目阐述 ═══════════════════════ -->
+<section class="ve-section ve-section--alt">
+  <div class="ve-container">
+    <span class="ve-label ve-reveal">02 — 项目阐述</span>
+    <h2 class="ve-title ve-reveal ve-reveal-delay-1">两项实验<br/>为何同构。</h2>
+    <p class="ve-body-lg ve-reveal ve-reveal-delay-2">
+      这并非两个独立项目的拼凑。<br/>
+      而是一次完整的视觉实验——从 AI 生成到手工动效的创作路径追踪。
+    </p>
+
+    <div class="ve-statement-grid ve-reveal ve-reveal-delay-3">
+      <!-- AIGC Side -->
+      <div class="ve-statement-col">
+        <h3>AIGC 影片</h3>
+        <p>AI 生成视觉探索。从文字提示出发，迭代视觉方向，筛选具有叙事分量的画面，将其组装为电影级序列。</p>
+        <ul>
+          <li>探索 <span>生成</span></li>
+          <li>视觉导向 <span>电影感</span></li>
+          <li>选图 <span>策展</span></li>
+          <li>序列剪辑 <span>叙事</span></li>
+        </ul>
+      </div>
+
+      <!-- Divider -->
+      <div class="ve-divider-center"></div>
+
+      <!-- AE Side -->
+      <div class="ve-statement-col">
+        <h3>AE 动效设计</h3>
+        <p>精准驱动的动效转译。将静态文化纹样转化为有节奏、有时序的动画，每一帧关键帧都承载设计意图。</p>
+        <ul>
+          <li>图形设计 <span>源素材</span></li>
+          <li>关键帧动画 <span>精度</span></li>
+          <li>时间与缓动 <span>动律</span></li>
+          <li>文化转译 <span>匠心</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 03 实验 01 — AIGC 影片 ═══════════════════════ -->
+<section class="ve-section ve-section--dark">
+  <div class="ve-wide">
+    <div class="ve-exp-header ve-reveal" style="position:relative;">
+      <span class="ve-label">03 — 实验 01</span>
+      <h2 class="ve-exp-title">AIGC 影片</h2>
+      <p class="ve-exp-subtitle">AI 生成视觉叙事</p>
+      <span class="ve-exp-num">01</span>
+    </div>
+
+    <div class="ve-video-showcase ve-reveal ve-reveal-delay-1">
+      <video controlsList="nodownload" preload="metadata" autoplay muted loop playsinline
+        style="width:100%;border-radius:12px;">
+        <source src="assets/visual-experiments/aigc-storyboard.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <span class="ve-still-note">AIGC 故事板 · 创作过程录屏</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 04 AIGC 流程 ═══════════════════════ -->
+<section class="ve-section">
+  <div class="ve-container">
+    <span class="ve-label ve-reveal">04 — 创作流程</span>
+    <h2 class="ve-title ve-reveal ve-reveal-delay-1">从提示词到成帧</h2>
+    <p class="ve-body-lg ve-reveal ve-reveal-delay-2">
+      AIGC 影片通过迭代探索构建——生成角色设计、测试视觉氛围、策展分镜序列、将精选画面精炼为连贯叙事。
+    </p>
+
+    <div class="ve-process-flow ve-reveal ve-reveal-delay-3">
+      <!-- Step 1: EXPLORE -->
+      <div class="ve-process-step">
+        <div class="ve-process-step-img">
+          <img src="assets/visual-experiments/aigc-character.png" alt="AIGC 角色设计" loading="lazy"/>
+        </div>
+        <div class="ve-process-num">01</div>
+        <div class="ve-process-name">探索</div>
+        <div class="ve-process-desc">角色设计与视觉方向探索</div>
+      </div>
+
+      <!-- Step 2: SELECT -->
+      <div class="ve-process-step">
+        <div class="ve-process-step-img">
+          <img src="assets/visual-experiments/aigc-storyboard-strip.png" alt="AIGC 分镜条" loading="lazy"/>
+        </div>
+        <div class="ve-process-num">02</div>
+        <div class="ve-process-name">筛选</div>
+        <div class="ve-process-desc">分镜策展与序列选帧</div>
+      </div>
+
+      <!-- Step 3: REFINE -->
+      <div class="ve-process-step">
+        <div class="ve-process-step-img">
+          <img src="assets/visual-experiments/aigc-frames-numbered.png" alt="AIGC 编号帧" loading="lazy"/>
+        </div>
+        <div class="ve-process-num">03</div>
+        <div class="ve-process-name">精修</div>
+        <div class="ve-process-desc">逐帧审查与构图调优</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 05 过渡衔接 ═══════════════════════ -->
+<section class="ve-section ve-section--dark-2">
+  <div class="ve-transition ve-reveal">
+    <div class="ve-transition__line"></div>
+    <div class="ve-transition__from">从 AI 生成</div>
+    <div class="ve-transition__arrow">↓</div>
+    <div class="ve-transition__to">到手工动效</div>
+    <div class="ve-transition__chain">
+      <span class="ve-transition__step">AI 图像</span>
+      <span class="ve-transition__step">→</span>
+      <span class="ve-transition__step">视觉叙事</span>
+      <span class="ve-transition__step">→</span>
+      <span class="ve-transition__step">动效</span>
+      <span class="ve-transition__step">→</span>
+      <span class="ve-transition__step">手工动画</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 06 实验 02 — 动效设计 ═══════════════════════ -->
+<section class="ve-section ve-section--dark">
+  <div class="ve-wide">
+    <div class="ve-exp-header ve-reveal" style="position:relative;">
+      <span class="ve-label">06 — 实验 02</span>
+      <h2 class="ve-exp-title">动效设计</h2>
+      <p class="ve-exp-subtitle">将文化视觉语言转译为动效</p>
+      <span class="ve-exp-num">02</span>
+    </div>
+
+    <div class="ve-video-showcase ve-reveal ve-reveal-delay-1">
+      <video controlsList="nodownload" preload="auto"
+        autoplay muted loop playsinline
+        poster="assets/visual-experiments/ae-screenshot-title.jpg">
+        <source src="assets/visual-experiments/motion-design.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <span class="ve-still-note">关键帧静帧 · 完整影片见上方「核心作品」</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 07 动效拆解 ═══════════════════════ -->
+<section class="ve-section ve-section--dark-2">
+  <div class="ve-container">
+    <span class="ve-label ve-reveal">07 — 动效拆解</span>
+    <h2 class="ve-title ve-reveal ve-reveal-delay-1">动效原理实战</h2>
+    <p class="ve-body-lg ve-reveal ve-reveal-delay-2">
+      After Effects 时间线上的三个关键瞬间——展示静态文化纹样如何通过位移、缩放、旋转与时间控制变为鲜活动效。
+    </p>
+
+    <div class="ve-motion-gallery ve-reveal ve-reveal-delay-3">
+      <!-- Screenshot 1: Title + Peacock -->
+      <div class="ve-motion-card">
+        <img src="assets/visual-experiments/ae-screenshot-title.jpg" alt="AE 截图 — 孔雀纹标题屏" loading="lazy"/>
+        <div class="ve-motion-card__caption">
+          <span class="ve-motion-card__name">标题序列</span>
+          <span class="ve-motion-card__tool">After Effects</span>
+        </div>
+      </div>
+
+      <!-- Screenshot 2: Geometry + Chromatic -->
+      <div class="ve-motion-card">
+        <img src="assets/visual-experiments/ae-screenshot-geometry.jpg" alt="AE 截图 — 几何图形色散效果" loading="lazy"/>
+        <div class="ve-motion-card__caption">
+          <span class="ve-motion-card__name">几何动效</span>
+          <span class="ve-motion-card__tool">After Effects</span>
+        </div>
+      </div>
+
+      <!-- Screenshot 3: Pattern Animation -->
+      <div class="ve-motion-card">
+        <img src="assets/visual-experiments/ae-screenshot-pattern.jpg" alt="AE 截图 — 民族纹样动画" loading="lazy"/>
+        <div class="ve-motion-card__caption">
+          <span class="ve-motion-card__name">纹样揭示</span>
+          <span class="ve-motion-card__tool">After Effects</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full source pattern -->
+    <div class="ve-pattern-full ve-reveal ve-reveal-delay-4">
+      <img src="assets/visual-experiments/xilankapu-pattern-full.png" alt="西兰卡普完整纹样设计 — Figma 源文件" loading="lazy"/>
+      <div class="ve-pattern-caption">
+        <span>西兰卡普（Xilankapu）完整纹样 — 源设计</span>
+        <span>Figma → After Effects</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 08 两种视觉语言 ═══════════════════════ -->
+<section class="ve-section">
+  <div class="ve-container">
+    <span class="ve-label ve-reveal">08 — 对比</span>
+    <h2 class="ve-title ve-reveal ve-reveal-delay-1">两种工具。<br/>两种视觉语言。</h2>
+    <p class="ve-body-lg ve-reveal ve-reveal-delay-2">
+      不同工具、不同流程——同一种视觉设计实践。
+    </p>
+
+    <div class="ve-compare ve-reveal ve-reveal-delay-3">
+      <!-- AIGC Column -->
+      <div class="ve-compare__side ve-compare__side--aigc">
+        <span class="ve-compare__badge">AIGC 影片</span>
+        <h3 class="ve-compare__title">生成式视觉语言</h3>
+        <p class="ve-compare__desc">探索驱动。每一帧都从提示词迭代与视觉策展中浮现。</p>
+        <ul class="ve-compare__attrs">
+          <li>AI 生成</li>
+          <li>探索</li>
+          <li>电影感</li>
+          <li>图像</li>
+          <li>叙事筛选</li>
+        </ul>
+      </div>
+
+      <!-- AE Column -->
+      <div class="ve-compare__side ve-compare__side--ae">
+        <span class="ve-compare__badge">AE 动效</span>
+        <h3 class="ve-compare__title">手工视觉语言</h3>
+        <p class="ve-compare__desc">精度驱动。每一个关键帧都经过意图放置与时间感知。</p>
+        <ul class="ve-compare__attrs">
+          <li>匠心</li>
+          <li>精度</li>
+          <li>时间控制</li>
+          <li>图形</li>
+          <li>文化转译</li>
+        </ul>
+      </div>
+
+      <!-- Footer -->
+      <div class="ve-compare__footer">
+        两条路径汇聚于同一目标：视觉设计 × 动效 × 创意方向
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer style="background:var(--ve-black);color:rgba(255,255,255,.25);padding:40px 24px;text-align:center;font-size:12px;font-family:'Space Grotesk',sans-serif;letter-spacing:1px;">
+  © 2026 梁金玲 Jinling · 视觉实验案例研究
+</footer>
+
+<script>
+/* ── Nav scroll effect ── */
+(function(){
+  var nav = document.getElementById('veNav');
+  if (!nav) return;
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('ve-nav--scrolled', window.scrollY > 60);
+  }, {passive:true});
+})();
+
+/* ── IntersectionObserver reveal ── */
+(function(){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: .12, rootMargin: '0px 0px -40px 0px'});
+
+  document.querySelectorAll('.ve-reveal').forEach(function(el){
+    observer.observe(el);
+  });
+})();
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
