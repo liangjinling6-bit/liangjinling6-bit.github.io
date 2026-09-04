@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全部作品 | 梁金玲 Portfolio</title>
+  <meta name="description content="梁金玲全部作品集 - 产品设计、UI/UX、交互动效、AIGC 创意与视觉探索项目汇总。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ===== 统一卡片（与首页精选项目一致） ===== */
+    .uc-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(10, 25, 54, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .uc-card-link {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
+
+    .uc-card-media {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #EEF1F5;
+    }
+
+    .uc-card-media img,
+    .uc-card-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .uc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 44px rgba(10, 25, 54, 0.16);
+    }
+
+    .uc-card:hover .uc-card-media img,
+    .uc-card:hover .uc-card-media video {
+      transform: scale(1.06);
+    }
+
+    .uc-card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 12px 14px 14px;
+    }
+
+    .uc-card-kicker {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5E89E4;
+    }
+
+    .uc-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0A1936;
+      margin: 0;
+    }
+
+    .uc-card-desc {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #5A6372;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .uc-card-tags {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding-top: 4px;
+    }
+
+    .uc-card-tags .tag {
+      font-size: 10.5px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #F1F5FB;
+      color: #4A5568;
+    }
+  </style>
+</head>
+<body class="page-dark">
+<div class="page-topbar">
+    <a class="page-back" href="index.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">全部作品</span>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="header-brand">
+        
+        <a href="index.html" class="logo">梁金玲 &#183; Portfolio</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html#works" class="nav-link">作品</a>
+        <a href="skills.html" class="nav-link">技能</a>
+        <a href="index.html#contact" class="nav-link">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <header class="detail-header" style="padding-top: 0;">
+      <p class="detail-label">All Works</p>
+      <h1 class="detail-title">全部作品</h1>
+      <p class="detail-desc">
+        产品设计 &#183; UI/UX &#183; 交互动效 &#183; AI 创意 — 从需求洞察到 AI 辅助落地，完整的设计能力闭环。点击分类标签可筛选查看。
+      </p>
+    </header>
+
+    <!-- 分类筛选 -->
+    <div class="filter-bar">
+      <button class="filter-tab filter-tab-active" data-filter="all">全部</button>
+      <button class="filter-tab" data-filter="part01">PART 01 产品体验设计</button>
+      <button class="filter-tab" data-filter="part23">PART 02—03 交互与AI创意</button>
+      <button class="filter-tab" data-filter="part04">PART 04 视觉探索</button>
+    </div>
+
+    <!-- ========== 全部项目 · 统一网格 ========== -->
+    <div class="works-row" id="all-works">
+      <div class="works-part-head">
+        <span class="works-part-num">ALL</span>
+        <div>
+          <h3 class="works-part-title">全部项目</h3>
+          <p class="works-part-en">Selected Projects</p>
+        </div>
+      </div>
+
+      <div class="works-grid works-grid--3col">
+        <!-- 卡片 01 智慧课堂 -->
+        <article class="uc-card reveal filter-item" data-category="part01">
+          <a href="project-e-teach.html" class="uc-card-link">
+            <div class="uc-card-media">
+              <img src="assets/images/project-e-teach.png?v=3" alt="智慧课堂 教育产品体验优化" loading="lazy" />
+            </div>
+            <div class="uc-card-body">
+              <span class="uc-card-kicker">Education Product · UI/UX</span>
+              <h3 class="uc-card-title">易教智慧课堂</h3>
+              <p class="uc-card-desc">面向真实课堂的教师授课端体验优化</p>
+              <div class="uc-card-tags">
+                <span class="tag">UI Design</span>
+                <span class="tag">UX Design</span>
+                <span class="tag">Motion</span>
+                <span class="tag">AIGC</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- 卡片 02 动物成长乐园 -->
+        <article class="uc-card reveal filter-item" data-category="part23">
+          <a href="project-animal.html" class="uc-card-link">
+            <div class="uc-card-media">
+              <img src="assets/images/project-animal.png" alt="动物成长乐园 IP 成长体验设计" loading="lazy" />
+            </div>
+            <div class="uc-card-body">
+              <span class="uc-card-kicker">Gamification · Motion</span>
+              <h3 class="uc-card-title">动物成长乐园</h3>
+              <p class="uc-card-desc">通过 IP 角色体系、动态成长机制和花园养成系统，构建情感连接的游戏化产品体验。</p>
+              <div class="uc-card-tags">
+                <span class="tag">UI Design</span>
+                <span class="tag">UX Design</span>
+                <span class="tag">Motion</span>
+                <span class="tag">AIGC</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- 卡片 03 ToyVerse -->
+        <article class="uc-card reveal filter-item" data-category="part01">
+          <a href="project-toyverse.html" class="uc-card-link">
+            <div class="uc-card-media">
+              <img src="assets/toyverse/screenshots/home-full.png" alt="ToyVerse 潮玩 IP 电商体验设计" loading="lazy" />
+            </div>
+            <div class="uc-card-body">
+              <span class="uc-card-kicker">IP · AI Search · E-commerce</span>
+              <h3 class="uc-card-title">ToyVerse · 潮玩 IP 电商</h3>
+              <p class="uc-card-desc">基于原创潮玩 IP 的收藏电商体验，涵盖 IP 系统、AI 搜索、商品体验与完整购物链路。</p>
+              <div class="uc-card-tags">
+                <span class="tag">IP System</span>
+                <span class="tag">UX Design</span>
+                <span class="tag">AI Search</span>
+                <span class="tag">Motion</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- 卡片 04 校园点单 -->
+        <article class="uc-card reveal filter-item" data-category="part01">
+          <a href="project-vending.html" class="uc-card-link">
+            <div class="uc-card-media">
+              <img src="assets/images/vending-order-phone.png?v=2" alt="校园智能点单系统设计" loading="lazy" />
+            </div>
+            <div class="uc-card-body">
+              <span class="uc-card-kicker">Mobile · UX Design</span>
+              <h3 class="uc-card-title">校园自助点单</h3>
+              <p class="uc-card-desc">围绕校园消费场景设计移动端点单体验，通过流程优化和交互设计提升操作效率。</p>
+              <div class="uc-card-tags">
+                <span class="tag">UI Design</span>
+                <span class="tag">UX Design</span>
+                <span class="tag">Motion</span>
+                <span class="tag">AIGC</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- 卡片 05 视觉实验 -->
+        <article class="uc-card reveal filter-item" data-category="part04">
+          <a href="project-visual-experiments.html" class="uc-card-link">
+            <div class="uc-card-media">
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/visual-experiments/aigc-character.png">
+                <source src="assets/visual-experiments/aigc-film.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="uc-card-body">
+              <span class="uc-card-kicker">AIGC · Motion Design · Visual</span>
+              <h3 class="uc-card-title">视觉实验 · AIGC × 动效设计</h3>
+              <p class="uc-card-desc">从 AI 生成视觉到手绘动效 — AIGC 影像叙事与 AE 文化纹样动效的完整视觉实验。</p>
+              <div class="uc-card-tags">
+                <span class="tag">AIGC</span>
+                <span class="tag">Motion</span>
+                <span class="tag">After Effects</span>
+                <span class="tag">Visual Storytelling</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- 卡片 06 文化创意 -->
+        <article class="uc-card reveal filter-item" data-category="part04">
+          <a href="project-cultural.html" class="uc-card-link">
+            <div class="uc-card-media">
+              <img src="assets/images/project-cultural.png" alt="文化创意 × 数字视觉" loading="lazy" />
+            </div>
+            <div class="uc-card-body">
+              <span class="uc-card-kicker">Cultural · AIGC · Visual</span>
+              <h3 class="uc-card-title">文化创意 × 数字视觉</h3>
+              <p class="uc-card-desc">潮汕非遗、AIGC 视觉探索、公共议题传播的综合创意设计与文化数字化实践。</p>
+              <div class="uc-card-tags">
+                <span class="tag">Cultural Design</span>
+                <span class="tag">AIGC</span>
+                <span class="tag">Visual Communication</span>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-cta">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">Let's Work Together</h2>
+      <p class="footer-cta-desc">期待与您合作，一起创造有影响力的设计作品。</p>
+      <div class="footer-cta-contacts">
+        <a href="mailto:liangjinling145aa@163.com">联系我</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
