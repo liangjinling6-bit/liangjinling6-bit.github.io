@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>校园自助贩卖机 · 点单界面设计 | 梁金玲 Portfolio</title>
+  <meta name="description" content="校园自助贩卖机小程序点单界面设计案例 — 从用户场景、设计挑战、用户流程、视觉系统到可交互点单原型的完整项目详情。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design-system.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .vd-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #6E7D48, #E0780A);
+      z-index: 1000;
+      box-shadow: 0 1px 8px rgba(110, 125, 72, 0.36);
+      transition: width 0.08s linear;
+    }
+
+    .vd-main {
+      padding-bottom: 72px;
+    }
+
+    .vd-contents {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+      margin: 28px 0 0;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(200, 215, 235, 0.45);
+      border-radius: 18px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 32px rgba(80, 100, 140, 0.10);
+    }
+
+    .vd-contents-label {
+      grid-column: 1 / -1;
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6E7D48;
+      margin-bottom: 2px;
+    }
+
+    .vd-contents a {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #4A5231;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(110, 125, 72, 0.18);
+      border-radius: 999px;
+      padding: 7px 10px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .vd-contents a b {
+      color: #E0780A;
+      font-weight: 800;
+    }
+
+    .vd-contents a:hover {
+      background: #6E7D48;
+      color: #fff;
+    }
+
+    .vd-contents a:hover b {
+      color: #fff;
+    }
+
+    .vd-sec {
+      scroll-margin-top: calc(var(--header-height) + 20px);
+      padding: 64px 0 8px;
+    }
+
+    .vd-sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .vd-num {
+      flex: none;
+      font-family: "Inter", sans-serif;
+      font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+      font-weight: 800;
+      line-height: 1;
+      color: #A7AAA0;
+      letter-spacing: -0.01em;
+    }
+
+    .vd-kicker {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6E7D48;
+      margin-bottom: 6px;
+    }
+
+    .vd-title {
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      font-weight: 800;
+      line-height: 1.22;
+      color: #22271A;
+      letter-spacing: -0.01em;
+    }
+
+    .vd-desc {
+      max-width: 760px;
+      color: #4A4A5A;
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .vd-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .vd-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .vd-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .vd-overview-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .vd-overview-media {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(200, 215, 235, 0.48);
+      box-shadow: 0 16px 44px rgba(80, 100, 140, 0.14);
+      background: #fff;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    .vd-overview-media img {
+      width: auto;
+      max-width: 100%;
+      max-height: 520px;
+      height: auto;
+      display: block;
+    }
+
+    .vd-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .vd-stat {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(200, 215, 235, 0.42);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 28px rgba(80, 100, 140, 0.08);
+    }
+
+    .vd-stat b {
+      display: block;
+      font-size: 24px;
+      font-weight: 800;
+      color: #6E7D48;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .vd-stat span {
+      font-size: 13px;
+      color: #4A4A5A;
+    }
+
+    .vd-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(200, 215, 235, 0.42);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 10px 32px rgba(80, 100, 140, 0.08);
+    }
+
+    .vd-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #22271A;
+      margin-bottom: 8px;
+    }
+
+    .vd-card p {
+      font-size: 14px;
+      color: #4A4A5A;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .vd-card--dark {
+      background: linear-gradient(135deg, #3E4528, #22271A);
+      border-color: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+
+    .vd-card--dark h3 {
+      color: #fff;
+    }
+
+    .vd-card--dark p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .vd-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6E7D48;
+      background: #F1F3EE;
+      border-radius: 999px;
+      padding: 6px 12px;
+      margin-bottom: 16px;
+    }
+
+    .vd-challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .vd-goal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .vd-flow {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .vd-flow-step {
+      flex: 1 1 150px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(200, 215, 235, 0.46);
+      border-radius: 16px;
+      padding: 18px;
+      min-width: 132px;
+      box-shadow: 0 8px 28px rgba(80, 100, 140, 0.08);
+    }
+
+    .vd-flow-step b {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      color: #E0780A;
+      margin-bottom: 8px;
+    }
+
+    .vd-flow-step span {
+      font-size: 13px;
+      color: #4A4A5A;
+      line-height: 1.55;
+    }
+
+    .vd-flow-arrow {
+      align-self: center;
+      color: #A7AAA0;
+      font-size: 20px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .vd-direction-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .vd-direction-media {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(200, 215, 235, 0.48);
+      box-shadow: 0 16px 44px rgba(80, 100, 140, 0.14);
+      background: #fff;
+    }
+
+    .vd-direction-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .vd-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .vd-keywords span {
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: #F1F3EE;
+      color: #4A5231;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid rgba(110, 125, 72, 0.16);
+    }
+
+    .vd-component-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .vd-component-grid .ds-card,
+    .vd-screen-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(200, 215, 235, 0.46);
+      border-radius: 18px;
+      box-shadow: 0 12px 36px rgba(80, 100, 140, 0.09);
+    }
+
+    .vd-screen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .vd-screen-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .vd-screen-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: #F7F8F5;
+      display: block;
+      border-bottom: 1px solid rgba(200, 215, 235, 0.35);
+    }
+
+    .vd-screen-card figcaption {
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #4A5231;
+      line-height: 1.5;
+    }
+
+    .vd-interaction-note {
+      margin-bottom: 20px;
+      color: #4A4A5A;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .vd-ds-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      background: linear-gradient(135deg, #6E7D48, #3E4528);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 12px 18px;
+      box-shadow: 0 12px 32px rgba(62, 69, 40, 0.20);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .vd-ds-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 38px rgba(62, 69, 40, 0.28);
+    }
+
+    /* ====== 12 Final Showcase - 界面墙 ====== */
+    .vd-screens-wall {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .vd-screens-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .vd-screen-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(80, 100, 140, 0.10);
+      border: 1px solid rgba(230, 231, 225, 0.6);
+      background: #f5f6f3;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .vd-screen-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(80, 100, 140, 0.16);
+    }
+
+    .vd-screen-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 前景焦点：中间两部手机凸起 */
+    .vd-screens-focus {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      pointer-events: none;
+    }
+
+    .vd-screen-focus-item {
+      pointer-events: auto;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    /* 手机外框 */
+    .vd-phone-bezel {
+      background: linear-gradient(150deg, #2a2a35 0%, #1a1a22 100%);
+      border-radius: 28px;
+      padding: 10px;
+      box-shadow:
+        0 28px 64px rgba(46, 52, 28, 0.24),
+        0 6px 20px rgba(46, 52, 28, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 刘海 */
+    .vd-phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 22px;
+      background: #1a1a22;
+      border-radius: 0 0 14px 14px;
+      z-index: 2;
+    }
+
+    .vd-phone-bezel img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+
+    .vd-screen-focus-item:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    .vd-screen-focus-item--main {
+      width: 240px;
+      transform: rotate(-2deg);
+    }
+
+    .vd-screen-focus-item--sub {
+      width: 210px;
+      transform: rotate(3deg) translateY(20px);
+    }
+
+    .vd-screen-focus-item--main:hover { transform: rotate(-2deg) translateY(-6px) scale(1.02); }
+    .vd-screen-focus-item--sub:hover { transform: rotate(3deg) translateY(14px) scale(1.02); }
+
+    /* 响应式：窄屏时焦点手机改为静态排列 */
+    @media (max-width: 1100px) {
+      .vd-screens-grid { grid-template-columns: repeat(3, 1fr); }
+      .vd-screen-focus-item--main { width: 200px; }
+      .vd-screen-focus-item--sub { width: 180px; }
+    }
+
+    @media (max-width: 850px) {
+      .vd-screens-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .vd-screens-focus {
+        position: static;
+        margin-top: 16px;
+        pointer-events: auto;
+      }
+      .vd-screen-focus-item--main { width: 160px; transform: none; }
+      .vd-screen-focus-item--sub { width: 150px; transform: none; }
+    }
+
+    @media (max-width: 480px) {
+      .vd-screens-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .vd-screen-item { border-radius: 12px; }
+      .vd-screen-focus-item--main { width: 140px; }
+      .vd-screen-focus-item--sub { width: 130px; }
+    }
+
+    .vd-value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .vd-next {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 26px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #6E7D48, #3E4528);
+      color: #fff;
+      box-shadow: 0 18px 50px rgba(62, 69, 40, 0.22);
+    }
+
+    .vd-next h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .vd-next p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+      max-width: 520px;
+    }
+
+    .vd-next a {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #3E4528;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 999px;
+      padding: 12px 18px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .vd-next a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+    }
+
+    .vd-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .vd-reveal.is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1024px) {
+      .vd-contents {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .vd-overview-grid,
+      .vd-direction-grid,
+      .vd-component-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vd-grid-4,
+      .vd-goal-grid,
+      .vd-value-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .vd-screen-grid,
+      .vd-challenge-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .vd-contents {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px;
+      }
+
+      .vd-sec {
+        padding-top: 48px;
+      }
+
+      .vd-sec-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .vd-grid-2,
+      .vd-grid-3,
+      .vd-grid-4,
+      .vd-challenge-grid,
+      .vd-goal-grid,
+      .vd-value-grid,
+      .vd-screen-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vd-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .vd-next {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .vd-direction-media img {
+        min-height: 220px;
+      }
+    }
+  </style>
+</head>
+<body class="page-dark">
+<div class="page-topbar">
+    <a class="page-back" href="all-projects.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">校园自助贩卖机 · 点单界面</span>
+  </div>
+  <div class="vd-progress" id="vd-progress"></div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">梁金玲 &#183; Portfolio</a>
+      <nav class="nav">
+        <a href="index.html#works" class="nav-link">作品</a>
+        <a href="skills.html" class="nav-link">技能</a>
+        <a href="index.html#contact" class="nav-link">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container vd-main">
+
+    <!-- 01 Hero -->
+    <section class="vending-hero-split vd-reveal is-in" id="vd-hero">
+      <div class="vhs-left">
+        <p class="detail-label" style="color: #6E7D48;">PART.01 &#183; UI / UX Design</p>
+        <h1 class="detail-title" style="text-align:left;">校园自助贩卖机<br />&#183; 点单界面</h1>
+        <div class="detail-tags" style="justify-content:flex-start;">
+          <span class="tag">APP UI</span>
+          <span class="tag">交互设计</span>
+          <span class="tag">点单流程</span>
+          <span class="tag">小程序</span>
+          <span class="tag">用户研究</span>
+        </div>
+
+        <div class="vhs-feature-card">
+          <div class="vhs-feature-badge">核心场景</div>
+          <div class="vhs-feature-body">
+            <span class="vhs-feature-icon">&#9786;</span>
+            <div>
+              <strong>即时补给</strong>
+              <p>课间 3 分钟完成选品下单，夜间无需排队</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="detail-desc">
+          基于长沙高校自助贩卖机调研，redesign 点单界面。聚焦「即时补给」场景，重塑商品浏览、加入购物车与一键下单流程，降低操作路径、提升高频使用下的点单效率。
+        </p>
+      </div>
+
+      <div class="vhs-right">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <video
+              src="assets/videos/vending-launch.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              aria-label="校园自助贩卖机点单界面 - 启动页视频"
+            ></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="vd-contents" aria-label="章节索引">
+      <span class="vd-contents-label">Project Detail Structure</span>
+      <a href="#vd-hero"><b>01</b> Hero</a>
+      <a href="#vd-overview"><b>02</b> Overview</a>
+      <a href="#vd-challenge"><b>03</b> Challenge</a>
+      <a href="#vd-goal"><b>04</b> Goal</a>
+      <a href="#vd-flow"><b>05</b> Flow</a>
+      <a href="#vd-visual"><b>06</b> Direction</a>
+      <a href="#vd-color"><b>07</b> Color</a>
+      <a href="#vd-type"><b>08</b> Type</a>
+      <a href="#vd-components"><b>09</b> Components</a>
+      <a href="#vd-screens"><b>10</b> Screens</a>
+      <a href="#vd-interaction"><b>11</b> Interaction</a>
+      <a href="#vd-final"><b>12</b> Showcase</a>
+      <a href="#vd-value"><b>13</b> Value</a>
+      <a href="#vd-next"><b>14</b> Next</a>
+    </nav>
+
+    <!-- 02 Project Overview -->
+    <section class="vd-sec vd-reveal" id="vd-overview">
+      <div class="vd-sec-head">
+        <span class="vd-num">02</span>
+        <div>
+          <span class="vd-kicker">Project Overview</span>
+          <h2 class="vd-title">项目概览</h2>
+        </div>
+      </div>
+      <div class="vd-overview-grid">
+        <div>
+          <p class="vd-desc">
+            这是一个面向高校校园场景的自助贩卖机点单界面 redesign。项目以「即时补给」为切入点，梳理扫码、浏览、加购、下单、取货反馈的关键链路，让高频用户在课间、夜间和高峰时段都能更快完成购买。
+          </p>
+          <div class="detail-meta" style="grid-template-columns: repeat(2, 1fr); margin-top: 20px;">
+            <div class="detail-meta-item">
+              <h4>角色</h4>
+              <p>UI / UX 设计</p>
+            </div>
+            <div class="detail-meta-item">
+              <h4>类型</h4>
+              <p>APP 点单界面</p>
+            </div>
+            <div class="detail-meta-item">
+              <h4>工具</h4>
+              <p>Figma / 小程序</p>
+            </div>
+            <div class="detail-meta-item">
+              <h4>产出</h4>
+              <p>交互稿 / 演示</p>
+            </div>
+          </div>
+          <div class="vd-stats">
+            <div class="vd-stat">
+              <b>3 分钟</b>
+              <span>课间完成选品下单</span>
+            </div>
+            <div class="vd-stat">
+              <b>5 步</b>
+              <span>从进入商品到提交订单</span>
+            </div>
+          </div>
+        </div>
+        <figure class="vd-overview-media">
+          <img src="assets/images/vending-order-phone.png?v=2" alt="校园自助贩卖机点单界面手机展示" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 Design Challenge -->
+    <section class="vd-sec vd-reveal" id="vd-challenge">
+      <div class="vd-sec-head">
+        <span class="vd-num">03</span>
+        <div>
+          <span class="vd-kicker">Design Challenge</span>
+          <h2 class="vd-title">设计挑战</h2>
+        </div>
+      </div>
+      <div class="vd-challenge-grid">
+        <article class="vd-card">
+          <span class="vd-badge">Challenge 01</span>
+          <h3>课间时间窗口短</h3>
+          <p>学生需要在 3 分钟内完成从选择、加购到结算的完整操作，任何多一步的跳转都会导致流失。</p>
+        </article>
+        <article class="vd-card">
+          <span class="vd-badge">Challenge 02</span>
+          <h3>商品信息识别成本高</h3>
+          <p>原有界面商品信息层级不清晰，价格、口味、库存与购买状态分散，用户需要反复确认。</p>
+        </article>
+        <article class="vd-card">
+          <span class="vd-badge">Challenge 03</span>
+          <h3>高峰与夜间场景压力</h3>
+          <p>教学楼下课高峰和夜间无人值守时段，操作流畅度、反馈清晰度直接影响使用信心。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 04 Design Goal -->
+    <section class="vd-sec vd-reveal" id="vd-goal">
+      <div class="vd-sec-head">
+        <span class="vd-num">04</span>
+        <div>
+          <span class="vd-kicker">Design Goal</span>
+          <h2 class="vd-title">设计目标</h2>
+        </div>
+      </div>
+      <div class="vd-goal-grid">
+        <article class="vd-card vd-card--dark">
+          <h3>更快下单</h3>
+          <p>收敛核心操作，让高频路径保持短、直、可预测。</p>
+        </article>
+        <article class="vd-card">
+          <h3>一眼识别</h3>
+          <p>商品名、口味、价格和加购状态采用统一视觉层级。</p>
+        </article>
+        <article class="vd-card">
+          <h3>场景可用</h3>
+          <p>兼容单手操作、夜间阅读和高峰时段高频点击。</p>
+        </article>
+        <article class="vd-card">
+          <h3>系统一致</h3>
+          <p>沉淀色彩、字体、组件与交互规范，便于后续扩展。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05 User Flow -->
+    <section class="vd-sec vd-reveal" id="vd-flow">
+      <div class="vd-sec-head">
+        <span class="vd-num">05</span>
+        <div>
+          <span class="vd-kicker">User Flow</span>
+          <h2 class="vd-title">用户流程</h2>
+        </div>
+      </div>
+      <p class="vd-desc">从扫码进入设备，到确认下单并取货，将真实校园消费动线压缩为可快速完成的核心路径。</p>
+      <div class="vd-flow">
+        <div class="vd-flow-step">
+          <b>01 扫码进入</b>
+          <span>定位当前机器，展示设备状态与推荐商品</span>
+        </div>
+        <span class="vd-flow-arrow">&#8594;</span>
+        <div class="vd-flow-step">
+          <b>02 选择分类</b>
+          <span>饮料 / 零食双分类，减少浏览噪音</span>
+        </div>
+        <span class="vd-flow-arrow">&#8594;</span>
+        <div class="vd-flow-step">
+          <b>03 加购商品</b>
+          <span>数量、价格、库存反馈同步更新</span>
+        </div>
+        <span class="vd-flow-arrow">&#8594;</span>
+        <div class="vd-flow-step">
+          <b>04 一键下单</b>
+          <span>底部购物车常驻，合计实时可见</span>
+        </div>
+        <span class="vd-flow-arrow">&#8594;</span>
+        <div class="vd-flow-step">
+          <b>05 取货反馈</b>
+          <span>下单成功提示清晰，减少二次确认成本</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Visual Direction -->
+    <section class="vd-sec vd-reveal" id="vd-visual">
+      <div class="vd-sec-head">
+        <span class="vd-num">06</span>
+        <div>
+          <span class="vd-kicker">Visual Direction</span>
+          <h2 class="vd-title">视觉方向</h2>
+        </div>
+      </div>
+      <div class="vd-direction-grid">
+        <div>
+          <p class="vd-desc">
+            整体视觉围绕「自然、温暖、简洁、轻消费」展开。橄榄绿承担品牌识别，暖白让内容保持轻盈，橙色只用于价格和购买行为，使高频操作在页面中一眼可见。
+          </p>
+          <div class="vd-keywords">
+            <span>自然</span>
+            <span>温暖</span>
+            <span>简洁</span>
+            <span>轻消费</span>
+            <span>高识别</span>
+          </div>
+        </div>
+        <figure class="vd-direction-media">
+          <img src="assets/images/vending-1.png" alt="贩卖机界面视觉方向展示" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- 07 Color System -->
+    <section class="vd-sec vd-reveal" id="vd-color">
+      <div class="vd-sec-head">
+        <span class="vd-num">07</span>
+        <div>
+          <span class="vd-kicker">Color System</span>
+          <h2 class="vd-title">色彩系统</h2>
+        </div>
+      </div>
+      <p class="vd-desc" style="margin-bottom: 20px;">品牌绿、暖白、橙色价格强调与咖啡棕场景辅助，构成统一且低干扰的消费感配色。</p>
+      <div class="ds-grid c4">
+        <div class="ds-card ds-color" style="--c:#6E7D48;">
+          <div class="ds-color-block"></div>
+          <div class="ds-color-meta">
+            <span class="ds-color-name">Primary 500</span>
+            <span class="ds-color-hex">#6E7D48</span>
+            <span class="ds-color-use">主按钮、选中状态、品牌识别</span>
+          </div>
+        </div>
+        <div class="ds-card ds-color" style="--c:#3E4528;">
+          <div class="ds-color-block"></div>
+          <div class="ds-color-meta">
+            <span class="ds-color-name">Primary 700</span>
+            <span class="ds-color-hex">#3E4528</span>
+            <span class="ds-color-use">深色 Header、启动页</span>
+          </div>
+        </div>
+        <div class="ds-card ds-color" style="--c:#F1F3EE;">
+          <div class="ds-color-block"></div>
+          <div class="ds-color-meta">
+            <span class="ds-color-name">Surface</span>
+            <span class="ds-color-hex">#F1F3EE</span>
+            <span class="ds-color-use">浅色卡片、功能区域</span>
+          </div>
+        </div>
+        <div class="ds-card ds-color" style="--c:#E0780A;">
+          <div class="ds-color-block"></div>
+          <div class="ds-color-meta">
+            <span class="ds-color-name">Orange 500</span>
+            <span class="ds-color-hex">#E0780A</span>
+            <span class="ds-color-use">价格、CTA、购买操作</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Typography -->
+    <section class="vd-sec vd-reveal" id="vd-type">
+      <div class="vd-sec-head">
+        <span class="vd-num">08</span>
+        <div>
+          <span class="vd-kicker">Typography</span>
+          <h2 class="vd-title">字体层级</h2>
+        </div>
+      </div>
+      <p class="vd-desc" style="margin-bottom: 20px;">中文标题偏粗、正文清晰、价格突出，形成「标题 &gt; 商品名 &gt; 描述 &gt; 价格」的阅读顺序。</p>
+      <div class="ds-grid c3">
+        <div class="ds-card ds-type-card">
+          <span class="ds-type-sample" style="font-size:32px;font-weight:800;">校园贩卖机</span>
+          <div class="ds-type-meta"><b>Display</b><br />32px / 800 · 页面核心标题</div>
+        </div>
+        <div class="ds-card ds-type-card">
+          <span class="ds-type-sample" style="font-size:24px;font-weight:800;">冰美式</span>
+          <div class="ds-type-meta"><b>H1</b><br />24px / 800 · 页面 / 商品标题</div>
+        </div>
+        <div class="ds-card ds-type-card">
+          <span class="ds-type-sample" style="font-size:18px;font-weight:700;">经典冰酿</span>
+          <div class="ds-type-meta"><b>H3</b><br />18px / 700 · 卡片标题</div>
+        </div>
+        <div class="ds-card ds-type-card">
+          <span class="ds-type-sample" style="font-size:16px;font-weight:500;">鲜榨橙汁，维C满满</span>
+          <div class="ds-type-meta"><b>Body L</b><br />16px / 500 · 重要正文</div>
+        </div>
+        <div class="ds-card ds-type-card">
+          <span class="ds-type-sample" style="font-size:14px;font-weight:400;">教学楼 · 2 号机</span>
+          <div class="ds-type-meta"><b>Body M</b><br />14px / 400 · 普通正文</div>
+        </div>
+        <div class="ds-card ds-type-card">
+          <span class="ds-type-sample" style="font-size:24px;font-weight:800;color:#E0780A;">¥8</span>
+          <div class="ds-type-meta"><b>Price</b><br />24px / 800 · 商品价格</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 UI Components -->
+    <section class="vd-sec vd-reveal" id="vd-components">
+      <div class="vd-sec-head">
+        <span class="vd-num">09</span>
+        <div>
+          <span class="vd-kicker">UI Components</span>
+          <h2 class="vd-title">核心组件</h2>
+        </div>
+      </div>
+      <p class="vd-desc" style="margin-bottom: 20px;">按钮、商品卡、底部导航与弹窗反馈统一采用圆角、绿橙双色和稳定间距，保证高频操作具有一致的辨识度。</p>
+      <div class="vd-component-grid">
+        <div class="ds-card">
+          <p class="ds-card-title">Button / Quantity</p>
+          <div class="ds-comp-row">
+            <span class="ds-btn ds-btn-primary">立即结算</span>
+            <span class="ds-btn ds-btn-accent">去下单</span>
+          </div>
+          <div class="ds-comp-row" style="margin-top:14px;">
+            <span class="ds-icon-btn">+</span>
+            <span class="ds-qty"><button>−</button><span>1</span><button>+</button></span>
+          </div>
+          <!-- 茉莉系列 Banner -->
+          <div class="ds-banner-card">
+            <div class="ds-banner-inner">
+              <div class="ds-banner-text">
+                <strong>茉莉系列</strong>
+                <small>惊喜上市！</small>
+              </div>
+              <button class="ds-banner-btn">立即下单 →</button>
+              <div class="ds-banner-icon">☕</div>
+            </div>
+          </div>
+          <!-- Icon Style 网格 -->
+          <div class="ds-icon-grid ds-icon-grid--sm">
+            <div class="ds-icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="#6E7D48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="ds-icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="#6E7D48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-2 11H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></div>
+            <div class="ds-icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="#6E7D48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg></div>
+            <div class="ds-icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="#6E7D48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+            <div class="ds-icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="#6E7D48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div>
+            <div class="ds-icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="#6E7D48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="ds-icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="#6E7D48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68V3.5a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+            <div class="ds-icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="#6E7D48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">Product Card</p>
+          <div class="ds-product-row">
+            <div class="ds-product">
+              <div class="img"><span class="ph">🧊</span></div>
+              <div class="info">
+                <div class="pname">冰美式</div>
+                <div class="pdesc">经典冰酿 · 现磨咖啡豆</div>
+                <div class="pfoot"><span class="pprice">¥8</span><span class="padd">+</span></div>
+              </div>
+            </div>
+            <div class="ds-product">
+              <div class="img"><span class="ph">☕</span></div>
+              <div class="info">
+                <div class="pname">美式咖啡</div>
+                <div class="pdesc">大师亲研 · 甄选 IIAC 金奖配方</div>
+                <div class="pfoot"><span class="pprice">¥4</span><span class="padd">+</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">Bottom Navigation</p>
+          <div class="ds-bottom-nav">
+            <span class="ds-nav-item active"><span class="ic">🏠</span>首页</span>
+            <span class="ds-nav-item"><span class="ic">📋</span>订单</span>
+            <span class="ds-nav-item"><span class="ic">👤</span>我的</span>
+          </div>
+          <p class="ds-nav-note">底部导航保持 3 个核心入口，减少低价值页面切换。</p>
+        </div>
+        <div class="ds-card">
+          <p class="ds-card-title">Dialog / Toast</p>
+          <div class="vp-ds-dialog-mock" style="margin-top:0;">
+            <div class="vp-ds-dialog-inner">
+              <div class="vp-ds-dialog-title">下单确认</div>
+              <p class="vp-ds-dialog-text">已选 <strong>3</strong> 件商品，合计 <strong>¥23</strong>。确认提交订单？</p>
+              <div class="vp-ds-dialog-actions">
+                <button class="vp-ds-dialog-btn vp-ds-dialog-btn--cancel">取消</button>
+                <button class="vp-ds-dialog-btn vp-ds-dialog-btn--ok">确认下单</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ds-card" style="grid-column:1 / -1;">
+          <p class="ds-card-title">完整 UI Design System</p>
+          <p class="vd-desc" style="margin-bottom: 6px;">
+            这套规范已整理为独立项目页面，按 18 个小卡片区块展示色彩、字体、间距、圆角、按钮、导航、图标、商品卡、搜索、分类、Banner、购物车、个人中心、二维码与图层体系。
+          </p>
+          <a class="vd-ds-link" href="vending-design-system.html">打开 UI 设计规范 &#8594;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 Core Screens -->
+    <section class="vd-sec vd-reveal" id="vd-screens">
+      <div class="vd-sec-head">
+        <span class="vd-num">10</span>
+        <div>
+          <span class="vd-kicker">Core Screens</span>
+          <h2 class="vd-title">核心界面</h2>
+        </div>
+      </div>
+      <p class="vd-desc" style="margin-bottom: 20px;">商品列表、购物车、分类目录与设备定位等核心页面，支撑完整点单链路。</p>
+      <div class="vd-screen-grid">
+        <figure class="vd-screen-card">
+          <img src="assets/images/vending-prototype/01-home.png" alt="贩卖机首页界面" />
+          <figcaption>首页 · 设备状态与快捷入口</figcaption>
+        </figure>
+        <figure class="vd-screen-card">
+          <img src="assets/images/vending-prototype/00-product-list.png" alt="贩卖机二维码界面" />
+          <figcaption>二维码 · 积分与扫码</figcaption>
+        </figure>
+        <figure class="vd-screen-card">
+          <img src="assets/images/vending-prototype/02-cart.png" alt="贩卖机购物车界面" />
+          <figcaption>购物车 · 数量与合计</figcaption>
+        </figure>
+        <figure class="vd-screen-card">
+          <img src="assets/images/vending-prototype/07-catalog.png" alt="贩卖机分类目录界面" />
+          <figcaption>分类目录 · 商品浏览</figcaption>
+        </figure>
+        <figure class="vd-screen-card">
+          <img src="assets/images/vending-prototype/03-card.png" alt="贩卖机会员卡界面" />
+          <figcaption>会员卡 · 权益入口</figcaption>
+        </figure>
+        <figure class="vd-screen-card">
+          <img src="assets/images/vending-prototype/08-location-home.png" alt="贩卖机定位界面" />
+          <figcaption>定位 · 附近机器</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 11 Interaction Details -->
+    <section class="vd-sec vd-reveal" id="vd-interaction">
+      <div class="vd-sec-head">
+        <span class="vd-num">11</span>
+        <div>
+          <span class="vd-kicker">Interaction Details</span>
+          <h2 class="vd-title">交互细节</h2>
+        </div>
+      </div>
+      <p class="vd-interaction-note">
+        下方是可交互点单原型：点击商品右侧 + 即可加购，购物车与合计实时更新。通过即时反馈模拟真实点单体验。
+      </p>
+      <div class="vp-wrapper">
+        <div class="vp-sidebar vp-sidebar--left">
+          <div class="vp-ds-card vp-ds-card--lg">
+            <div class="vp-ds-card-head">
+              <span class="vp-ds-label">UI Components</span>
+              <span class="vp-ds-dots"><i></i><i></i></span>
+            </div>
+            <div class="vp-ds-comp-body">
+              <div class="vp-ds-comp-row">
+                <button class="vp-ds-pill vp-ds-pill--ghost">Hover</button>
+                <button class="vp-ds-pill vp-ds-pill--ghost" style="opacity:.5">−</button>
+              </div>
+              <div class="vp-ds-comp-row">
+                <button class="vp-ds-pill vp-ds-pill--solid">去下单</button>
+              </div>
+              <div class="vp-ds-comp-row">
+                <button class="vp-ds-round">+</button>
+                <div class="vp-ds-track"><div class="vp-ds-track-fill"></div></div>
+                <button class="vp-ds-round">+</button>
+              </div>
+              <div class="vp-ds-comp-row">
+                <button class="vp-ds-round">+</button>
+                <div class="vp-ds-track"><div class="vp-ds-track-fill" style="width:60%"></div></div>
+              </div>
+              <div class="vp-ds-comp-row">
+                <button class="vp-ds-pill vp-ds-pill--ghost" style="width:80px"></button>
+                <button class="vp-ds-pill vp-ds-pill--ghost" style="width:50px;opacity:.35"></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="vp-ds-card vp-ds-card--lg">
+            <div class="vp-ds-card-head">
+              <span class="vp-ds-label">Dialog / Toast</span>
+              <span class="vp-ds-dots"><i></i><i></i></span>
+            </div>
+            <div class="vp-ds-dialog-mock">
+              <div class="vp-ds-dialog-inner">
+                <div class="vp-ds-dialog-title">下单确认</div>
+                <p class="vp-ds-dialog-text">已选 <strong>3</strong> 件商品，合计 <strong>¥23</strong>。确认提交订单？</p>
+                <div class="vp-ds-dialog-actions">
+                  <button class="vp-ds-dialog-btn vp-ds-dialog-btn--cancel">取消</button>
+                  <button class="vp-ds-dialog-btn vp-ds-dialog-btn--ok">确认下单</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vp-ds-card vp-ds-card--lg">
+            <div class="vp-ds-card-head">
+              <span class="vp-ds-label">Design Tokens</span>
+              <span class="vp-ds-dots"><i></i><i></i></span>
+            </div>
+            <div class="vp-ds-token-grid">
+              <div class="vp-ds-token-colors">
+                <div class="vp-ds-tc" style="background:#6E7D48;color:#fff"><b>Primary</b><em>#6E7D48</em></div>
+                <div class="vp-ds-tc" style="background:#3E4528;color:#fff"><b>Dark</b><em>#3E4528</em></div>
+                <div class="vp-ds-tc" style="background:#F1F3EE;color:#555"><b>Surface</b><em>#F1F3EE</em></div>
+                <div class="vp-ds-tc" style="background:#fff;border:1px solid #e6e7e1;color:#888"><b>BG</b><em>#F7F8F5</em></div>
+              </div>
+              <div class="vp-ds-token-type">
+                <div class="vp-ds-tt-line"><span class="vp-ds-tt-txt" style="font-size:16px;font-weight:800;">校园贩卖机</span><code>18px · 800</code></div>
+                <div class="vp-ds-tt-line"><span class="vp-ds-tt-txt" style="font-size:14px;font-weight:700;">冰美式</span><code>14px · 700</code></div>
+                <div class="vp-ds-tt-line"><span class="vp-ds-tt-txt" style="font-size:12px;color:#787B71;">经典冰酿</span><code>12px · 500</code></div>
+                <div class="vp-ds-tt-line"><span class="vp-ds-tt-txt" style="font-size:14px;font-weight:800;color:#6E7D48;">¥8</span><code>14px · 800</code></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vp-phone-container">
+          <div class="vp-phone-frame">
+            <!-- 状态栏 -->
+            <div class="vp-statusbar">
+              <span class="vp-time">9:41</span>
+              <div class="vp-status-icons">
+                <svg class="vp-ic-signal" viewBox="0 0 18 12" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="7" rx="0.5"/><rect x="10" y="2" width="3" height="10" rx="0.5"/><rect x="15" y="0" width="3" height="12" rx="0.5" opacity="0.35"/></svg>
+                <svg class="vp-ic-wifi" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true"><path d="M8 11.2a1 1 0 100-2 1 1 0 000 2z"/><path d="M3.5 7.8a6.4 6.4 0 019 0l-1.1 1.1a4.8 4.8 0 00-6.8 0L3.5 7.8z" opacity="0.85"/><path d="M0.7 5a10 10 0 0114.6 0l-1.1 1.1a8.4 8.4 0 00-12.4 0L0.7 5z" opacity="0.6"/></svg>
+                <svg class="vp-ic-battery" viewBox="0 0 26 12" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="22" height="11" rx="2.5" stroke="currentColor" stroke-width="1" opacity="0.4"/><rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="2" height="4" rx="1" fill="currentColor" opacity="0.4"/></svg>
+              </div>
+            </div>
+
+            <!-- App 内容区 —— 完整点单首页（图#4） -->
+            <div class="vp-app vp-app--home">
+              <!-- 问候头 -->
+              <div class="vp-home-header">
+                <div class="vp-home-greet">
+                  <h3>嗨咯，李娜！</h3>
+                  <p>早上好，祝你有美好的一天。</p>
+                </div>
+                <button class="vp-home-bell" aria-label="通知">
+                  <svg viewBox="0 0 20 22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 2a6 6 0 016 6v4.5a3 3 0 01-6 0V8a6 6 0 016-6z" stroke-linecap="round"/><path d="M4 14a6 6 0 0112 0" stroke-linecap="round"/><circle cx="10" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>
+                  <span class="vp-bell-dot"></span>
+                </button>
+              </div>
+
+              <!-- 会员栏 -->
+              <div class="vp-member-bar">
+                <div class="vp-member-item">
+                  <span class="vp-member-icon">🎫</span>
+                  <div><small>会员</small><strong>Lv1</strong></div>
+                </div>
+                <div class="vp-member-item">
+                  <span class="vp-member-icon">🪙</span>
+                  <div><small>吃货豆</small><strong>200</strong></div>
+                </div>
+                <div class="vp-member-item">
+                  <span class="vp-member-icon">🎟️</span>
+                  <div><small>优惠券</small><strong>2</strong></div>
+                </div>
+              </div>
+
+              <!-- 搜索框 -->
+              <div class="vp-search-bar">
+                <svg class="vp-search-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="5"/><path d="M12 12l4 4" stroke-linecap="round"/></svg>
+                <input type="text" placeholder="寻找最近的门店" readonly />
+              </div>
+
+              <!-- 快捷入口 -->
+              <div class="vp-quick-actions">
+                <button class="vp-quick-btn">
+                  <span class="vp-quick-ic">🥤</span>
+                  <span>即时取单</span>
+                </button>
+                <div class="vp-quick-div"></div>
+                <button class="vp-quick-btn">
+                  <span class="vp-quick-ic">🛵</span>
+                  <span>预约点单</span>
+                </button>
+              </div>
+
+              <!-- 今日优惠 Banner -->
+              <div class="vp-banner">
+                <div class="vp-banner-text">
+                  <span class="vp-banner-tag">今日优惠</span>
+                  <strong>茉莉系列</strong>
+                  <em>惊喜 上市！</em>
+                  <span class="vp-banner-link">立即下单 →</span>
+                </div>
+                <div class="vp-banner-img">🧋</div>
+              </div>
+
+              <!-- 猜你喜欢 -->
+              <div class="vp-section-head">
+                <strong>猜你喜欢</strong>
+                <span class="vp-section-more">查看全部 →</span>
+              </div>
+              <div class="vp-product-grid">
+                <div class="vp-prod-card">
+                  <div class="vp-prod-img" style="background:linear-gradient(145deg,#5c4033,#3e2723)">
+                    <div class="vp-prod-fav">♡</div>
+                    <span class="vp-prod-emoji">☕</span>
+                    <span class="vp-prod-badge">经典浓郁</span>
+                  </div>
+                  <div class="vp-prod-info">
+                    <b>美式咖啡</b>
+                    <p>大师亲研，臻选IIAC金奖配方</p>
+                  </div>
+                </div>
+                <div class="vp-prod-card">
+                  <div class="vp-prod-img" style="background:linear-gradient(145deg,#1a3a2f,#0d261c)">
+                    <div class="vp-prod-fav">♡</div>
+                    <span class="vp-prod-emoji">🧋</span>
+                    <span class="vp-prod-badge">经典浓郁</span>
+                  </div>
+                  <div class="vp-prod-info">
+                    <b>拿铁咖啡</b>
+                    <p>原创爆款</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 底部导航 -->
+            <div class="vp-bottom-nav">
+              <div class="vp-nav-item vp-nav-item--active">
+                <svg viewBox="0 0 22 22" fill="currentColor"><path d="M11 3L3 10h2v8h4v-5h4v5h4v-8h2L11 3z"/></svg>
+                <span>首页</span>
+              </div>
+              <div class="vp-nav-item">
+                <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2zM3 7v10a2 2 0 002 2" stroke-linecap="round"/></svg>
+                <span>购物车</span>
+              </div>
+              <div class="vp-nav-item vp-nav-item--scan">
+                <div class="vp-scan-btn">
+                  <svg viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 4h4M18 4h-4M4 18v-4M18 18v-4M4 4v4M18 4v4M4 18H4m14 0h0M4 18h4m10 0h4" stroke-linecap="round"/><path d="M8 8l6 6M14 8l-6 6" stroke-linecap="round"/></svg>
+                </div>
+                <span>扫码</span>
+              </div>
+              <div class="vp-nav-item">
+                <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="7" r="4"/><path d="M5 21v-1a6 6 0 0112 0v1" stroke-linecap="round"/></svg>
+                <span>我的</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vp-sidebar vp-sidebar--right">
+          <div class="vp-ds-card vp-ds-card--lg">
+            <div class="vp-ds-card-head">
+              <span class="vp-ds-label">Navigation</span>
+              <span class="vp-ds-dots"><i></i><i></i></span>
+            </div>
+            <div class="vp-ds-nav-mock">
+              <div class="vp-ds-nav-bar">
+                <div class="vp-ds-navi"><span class="vp-ds-navi-ic">🏠</span><span class="vp-ds-navi-lbl">首页</span></div>
+                <div class="vp-ds-navi"><span class="vp-ds-navi-ic">📋</span><span class="vp-ds-navi-lbl">我的</span></div>
+                <div class="vp-ds-navi vp-ds-navi--center"><span class="vp-ds-navi-ic">＋</span></div>
+                <div class="vp-ds-navi"><span class="vp-ds-navi-ic">🕐</span><span class="vp-ds-navi-lbl">订单</span></div>
+                <div class="vp-ds-navi"><span class="vp-ds-navi-ic">👤</span><span class="vp-ds-navi-lbl">我的</span></div>
+              </div>
+              <div class="vp-ds-nav-mini">
+                <span>🏠</span><span>📅</span><span>🕐</span><span>😊</span><span>📦</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="vp-ds-card vp-ds-card--lg">
+            <div class="vp-ds-card-head">
+              <span class="vp-ds-label">Data Overview</span>
+              <span class="vp-ds-dots"><i></i><i></i></span>
+            </div>
+            <div class="vp-ds-data-grid">
+              <div class="vp-ds-data-cell">
+                <div class="vp-ds-data-top"><strong>今日订单</strong><button class="vp-ds-plus-sm">+</button></div>
+                <span class="vp-ds-data-val">128</span>
+              </div>
+              <div class="vp-ds-data-cell">
+                <div class="vp-ds-data-top"><strong>营收金额</strong><button class="vp-ds-plus-sm">+</button></div>
+                <span class="vp-ds-data-val" style="color:#c4c6be;">¥ 960</span>
+              </div>
+              <div class="vp-ds-data-cell">
+                <div class="vp-ds-data-top"><strong>转化率</strong><button class="vp-ds-plus-sm">+</button></div>
+                <span class="vp-ds-data-val">42%</span>
+              </div>
+              <div class="vp-ds-data-cell">
+                <div class="vp-ds-data-top"><strong>复购率</strong><button class="vp-ds-plus-sm">+</button></div>
+                <span class="vp-ds-data-val" style="color:#c4c6be;">68%</span>
+              </div>
+            </div>
+            <div class="vp-ds-tabs-row">
+              <span class="vp-ds-tab-pill vp-ds-tab-pill--on">今日</span>
+              <span class="vp-ds-tab-pill">本周</span>
+              <span class="vp-ds-tab-pill">本月</span>
+            </div>
+          </div>
+
+          <div class="vp-ds-card vp-ds-card--lg">
+            <div class="vp-ds-card-head">
+              <span class="vp-ds-label">Product Card</span>
+              <span class="vp-ds-dots"><i></i><i></i></span>
+            </div>
+            <div class="vp-ds-prod-showcase">
+              <div class="vp-ds-prod-card">
+                <div class="vp-ds-pc-icon" style="background:linear-gradient(135deg,#a8d5ba,#8bc4a0)">🧊</div>
+                <div class="vp-ds-pc-body">
+                  <b>冰美式</b>
+                  <p>经典冰酿 · 现磨咖啡豆</p>
+                  <em>¥8</em>
+                </div>
+                <button class="vp-ds-round-btn">+</button>
+              </div>
+              <div class="vp-ds-prod-card">
+                <div class="vp-ds-pc-icon" style="background:linear-gradient(135deg,#e8f0e4,#d4e2cc)">☕</div>
+                <div class="vp-ds-pc-body">
+                  <b>茉莉系列</b>
+                  <p>惊喜上市，清新花香回归</p>
+                  <em>¥ 9.00</em>
+                </div>
+                <button class="vp-ds-round-btn">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vp-toast" id="vpToast"></div>
+      </div>
+    </section>
+
+    <!-- 12 Final Showcase -->
+    <section class="vd-sec vd-reveal" id="vd-final">
+      <div class="vd-sec-head">
+        <span class="vd-num">12</span>
+        <div>
+          <span class="vd-kicker">Final Showcase</span>
+          <h2 class="vd-title">最终展示</h2>
+        </div>
+      </div>
+      <p class="vd-desc" style="margin-bottom: 28px;">10 个核心界面完整覆盖从点单、支付到个人管理的全链路体验。</p>
+      <div class="vd-screens-wall">
+        <!-- 背景矩阵：8 张 -->
+        <div class="vd-screens-grid">
+          <div class="vd-screen-item"><img src="assets/images/vending-screens/welcome.png" alt="欢迎页" loading="lazy"></div>
+          <div class="vd-screen-item"><img src="assets/images/vending-screens/home-simple.png" alt="首页简洁版" loading="lazy"></div>
+          <div class="vd-screen-item"><img src="assets/images/vending-screens/location.png" alt="定位点单" loading="lazy"></div>
+          <div class="vd-screen-item"><img src="assets/images/vending-screens/category.png" alt="分类搜索" loading="lazy"></div>
+          <div class="vd-screen-item"><img src="assets/images/vending-screens/qrcode.png" alt="二维码" loading="lazy"></div>
+          <div class="vd-screen-item"><img src="assets/images/vending-screens/profile.png" alt="个人简介" loading="lazy"></div>
+          <div class="vd-screen-item"><img src="assets/images/vending-screens/edit-profile.png" alt="修改简介" loading="lazy"></div>
+          <div class="vd-screen-item"><img src="assets/images/vending-screens/card.png" alt="卡片管理" loading="lazy"></div>
+        </div>
+        <!-- 前景焦点：首页 + 购物车 -->
+        <div class="vd-screens-focus">
+          <div class="vd-screen-focus-item vd-screen-focus-item--main">
+            <div class="vd-phone-bezel">
+              <div class="vd-phone-notch"></div>
+              <img src="assets/images/vending-screens/home.png" alt="首页主界面">
+            </div>
+          </div>
+          <div class="vd-screen-focus-item vd-screen-focus-item--sub">
+            <div class="vd-phone-bezel">
+              <div class="vd-phone-notch"></div>
+              <img src="assets/images/vending-screens/cart.png" alt="购物车">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 Design Value -->
+    <section class="vd-sec vd-reveal" id="vd-value">
+      <div class="vd-sec-head">
+        <span class="vd-num">13</span>
+        <div>
+          <span class="vd-kicker">Design Value</span>
+          <h2 class="vd-title">设计价值</h2>
+        </div>
+      </div>
+      <div class="vd-value-grid">
+        <article class="vd-card">
+          <h3>缩短路径</h3>
+          <p>把加购、合计和下单收敛到同一操作闭环，减少课间场景下的决策时间。</p>
+        </article>
+        <article class="vd-card">
+          <h3>统一语言</h3>
+          <p>色彩、字体、组件与状态反馈形成一致系统，降低后续页面扩展成本。</p>
+        </article>
+        <article class="vd-card">
+          <h3>场景可信</h3>
+          <p>从高峰排队到夜间无人值守，都以清晰的即时反馈支撑用户完成购买。</p>
+        </article>
+        <article class="vd-card">
+          <h3>可演示性</h3>
+          <p>可交互原型让设计逻辑可以被真实点击和验证，方便与开发、业务对齐。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 14 Next Project -->
+    <section class="vd-sec vd-reveal" id="vd-next">
+      <div class="vd-sec-head">
+        <span class="vd-num">14</span>
+        <div>
+          <span class="vd-kicker">Next Project</span>
+          <h2 class="vd-title">下一个项目</h2>
+        </div>
+      </div>
+      <div class="vd-next">
+        <div>
+          <h3>UI 设计与交互作品展示</h3>
+          <p>继续浏览小程序购物、界面规范与更多交互表达，查看下一组作品。</p>
+        </div>
+        <a href="project-toyverse.html">查看项目 &#8594;</a>
+      </div>
+      <nav class="project-nav" style="margin-top: 28px;">
+        <a href="project-e-teach.html" class="project-nav-item">
+          <span class="project-nav-label">&#8592; 上一个项目</span>
+          <span class="project-nav-title">智慧课堂</span>
+        </a>
+        <a href="project-toyverse.html" class="project-nav-item next">
+          <span class="project-nav-label">下一个项目 &#8594;</span>
+          <span class="project-nav-title">UI Design Showcase</span>
+        </a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="footer-cta" style="margin-top: 0;">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">Let's Work Together</h2>
+      <p class="footer-cta-desc">继续浏览更多作品，或直接与我开始合作。</p>
+      <div class="footer-cta-contacts">
+        <a href="all-projects.html">查看全部作品</a>
+        <a href="index.html#contact">联系我</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var revealEls = document.querySelectorAll('.vd-reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(function(e) { e.classList.add('is-in'); });
+      } else {
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(en) {
+            if (en.isIntersecting) {
+              en.target.classList.add('is-in');
+              io.unobserve(en.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        revealEls.forEach(function(e) { io.observe(e); });
+      }
+
+      var bar = document.getElementById('vd-progress');
+      if (bar) {
+        function updateProgress() {
+          var h = document.documentElement;
+          var sc = h.scrollTop || document.body.scrollTop;
+          var sh = (h.scrollHeight || document.body.scrollHeight) - h.clientHeight;
+          bar.style.width = sh > 0 ? Math.min(100, Math.max(0, (sc / sh) * 100)) + '%' : '0%';
+        }
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
+      }
+    })();
+  </script>
+  <!-- 点单首页原型（静态展示 + 微交互） -->
+  <script>
+    (function() {
+      // 底部导航切换高亮
+      document.querySelectorAll('.vp-nav-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+          document.querySelectorAll('.vp-nav-item').forEach(function(i) { i.classList.remove('vp-nav-item--active'); });
+          this.classList.add('vp-nav-item--active');
+        });
+      });
+      // 搜索框聚焦效果
+      var searchInput = document.querySelector('.vp-search-bar input');
+      if (searchInput) {
+        searchInput.addEventListener('focus', function() { this.parentElement.style.boxShadow = '0 0 0 2px #6E7D48, 0 4px 14px rgba(110,125,72,0.15)'; });
+        searchInput.addEventListener('blur', function() { this.parentElement.style.boxShadow = ''; });
+      }
+      // 收藏心切换
+      document.querySelectorAll('.vp-prod-fav').forEach(function(heart) {
+        heart.addEventListener('click', function() {
+          this.style.color = this.style.color === 'rgb(224, 120, 10)' ? '' : '#E0780A';
+          this.textContent = this.textContent === '♥' ? '♡' : '♥';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
