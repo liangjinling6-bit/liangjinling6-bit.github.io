@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>动效与 AIGC 视觉作品 | 梁金玲 Portfolio</title>
+  <meta name="description" content="动效与 AIGC 视觉作品 - 融合 AI 生成视觉与动态设计，探索科技与艺术的视觉表达。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .hm-section {
+      margin-bottom: var(--space-16);
+    }
+
+    .hm-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .hm-label {
+      flex: none;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-cyan);
+    }
+
+    .hm-note {
+      max-width: 720px;
+      color: var(--color-dark-text-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .hm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+
+    .hm-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(200, 215, 235, 0.45);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 12px 36px rgba(80, 100, 140, 0.10);
+    }
+
+    .hm-card h3 {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-dark-text);
+      margin-bottom: var(--space-3);
+    }
+
+    .hm-card p {
+      font-size: var(--text-sm);
+      color: var(--color-dark-text-secondary);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .hm-mock {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(200, 215, 235, 0.45);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 16px 44px rgba(80, 100, 140, 0.12);
+    }
+
+    .hm-sidebar {
+      border-radius: var(--radius-md);
+      background: #eef3fa;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hm-sidebar i {
+      display: block;
+      height: 10px;
+      border-radius: 999px;
+      background: #cbd7e8;
+    }
+
+    .hm-sidebar i:first-child {
+      width: 70%;
+      background: #2979ff;
+    }
+
+    .hm-sidebar i:nth-child(2),
+    .hm-sidebar i:nth-child(3) {
+      width: 85%;
+    }
+
+    .hm-main {
+      display: grid;
+      gap: 12px;
+    }
+
+    .hm-topbar {
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #dce7f6, #f2f6fb);
+    }
+
+    .hm-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .hm-cards i {
+      height: 76px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #eaf1fb, #f8fbff);
+      border: 1px solid rgba(41, 121, 255, 0.12);
+      animation: hmPulse 2.8s ease-in-out infinite;
+    }
+
+    .hm-cards i:nth-child(2) {
+      animation-delay: 0.35s;
+    }
+
+    .hm-cards i:nth-child(3) {
+      animation-delay: 0.7s;
+    }
+
+    .hm-chart {
+      height: 160px;
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(41, 121, 255, 0.22), rgba(41, 121, 255, 0.05)),
+        repeating-linear-gradient(0deg, transparent 0 28px, rgba(41, 121, 255, 0.10) 28px 30px);
+      border: 1px solid rgba(41, 121, 255, 0.14);
+    }
+
+    @keyframes hmPulse {
+      0%, 100% { transform: translateY(0); opacity: 0.85; }
+      50% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .hm-grid,
+      .hm-mock {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="page-dark">
+<div class="page-topbar">
+    <a class="page-back" href="all-projects.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">动效与 AIGC 视觉作品</span>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">梁金玲 &#183; Portfolio</a>
+      <nav class="nav">
+        <a href="index.html#works" class="nav-link">作品</a>
+        <a href="skills.html" class="nav-link">技能</a>
+        <a href="index.html#contact" class="nav-link">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <figure class="detail-hero">
+      <img src="assets/images/project-motion.png" alt="动效与 AIGC 视觉作品" />
+    </figure>
+
+    <header class="detail-header">
+      <p class="detail-label">PART.02 — 03 &#183; Motion &amp; AIGC</p>
+      <h1 class="detail-title">动效与 AIGC 视觉作品</h1>
+      <div class="detail-tags">
+        <span class="tag">动效设计</span>
+        <span class="tag">AIGC</span>
+        <span class="tag">动态海报</span>
+        <span class="tag">AI 生成视觉</span>
+      </div>
+      <p class="detail-desc">
+        融合 AI 生成视觉与动态设计语言，探索科技与艺术结合的全新视觉表达方式。作品涵盖 AI 生成插画、动态海报、视觉动效与实验性数字视觉创作，通过 Midjourney、Stable Diffusion 等 AIGC 工具与 After Effects 动效制作相结合，打造兼具未来感与艺术性的视觉作品。
+      </p>
+    </header>
+
+    <section class="detail-gallery cols-2" aria-label="动效作品展示">
+      <img src="assets/images/project-motion.png" alt="AIGC 视觉作品" />
+      <img src="assets/images/project-creative.png" alt="动态海报设计" />
+    </section>
+
+    <section class="detail-section">
+      <h2 class="detail-section-title">创作维度</h2>
+      <div class="detail-cards">
+        <div class="detail-card">
+          <h3 class="detail-card-title">AI 生成视觉</h3>
+          <p class="detail-card-text">运用 Midjourney、Stable Diffusion 等工具，结合精心设计的 prompt 与后期处理，生成高质量的概念视觉与艺术插画。</p>
+        </div>
+        <div class="detail-card">
+          <h3 class="detail-card-title">动态海报</h3>
+          <p class="detail-card-text">将静态海报赋予动态生命力，通过粒子、光影、文字动效等手法，创造沉浸式的动态视觉体验。</p>
+        </div>
+        <div class="detail-card">
+          <h3 class="detail-card-title">交互动效</h3>
+          <p class="detail-card-text">以 After Effects 为核心工具，设计界面过渡、微交互与品牌动效，提升数字产品的体验质感。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 首页动画设计拆解 -->
+    <section class="detail-section hm-section">
+      <div class="hm-head">
+        <span class="hm-label">Motion Analysis</span>
+        <h2 class="detail-section-title" style="text-align:left;margin:0;">首页动画设计拆解</h2>
+      </div>
+      <p class="hm-note">
+        该模块为外部首页动画案例拆解，用于沉淀动效设计方法，不展示为个人原创项目。核心思路：稳定的导航锚点 + 右侧内容区分层进入 + 数据模块渐进反馈。
+      </p>
+      <div class="hm-grid">
+        <article class="hm-card">
+          <h3>01 Layout Anchor</h3>
+          <p>左侧导航保持稳定，让用户始终知道自己在哪；动画集中在右侧内容区，避免整页晃动。</p>
+        </article>
+        <article class="hm-card">
+          <h3>02 Motion Hierarchy</h3>
+          <p>标题、数据卡片、图表依次进入，形成「先看结构，再看数据，最后看操作」的阅读顺序。</p>
+        </article>
+        <article class="hm-card">
+          <h3>03 Interaction Rhythm</h3>
+          <p>前 1.5 秒内容进入，2–2.5 秒局部细化，3 秒左右完成一次信息层级变化，最后收束稳定。</p>
+        </article>
+        <article class="hm-card">
+          <h3>04 Motion Language</h3>
+          <p>优先使用短距离位移、透明度变化和轻微缩放，节奏克制，动效服务于信息层级。</p>
+        </article>
+      </div>
+      <div class="hm-mock" aria-label="首页动画结构示意">
+        <div class="hm-sidebar">
+          <i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="hm-main">
+          <div class="hm-topbar"></div>
+          <div class="hm-cards"><i></i><i></i><i></i></div>
+          <div class="hm-chart"></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-nav">
+      <a href="all-projects.html#part23" class="project-nav-item">
+        <span class="project-nav-label">&#8592; 返回 PART.02 — 03</span>
+        <span class="project-nav-title">动效与 AIGC 视觉</span>
+      </a>
+      <a href="project-film.html" class="project-nav-item next">
+        <span class="project-nav-label">下一个项目 &#8594;</span>
+        <span class="project-nav-title">影像创作</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer-cta" style="margin-top: var(--space-24);">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">下一个项目更精彩</h2>
+      <p class="footer-cta-desc">继续浏览更多作品，或直接与我开始合作。</p>
+      <div class="footer-cta-contacts">
+        <a href="all-projects.html">查看全部作品</a>
+        <a href="index.html#contact">联系我</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
