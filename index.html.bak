@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>梁金玲 | UI 动效视觉设计师</title>
+  <meta name="description" content="梁金玲个人作品集 - UI 动效视觉设计师，专注品牌视觉、AIGC、动效设计与文化数字化传播。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 页头 -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">梁金玲</a>
+      <nav class="nav">
+        <a href="#works" class="nav-link">作品</a>
+        <a href="skills.html" class="nav-link">技能</a>
+        <a href="#about" class="nav-link">关于</a>
+        <a href="#contact" class="nav-link">联系</a>
+        <a href="mailto:2021450623@qq.com" class="btn btn-primary">联系我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero 全屏大图 -->
+    <section class="hero-fullscreen">
+      <div class="hero-fullscreen-image">
+        <img src="assets/images/portfolio-hero.png" alt="梁金玲作品集封面" />
+      </div>
+      <div class="hero-fullscreen-overlay"></div>
+      <div class="hero-fullscreen-content">
+        <p class="hero-fullscreen-label">Portfolio · 2026</p>
+        <h1 class="hero-fullscreen-title">梁金玲</h1>
+        <p class="hero-fullscreen-subtitle">AI UI Designer &#183; AI Product Designer &#183; Interaction Designer — 用 AI 驱动产品体验与创意落地</p>
+        <div class="hero-fullscreen-tags">
+          <span class="tag">AI Workflow</span>
+          <span class="tag">Product Design</span>
+          <span class="tag">UI / UX</span>
+          <span class="tag">Motion</span>
+          <span class="tag">AIGC</span>
+          <span class="tag">Visual Design</span>
+        </div>
+        <div class="hero-fullscreen-cta">
+          <a href="#works" class="btn btn-primary">查看作品</a>
+          <a href="all-projects.html" class="btn btn-outline">全部作品</a>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-hint-line"></div>
+      </div>
+    </section>
+
+    <!-- PART 导航 -->
+    <section class="part-nav">
+      <div class="container">
+        <p class="section-subtitle">Portfolio Categories</p>
+        <h2 class="section-title">作品分类</h2>
+        <div class="part-nav-grid">
+          <a href="all-projects.html#part01" class="part-nav-card">
+            <div class="part-nav-number">01</div>
+            <div class="part-nav-content">
+              <h3>产品体验设计</h3>
+              <p>教育产品、移动端产品、电商产品体验</p>
+            </div>
+          </a>
+          <a href="all-projects.html#part23" class="part-nav-card">
+            <div class="part-nav-number">02—03</div>
+            <div class="part-nav-content">
+              <h3>交互体验与 AI 创意</h3>
+              <p>IP 体验、动效实验、AIGC 视觉创作</p>
+            </div>
+          </a>
+          <a href="all-projects.html#part04" class="part-nav-card">
+            <div class="part-nav-number">04</div>
+            <div class="part-nav-content">
+              <h3>视觉探索</h3>
+              <p>文旅品牌、文化创意、影像叙事</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 专业能力 -->
+    <section class="section studio">
+      <div class="container">
+        <p class="section-subtitle">Approach</p>
+        <h2 class="section-title">我的设计方法</h2>
+        <div class="studio-grid">
+          <div class="studio-card reveal">
+            <div class="studio-number">01</div>
+            <h3>品牌策略</h3>
+            <p>从定位、受众、传播场景出发，帮助品牌建立清晰的视觉识别和叙事逻辑。</p>
+          </div>
+          <div class="studio-card reveal">
+            <div class="studio-number">02</div>
+            <h3>界面与体验</h3>
+            <p>将信息架构、交互节奏和视觉层级融合，打造更自然、更有辨识度的用体验。</p>
+          </div>
+          <div class="studio-card reveal">
+            <div class="studio-number">03</div>
+            <h3>动效表达</h3>
+            <p>用动效增强情绪和传播力，让静态设计产生更强的辨识度和记忆点。</p>
+          </div>
+          <div class="studio-card reveal">
+            <div class="studio-number">04</div>
+            <h3>内容延展</h3>
+            <p>把视觉资产延展到海报、短视频、社媒和品牌传播中，形成完整内容链路。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 设计流程 -->
+    <section class="section process">
+      <div class="container">
+        <p class="section-subtitle">Workflow</p>
+        <h2 class="section-title">设计流程</h2>
+        <div class="process-grid">
+          <div class="process-step reveal">
+            <div class="process-number">1</div>
+            <h3>需求诊断</h3>
+            <p>了解项目背景、企业诉求与目标受众，确认设计方向与成功标准。</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="process-number">2</div>
+            <h3>概念构思</h3>
+            <p>产出视觉方向、灵感板和草图方案，确保设计思路具备清晰表达与延展性。</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="process-number">3</div>
+            <h3>落地设计</h3>
+            <p>完成界面、海报、动效和内容资产的系统化设计与优化迭代。</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="process-number">4</div>
+            <h3>作品交付</h3>
+            <p>提供源文件、设计说明和传播建议，帮助项目顺利落地并持续迭代。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 精选项目 -->
+    <section id="works" class="section works">
+      <div class="container">
+        <p class="section-subtitle">Selected Works</p>
+        <h2 class="section-title">精选项目</h2>
+        <p class="works-intro">产品设计 &#183; UI/UX &#183; 交互动效 &#183; AI 创意 — 从需求洞察到 AI 辅助落地，呈现完整的设计能力闭环。</p>
+
+        <!-- PART 01 · 产品体验设计 -->
+        <div class="works-row">
+          <div class="works-part-head">
+            <span class="works-part-num">PART 01</span>
+            <div>
+              <h3 class="works-part-title">产品体验设计</h3>
+              <p class="works-part-en">Product Design</p>
+            </div>
+          </div>
+          <div class="works-grid">
+            <!-- 卡片 01 · 易教智慧课堂（多层 UI 主视觉） -->
+            <article class="work-card work-card--eteach reveal">
+              <a href="project-e-teach.html">
+                <div class="eteach-visual">
+                  <img class="eteach-main" src="assets/images/eteach-13.png" alt="易教智慧课堂 真实 UI 主视觉" />
+                  <div class="eteach-overlay">
+                    <img src="assets/images/eteach-18.png" alt="易教智慧课堂 界面细节" />
+                  </div>
+                </div>
+                <div class="eteach-body">
+                  <div class="work-card-tags">
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Design System</span>
+                  </div>
+                  <h3 class="work-card-title">易教智慧课堂</h3>
+                </div>
+              </a>
+            </article>
+
+            <!-- 卡片 02 · UI Design Showcase -->
+            <article class="work-card reveal">
+              <a href="project-ui.html">
+                <div class="work-card-image">
+                  <img src="assets/images/project-ui.png" alt="UI/UX 设计作品集" />
+                </div>
+              </a>
+              <div class="work-card-body">
+                <div class="work-card-tags">
+                  <span class="tag">UI Design</span>
+                  <span class="tag">UX</span>
+                  <span class="tag">Smart Home</span>
+                  <span class="tag">Mobile App</span>
+                </div>
+                <h3 class="work-card-title">UI Design Showcase &#183; 多场景界面设计</h3>
+                <p class="work-card-desc">涵盖智能家居控制、产品美妆、用户中心等多场景的 UI 设计体系，注重交互一致性与视觉层级。</p>
+              </div>
+            </article>
+
+            <!-- 卡片 03 · 动物成长乐园 -->
+            <article class="work-card reveal">
+              <a href="project-animal.html">
+                <div class="work-card-image">
+                  <img src="assets/images/project-animal.png" alt="动物成长乐园 IP 成长体验设计" />
+                </div>
+              </a>
+              <div class="work-card-body">
+                <div class="work-card-tags">
+                  <span class="tag">IP Design</span>
+                  <span class="tag">Gamification</span>
+                  <span class="tag">Motion Design</span>
+                  <span class="tag">Experience Design</span>
+                </div>
+                <h3 class="work-card-title">动物成长乐园 &#183; IP 成长体验设计</h3>
+                <p class="work-card-desc">通过 IP 角色体系、动态成长机制和花园养成系统，构建具有情感连接的游戏化产品体验。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- PART 02 — 03 · 交互体验与 AI 创意 -->
+        <div class="works-row">
+          <div class="works-part-head">
+            <span class="works-part-num">PART 02 — 03</span>
+            <div>
+              <h3 class="works-part-title">交互体验与 AI 创意</h3>
+              <p class="works-part-en">Interaction &amp; AI Creative</p>
+            </div>
+          </div>
+          <div class="works-grid">
+            <!-- 卡片 04 · Motion & AIGC -->
+            <article class="work-card reveal">
+              <a href="project-motion.html">
+                <div class="work-card-image">
+                  <img src="assets/images/project-motion.png" alt="Motion & AIGC 动效与 AI 视觉创作" />
+                </div>
+              </a>
+              <div class="work-card-body">
+                <div class="work-card-tags">
+                  <span class="tag">Motion Design</span>
+                  <span class="tag">AIGC</span>
+                  <span class="tag">Kinetic Typography</span>
+                  <span class="tag">Visual Experiment</span>
+                </div>
+                <h3 class="work-card-title">Motion &amp; AIGC &#183; 动效与 AI 视觉创作</h3>
+                <p class="work-card-desc">探索界面动效设计、AI 视觉生成、动态海报与视觉实验，将动态语言与 AI 创意融入设计表达。</p>
+              </div>
+            </article>
+
+            <!-- 卡片 05 · Creative Works -->
+            <article class="work-card reveal">
+              <a href="project-creative.html">
+                <div class="work-card-image">
+                  <img src="assets/images/project-creative.png" alt="Creative Works 文化创意与品牌视觉" />
+                </div>
+              </a>
+              <div class="work-card-body">
+                <div class="work-card-tags">
+                  <span class="tag">Brand Visual</span>
+                  <span class="tag">Poster Design</span>
+                  <span class="tag">IP Character</span>
+                  <span class="tag">Graphic Design</span>
+                </div>
+                <h3 class="work-card-title">Creative Works &#183; 品牌视觉与创意海报</h3>
+                <p class="work-card-desc">涵盖品牌视觉系统、中英文字体海报设计、IP 角色设计与文化创意综合探索。</p>
+              </div>
+            </article>
+
+            <!-- 卡片 06 · 文旅古镇游戏化系统 -->
+            <article class="work-card reveal">
+              <a href="project-town.html">
+                <div class="work-card-image">
+                  <img src="assets/images/project-town.png" alt="文旅古镇游戏化系统设计" />
+                </div>
+              </a>
+              <div class="work-card-body">
+                <div class="work-card-tags">
+                  <span class="tag">Service Design</span>
+                  <span class="tag">System Design</span>
+                  <span class="tag">Gamification</span>
+                  <span class="tag">Interaction</span>
+                </div>
+                <h3 class="work-card-title">文旅古镇 &#183; 游戏化系统设计</h3>
+                <p class="work-card-desc">针对古镇游客体验痛点，通过「赚金币—花金币」闭环打造沉浸式文旅互动体验，构建差异化竞争优势。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- PART 04 · 视觉探索 -->
+        <div class="works-row">
+          <div class="works-part-head">
+            <span class="works-part-num">PART 04</span>
+            <div>
+              <h3 class="works-part-title">视觉探索</h3>
+              <p class="works-part-en">Visual Experience</p>
+            </div>
+          </div>
+          <div class="works-grid">
+            <!-- 卡片 07 · 潮汕非遗文化传承 -->
+            <article class="work-card reveal">
+              <a href="project-chaoshan.html">
+                <div class="work-card-image">
+                  <img src="assets/images/project-chaoshan.png" alt="潮汕非遗文化传承宣传设计" />
+                </div>
+              </a>
+              <div class="work-card-body">
+                <div class="work-card-tags">
+                  <span class="tag">AIGC</span>
+                  <span class="tag">Cultural Heritage</span>
+                  <span class="tag">Visual Design</span>
+                  <span class="tag">Illustration</span>
+                </div>
+                <h3 class="work-card-title">潮汕非遗 &#183; 文化传承宣传设计</h3>
+                <p class="work-card-desc">以英歌舞、潮汕美食、文创周边为核心，用 AIGC 与数字插画重新诠释潮汕非遗文化的地域魅力。</p>
+              </div>
+            </article>
+
+            <!-- 卡片 08 · 影像创作 -->
+            <article class="work-card reveal">
+              <a href="project-film.html">
+                <div class="work-card-image">
+                  <img src="assets/images/project-film.png" alt="影像创作 擂茶短片与索尼广告" />
+                </div>
+              </a>
+              <div class="work-card-body">
+                <div class="work-card-tags">
+                  <span class="tag">Video</span>
+                  <span class="tag">Documentary</span>
+                  <span class="tag">Brand Ad</span>
+                  <span class="tag">Post-production</span>
+                </div>
+                <h3 class="work-card-title">影像创作 &#183; 擂茶短片 &#183; 索尼广告</h3>
+                <p class="work-card-desc">湖南非遗《擂茶》文化宣传短片（省级二等奖）+ 索尼相机品牌广告影像创作，覆盖纪录片与商业广告。</p>
+              </div>
+            </article>
+
+            <!-- 卡片 09 · 非遗数字化设计 -->
+            <article class="work-card reveal">
+              <a href="project-heritage.html">
+                <div class="work-card-image">
+                  <img src="assets/images/project-xilan.png" alt="非遗数字化设计 西兰卡普与民宿减塑" />
+                </div>
+              </a>
+              <div class="work-card-body">
+                <div class="work-card-tags">
+                  <span class="tag">Motion Graphics</span>
+                  <span class="tag">Heritage Digital</span>
+                  <span class="tag">After Effects</span>
+                  <span class="tag">Campaign Design</span>
+                </div>
+                <h3 class="work-card-title">非遗数字化 &#183; 西兰卡普 &#183; 民宿减塑</h3>
+                <p class="work-card-desc">西兰卡普非遗刺绣动态视觉设计 + 民宿减塑公益传播 campaign，用动态与创意推动文化与环保议题。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: var(--space-12);">
+          <a href="all-projects.html" class="btn btn-outline">查看全部作品</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 合作评价 -->
+    <section class="section testimonials">
+      <div class="container">
+        <p class="section-subtitle">Testimonials</p>
+        <h2 class="section-title">合作评价</h2>
+        <div class="testimonial-grid">
+          <blockquote class="testimonial-card reveal">
+            <p>“梁金玲的视觉表达很细致，既有品牌感，也有传播力。她能把传统文化元素转化成适合当代传播的语言，而且在细节上非常用心。”</p>
+            <footer>
+              <strong>项目方</strong>
+              <span>文化传播类项目</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card reveal">
+            <p>“她在界面设计和动效节奏上有很强的把控，能够让页面既有信息清晰度，也让观感更加有张力，协作体验很好。”</p>
+            <footer>
+              <strong>产品负责人</strong>
+              <span>教育科技项目</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card reveal">
+            <p>“从视觉风格到内容传播，都能看到她对品牌和受众的理解。每一次迭代都更贴近项目目标，也更有传播价值。”</p>
+            <footer>
+              <strong>合作团队</strong>
+              <span>品牌与视觉项目</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-avatar">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jinling&amp;backgroundColor=b6e3f4" alt="梁金玲头像" />
+          </div>
+          <div class="about-content">
+            <div class="about-stats">
+              <div class="stat">
+                <div class="stat-value">10+</div>
+                <div class="stat-label">设计项目</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">100K+</div>
+                <div class="stat-label">内容曝光</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">2</div>
+                <div class="stat-label">省级奖项</div>
+              </div>
+            </div>
+            <p class="about-text">
+              你好，我是梁金玲，一名 UI 动效视觉设计师。我专注于将品牌叙事、用户体验与动态视觉相结合，通过 AIGC、交互动效与影像语言，为文化传承、公益传播与数字化产品创造有温度的视觉体验。
+              <a href="#contact" class="about-link">欢迎与我联系 →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 联系页脚 -->
+  <footer id="contact" class="footer-cta">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">Let's Work Together</h2>
+      <p class="footer-cta-desc">期待与您合作，一起创造有影响力的设计作品。</p>
+      <div class="footer-cta-contacts">
+        <a href="mailto:2021450623@qq.com">2021450623@qq.com</a>
+        <span>18712315165</span>
+        <span>微信: 2145185</span>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
