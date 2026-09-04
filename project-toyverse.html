@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToyVerse · IP-driven Collectible Commerce | 梁金玲 Portfolio</title>
+<meta name="description" content="ToyVerse 潮玩 IP 电商体验设计 — 从原创角色到收藏级购物体验的完整 Case Study。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+
+<style>
+/* ================================================================
+   ToyVerse Case Study — Premium Product Design + Editorial
+   Design tokens extracted from real ToyVerse UI.
+   No glassmorphism overload. No meaningless cursor follow.
+   Big images. Big whitespace. Strong hierarchy.
+   ================================================================ */
+
+:root {
+  /* ── Brand Palette (from ToyVerse App) ── */
+  --tv-dark: #030213;
+  --tv-bg: #FAF8F5;
+  --tv-bg-alt: #F2EFE9;
+  --tv-white: #FFFFFF;
+  --tv-text: #1A1A1A;
+  --tv-text-secondary: #555;
+  --tv-text-muted: #8A8580;
+
+  --tv-teal: #2BB3C0;
+  --tv-teal-light: #46E0E6;
+  --tv-lavender: #B9A3E3;
+  --tv-pink: #F7A8C4;
+  --tv-coral: #FF9B6A;
+  --tv-coral-deep: #FF6B9D;
+  --tv-gold: #D4A574;
+  --tv-gold-light: #F7B731;
+  --tv-mint: #7DD3B8;
+  --tv-blue: #5B9BD5;
+
+  /* CTA gradient (from App buttons) */
+  --tv-cta-from: #FF9B6A;
+  --tv-cta-to: #FF6B9D;
+
+  /* Brand gradient (from ip-gallery header) */
+  --tv-brand-1: #2BB3C0;
+  --tv-brand-2: #B9A3E3;
+  --tv-brand-3: #F7A8C4;
+
+  /* Spacing */
+  --tv-section-pad: clamp(80px, 10vw, 140px);
+  --tv-container: 1200px;
+  --tv-gap: clamp(24px, 4vw, 48px);
+
+  /* Radius (from shadcn theme) */
+  --tv-rs: 10px;
+  --tv-rm: 16px;
+  --tv-rl: 22px;
+  --tv-rxl: 32px;
+
+  /* Shadows */
+  --tv-shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --tv-shadow-md: 0 4px 20px rgba(0,0,0,.07);
+  --tv-shadow-lg: 0 12px 40px rgba(0,0,0,.10);
+  --tv-shadow-phone: 0 30px 60px rgba(0,0,0,.18);
+}
+
+/* ── Reset & Base ── */
+.cs-page { background: var(--tv-bg); color: var(--tv-text); font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.cs-page * { box-sizing: border-box; }
+.cs-page img { display: block; max-width: 100%; height: auto; }
+
+/* ── Container ── */
+.cs-container { max-width: var(--tv-container); margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+.cs-wide { max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+
+/* ── Section Base ── */
+.cs-section { padding: var(--tv-section-pad) 0; position: relative; }
+.cs-section--alt { background: var(--tv-bg-alt); }
+.cs-section--compact { padding: clamp(42px, 5vw, 74px) 0; }
+.cs-section--dark { background: var(--tv-dark); color: #fff; }
+.cs-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--tv-coral); margin-bottom: 12px; display: inline-block;
+}
+.cs-section--dark .cs-label { color: var(--tv-coral); }
+.cs-title {
+  font-size: clamp(32px, 5vw, 56px); font-weight: 900; line-height: 1.08;
+  letter-spacing: -1.2px; margin-bottom: 16px;
+}
+.cs-subtitle {
+  font-size: clamp(16px, 2vw, 22px); font-weight: 400; color: var(--tv-text-muted);
+  line-height: 1.5; max-width: 640px;
+}
+.cs-section--dark .cs-subtitle { color: rgba(255,255,255,.6); }
+
+/* ── Typography Hierarchy ── */
+.cs-h3 { font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -.5px; line-height: 1.25; margin-bottom: 12px; }
+.cs-h4 { font-size: 17px; font-weight: 700; letter-spacing: -.3px; margin-bottom: 8px; }
+.cs-body { font-size: 15px; color: var(--tv-text-secondary); line-height: 1.7; }
+.cs-caption { font-size: 13px; color: var(--tv-text-muted); line-height: 1.5; }
+
+/* ================================================================
+   01 HERO
+   ================================================================ */
+.cs-hero {
+  min-height: 100vh; display: flex; align-items: center;
+  background: var(--tv-dark); color: #fff; overflow: hidden; position: relative;
+  padding: 100px 0 80px;
+}
+.cs-hero::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(43,179,192,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(185,163,227,.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 60% 75%, rgba(247,168,196,.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.cs-hero-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px);
+  align-items: center; position: relative; z-index: 1;
+}
+@media(max-width:900px){ .cs-hero-inner{ grid-template-columns:1fr; text-align:center; } }
+
+.cs-hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+  padding:8px 18px; border-radius:999px; font-size:12px; font-weight:600;
+  letter-spacing:.5px; color:rgba(255,255,255,.8); margin-bottom:28px;
+}
+.cs-hero-badge-dot {
+  width:8px;height:8px;border-radius:50%;background:var(--tv-teal);
+  box-shadow:0 0 10px var(--tv-teal);
+}
+
+.cs-hero-title {
+  font-size: clamp(48px, 9vw, 96px); font-weight: 900; letter-spacing: -3px;
+  line-height: 1; margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,.7) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.cs-hero-subtitle {
+  font-size: clamp(16px, 2.2vw, 24px); font-weight: 400; color: rgba(255,255,255,.6);
+  line-height: 1.45; margin-bottom: 14px;
+}
+.cs-hero-cn {
+  font-size: clamp(14px, 1.8vw, 19px); color: rgba(255,255,255,.38);
+  font-weight: 500; margin-bottom: 36px;
+}
+
+/* Keywords row */
+.cs-keywords { display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-start; margin-bottom:40px; }
+@media(max-width:900px){ .cs-keywords{ justify-content:center; } }
+.cs-kw {
+  font-size:12px; font-weight:600; padding:6px 16px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.75);
+  background:rgba(255,255,255,.04); letter-spacing:.3px;
+}
+
+/* Hero right: phone mockup + floating IPs */
+.cs-hero-visual { position:relative; display:flex; justify-content:center; align-items:center; }
+@media(max-width:900px){ .cs-hero-visual{ margin-top:50px; } }
+
+/* Phone frame */
+.cs-phone {
+  width:280px; border-radius:40px; overflow:hidden;
+  background:#111; box-shadow:var(--tv-shadow-phone);
+  position:relative; z-index:2;
+  border:3px solid #333;
+}
+@media(min-width:600px){ .cs-phone{ width:320px; } }
+.cs-phone-screen { width:100%; aspect-ratio:9/19.5; object-fit:cover; display:block; }
+.cs-phone-notch {
+  position:absolute; top:10px; left:50%; transform:translateX(-50%);
+  width:90px; height:26px; background:#000; border-radius:20px; z-index:3;
+}
+
+/* Floating IPs around phone */
+.cs-ip-float {
+  position:absolute; width:90px; height:90px; border-radius:50%;
+  overflow:hidden; box-shadow:var(--tv-shadow-lg); z-index:3;
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+  animation:ipFloat 6s ease-in-out infinite;
+}
+.cs-ip-float img { width:100%; height:100%; object-fit:contain; }
+.cs-ip-float:nth-child(1){ top:-10%; left:-5%; animation-delay:0s; width:80px; height:80px; }
+.cs-ip-float:nth-child(2){ top:5%; right:-8%; animation-delay:-1.5s; width:72px; height:72px; }
+.cs-ip-float:nth-child(3){ bottom:15%; left:-12%; animation-delay:-3s; width:84px; height:84px; }
+.cs-ip-float:nth-child(4){ bottom:5%; right:-5%; animation-delay:-4.5s; width:76px; height:76px; }
+
+@keyframes ipFloat{
+  0%,100%{ transform:translateY(0) rotate(0deg); }
+  50%{ transform:translateY(-14px) rotate(3deg); }
+}
+
+/* Video preview thumbnail below hero area */
+.cs-hero-video-hint {
+  margin-top:36px; display:flex; align-items:center; gap:12px;
+  color:rgba(255,255,255,.45); font-size:13px; cursor:pointer;
+  transition:color .25s;
+}
+.cs-hero-video-hint:hover{ color:rgba(255,255,255,.8); }
+.cs-play-icon {
+  width:36px; height:36px; border-radius:50%; border:2px solid rgba(255,255,255,.25);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  transition:border-color .25s, background .25s;
+}
+.cs-hero-video-hint:hover .cs-play-icon{ border-color:var(--tv-teal); background:rgba(43,179,192,.1); }
+.cs-play-icon svg{ width:13px; height:13px; fill:#fff; margin-left:2px; }
+
+/* ================================================================
+   02 PROJECT OVERVIEW
+   ================================================================ */
+.cs-overview-grid {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:clamp(20px, 3vw, 36px); margin-top:48px;
+}
+.cs-overview-card {
+  background:var(--tv-white); padding:28px 24px; border-radius:var(--tv-rm);
+  border:1px solid var(--tv-border);
+}
+.cs-overview-label {
+  font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  color:var(--tv-text-muted); margin-bottom:8px;
+}
+.cs-overview-value {
+  font-size:17px; font-weight:700; color:var(--tv-text); line-height:1.4;
+}
+.cs-overview-list { list-style:none; padding:0; margin:0; }
+.cs-overview-list li{
+  font-size:14px; color:var(--tv-text-secondary); padding:3px 0;
+}
+
+/* ================================================================
+   03 DESIGN CHALLENGE
+   ================================================================ */
+.cs-challenge-grid { display:grid; gap:clamp(28px, 4vw, 48px); margin-top:52px; }
+.cs-challenge-item {
+  background:var(--tv-white); border-radius:var(--tv-rl);
+  border:1px solid var(--tv-border); overflow:hidden;
+  display:grid; grid-template-columns: 1fr 1fr;
+}
+@media(max-width:768px){ .cs-challenge-item{ grid-template-columns:1fr; } }
+
+.cs-challenge-left { padding:36px 32px; display:flex; flex-direction:column; justify-content:center; }
+.cs-challenge-num {
+  font-size:11px; font-weight:800; letter-spacing:2px; color:var(--tv-coral);
+  margin-bottom:12px;
+}
+.cs-challenge-q { font-size:clamp(18px, 2.5vw, 24px); font-weight:800; line-height:1.3; letter-spacing:-.3px; }
+.cs-challenge-right {
+  background:linear-gradient(135deg, var(--tv-bg-alt), var(--tv-white));
+  padding:36px 32px; display:flex; flex-direction:column; justify-content:center;
+  border-left:1px solid var(--tv-border);
+}
+@media(max-width:768px){ .cs-challenge-right{ border-left:none; border-top:1px solid var(--tv-border); } }
+.cs-solution-label {
+  font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  color:var(--tv-teal); margin-bottom:10px;
+}
+.cs-solution-text { font-size:15px; color:var(--tv-text-secondary); line-height:1.65; }
+.cs-solution-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+.cs-st { font-size:11px; font-weight:600; padding:4px 12px; border-radius:999px; background:rgba(43,179,192,.1); color:var(--tv-teal); }
+
+/* ================================================================
+   04 IP VISUAL SYSTEM
+   ================================================================ */
+.cs-ip-intro { text-align:center; max-width:640px; margin:0 auto 56px; }
+.cs-ip-flow {
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  margin-top:28px; flex-wrap:wrap;
+}
+.cs-ip-flow-step {
+  font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  color:var(--tv-text-muted); padding:8px 20px; border-radius:999px;
+  border:1px solid var(--tv-border); background:var(--tv-white);
+}
+.cs-ip-flow-arrow { color:var(--tv-coral); font-weight:700; }
+
+/* 8-char grid */
+.cs-ip-grid {
+  display:grid; grid-template-columns: repeat(4, 1fr); gap:clamp(18px, 3vw, 32px);
+  margin-bottom:56px;
+}
+@media(max-width:900px){ .cs-ip-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:480px){ .cs-ip-grid{ grid-template-columns:1fr; max-width:300px; margin-left:auto;margin-right:auto; } }
+
+.cs-ip-card {
+  background:var(--tv-white); border-radius:var(--tv-rl); overflow:hidden;
+  border:1px solid var(--tv-border); transition:transform .35s ease, box-shadow .35s ease;
+}
+.cs-ip-card:hover{ transform:translateY(-6px); box-shadow:var(--tv-shadow-lg); }
+.cs-ip-img-wrap {
+  aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+  padding:24px; background:linear-gradient(180deg, #fafafa, #f5f0eb);
+}
+.cs-ip-img-wrap img{ width:75%; height:auto; object-fit:contain; }
+.cs-ip-body{ padding:18px 20px 22px; }
+.cs-ip-name{ font-size:15px; font-weight:800; margin-bottom:6px; }
+.cs-ip-series-badge {
+  display:inline-block; font-size:10px; font-weight:700; letter-spacing:.8px;
+  padding:3px 12px; border-radius:999px; color:#fff; margin-bottom:10px;
+}
+.series-main{ background:linear-gradient(135deg,var(--tv-teal),var(--tv-teal-light)); }
+.series-limited{ background:linear-gradient(135deg,#E87EB3,var(--tv-gold)); }
+.series-rare{ background:linear-gradient(135deg,var(--tv-gold),#E87EB3); }
+.cs-ip-desc{ font-size:12px; color:var(--tv-text-muted); line-height:1.55; margin-bottom:10px; }
+.cs-ip-colors{ display:flex; gap:5px; align-items:center; }
+.cs-ip-dot{ width:16px; height:16px; border-radius:50%; border:2px solid rgba(0,0,0,.06); }
+
+/* ZED spotlight */
+.cs-zed-spotlight {
+  background:var(--tv-dark); border-radius:var(--tv-rxl); overflow:hidden;
+  display:grid; grid-template-columns: 1fr 1fr; align-items:center;
+  position:relative;
+}
+@media(max-width:768px){ .cs-zed-spotlight{ grid-template-columns:1fr; } }
+.cs-zed-spotlight::before{
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(212,165,116,.2), transparent 60%),
+    radial-gradient(circle at 70% 50%, rgba(110,200,224,.15), transparent 60%);
+  pointer-events:none;
+}
+.cs-zed-left{ padding:clamp(40px,6vw,64px); position:relative; z-index:1; }
+.cs-zed-tag{
+  display:inline-block; font-size:11px; font-weight:800; letter-spacing:2px;
+  color:var(--tv-gold-light); border:1px solid rgba(212,183,116,.3);
+  padding:5px 16px; border-radius:999px; margin-bottom:20px;
+}
+.cs-zed-name{ font-size:clamp(28px, 4vw, 44px); font-weight:900; color:#fff; letter-spacing:-1px; margin-bottom:12px; }
+.cs-zed-desc{ font-size:15px; color:rgba(255,255,255,.55); line-height:1.65; max-width:420px; }
+.cs-zed-right{ position:relative; z-index:1; padding:40px; display:flex; justify-content:center; align-items:center; }
+.cs-zed-img{ width:100%; max-width:340px; height:auto; filter:drop-shadow(0 20px 50px rgba(212,165,116,.3)); }
+
+/* ================================================================
+   05 DISCOVERY EXPERIENCE
+   Compact phone-card strip + single-row keywords
+   ================================================================ */
+.cs-discovery-layout {
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(22px, 3vw, 34px); margin-top:40px;
+}
+.cs-discovery-screens {
+  display:flex; gap:clamp(24px, 5vw, 56px); justify-content:center;
+  flex-wrap:wrap; width:100%;
+}
+.cs-disc-phone {
+  width: clamp(132px, 15vw, 188px);
+  background:#e8e4df; border-radius:var(--tv-rl);
+  box-shadow:var(--tv-shadow-lg); overflow:hidden; position:relative;
+  border:1px solid rgba(0,0,0,.04);
+}
+.cs-disc-phone img{ width:100%; display:block; }
+.cs-mockup-label {
+  position:absolute; bottom:12px; left:50%; transform:translateX(-50%);
+  background:rgba(0,0,0,.65); backdrop-filter:blur(8px);
+  color:#fff; font-size:11px; font-weight:600; padding:5px 14px;
+  border-radius:999px; letter-spacing:.3px; white-space:nowrap;
+}
+
+.cs-discovery-keywords {
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap:clamp(14px, 2.5vw, 24px); width:100%; max-width:880px;
+}
+.cs-dk-item{ display:flex; align-items:flex-start; gap:12px; }
+.cs-dk-num{
+  font-size:12px; font-weight:900; color:var(--tv-coral);
+  flex-shrink:0; width:24px;
+}
+.cs-dk-text{ font-size:14px; font-weight:700; color:var(--tv-text); }
+.cs-dk-sub{ font-size:12.5px; color:var(--tv-text-muted); margin-top:2px; line-height:1.45; }
+@media(max-width:768px){
+  .cs-discovery-keywords{ grid-template-columns:1fr; max-width:360px; margin:0 auto; }
+}
+
+/* ================================================================
+   06 AI SEARCH — 3-State Flow
+   ================================================================ */
+.cs-ai-flow {
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:clamp(20px, 3vw, 36px);
+  margin-top:52px; align-items:start;
+}
+@media(max-width:768px){ .cs-ai-flow{ grid-template-columns:1fr; } }
+
+.cs-ai-step {
+  background:var(--tv-white); border-radius:var(--tv-rl);
+  border:1px solid var(--tv-border); overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.cs-ai-step:hover{ transform:translateY(-4px); box-shadow:var(--tv-shadow-md); }
+.cs-ai-step-img{ width:100%; aspect-ratio:9/16.5; object-fit:cover; display:block; }
+.cs-ai-step-body{ padding:22px 20px 26px; }
+.cs-ai-step-num {
+  font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+  color:var(--tv-lavender); margin-bottom:8px;
+}
+.cs-ai-step-title{ font-size:17px; font-weight:800; margin-bottom:6px; }
+.cs-ai-step-desc{ font-size:13px; color:var(--tv-text-muted); line-height:1.55; }
+
+/* Flow arrows between steps (desktop only) */
+.cs-ai-arrow {
+  display:none; align-self:center; color:var(--tv-coral); font-size:24px; flex-shrink:0;
+}
+@media(min-width:769px){
+  .cs-ai-flow{ grid-template-columns: 1fr auto 1fr auto 1fr; }
+  .cs-ai-arrow{ display:flex; }
+}
+
+/* ================================================================
+   07 PRODUCT EXPERIENCE
+   ================================================================ */
+.cs-product-main {
+  margin-top:52px; display:grid; grid-template-columns: 1.2fr 1fr;
+  gap:clamp(28px, 4vw, 48px); align-items:start;
+}
+@media(max-width:768px){ .cs-product-main{ grid-template-columns:1fr; } }
+
+.cs-product-hero-mockup {
+  border-radius:var(--tv-rxl); overflow:hidden;
+  box-shadow:var(--tv-shadow-lg); background:#e8e4df;
+}
+.cs-product-hero-mockup img{ width:100%; display:block; }
+
+.cs-product-details-col{ display:flex; flex-direction:column; gap:20px; }
+.cs-product-detail-card {
+  background:var(--tv-white); border-radius:var(--tv-rm);
+  border:1px solid var(--tv-border); padding:24px; flex:1;
+}
+.cs-product-detail-card img{ width:100%; border-radius:var(--tv-rs); margin-bottom:14px; }
+.cs-product-spec-row {
+  display:flex; justify-content:space-between; padding:10px 0;
+  border-bottom:1px solid var(--tv-border); font-size:13px;
+}
+.cs-product-spec-row:last-child{ border-bottom:none; }
+.cs-spec-label{ color:var(--tv-text-muted); font-weight:500; }
+.cs-spec-value{ font-weight:700; color:var(--tv-text); }
+
+/* Auxiliary product images strip */
+.cs-product-strip {
+  display:flex; gap:12px; margin-top:28px; overflow-x:auto; padding-bottom:8px;
+}
+.cs-product-strip img{
+  width:120px; height:120px; object-fit:cover; border-radius:var(--tv-rm);
+  border:1px solid var(--tv-border); flex-shrink:0;
+  transition:transform .25s;
+}
+.cs-product-strip img:hover{ transform:scale(1.05); }
+
+/* ================================================================
+   08 COMMERCE FLOW — Timeline
+   ================================================================ */
+.cs-commerce-timeline {
+  margin-top:52px; position:relative;
+  display:flex; flex-direction:column; gap:0;
+}
+.cs-commerce-step {
+  display:grid; grid-template-columns: auto 1fr; gap:clamp(20px, 3vw, 40px);
+  align-items:start; padding:24px 0;
+  position:relative;
+}
+.cs-commerce-step:not(:last-child){ border-bottom:1px solid var(--tv-border); }
+
+.cs-commerce-marker {
+  width:52px; height:52px; border-radius:50%;
+  background:var(--tv-white); border:2px solid var(--tv-border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px; font-weight:900; color:var(--tv-coral);
+  flex-shrink:0; position:relative; z-index:1;
+}
+.cs-commerce-marker.active{
+  background:linear-gradient(135deg, var(--tv-cta-from), var(--tv-cta-to));
+  color:#fff; border-color:transparent;
+}
+.cs-commerce-body{ flex:1; }
+.cs-commerce-step-title{ font-size:17px; font-weight:800; margin-bottom:8px; }
+.cs-commerce-step-desc{ font-size:14px; color:var(--tv-text-muted); margin-bottom:16px; }
+.cs-commerce-mockup {
+  border-radius:var(--tv-rm); overflow:hidden; box-shadow:var(--tv-shadow-sm);
+  border:1px solid var(--tv-border); max-width:260px;
+}
+.cs-commerce-mockup img{ width:100%; display:block; }
+
+/* Horizontal flow indicators for desktop */
+@media(min-width:900px){
+  .cs-commerce-timeline{
+    display:grid; grid-template-columns: repeat(6, 1fr); gap:16px;
+    border-bottom:none;
+  }
+  .cs-commerce-step{
+    display:flex; flex-direction:column; padding:0; border:none;
+    border:1px solid var(--tv-border); border-radius:var(--tv-rm);
+    padding:20px 16px; transition:transform .25s, box-shadow .25s;
+  }
+  .cs-commerce-step:hover{ transform:translateY(-4px); box-shadow:var(--tv-shadow-md); }
+  .cs-commerce-marker{ width:40px; height:40px; font-size:12px; margin-bottom:12px; }
+  .cs-commerce-mockup{ max-width:100%; }
+}
+
+/* ================================================================
+   09 POST-PURCHASE EXPERIENCE
+   Features in 2x2 grid + compact phone mockups
+   ================================================================ */
+.cs-post-grid {
+  display:grid; grid-template-columns: 1.15fr 0.85fr; gap:clamp(24px, 4vw, 44px);
+  margin-top:48px; align-items:start;
+}
+@media(max-width:900px){ .cs-post-grid{ grid-template-columns:1fr; } }
+
+.cs-post-features {
+  display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;
+}
+.cs-post-feature {
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--tv-white); padding:18px 16px; border-radius:var(--tv-rm);
+  border:1px solid var(--tv-border);
+}
+.cs-post-icon {
+  width:40px; height:40px; border-radius:11px;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; font-size:18px;
+}
+.cs-post-icon.manage{ background:rgba(43,179,192,.1); }
+.cs-post-icon.track{ background:rgba(185,163,227,.1); }
+.cs-post-icon.collect{ background:rgba(247,168,196,.1); }
+.cs-post-icon.explore{ background:rgba(255,155,106,.1); }
+.cs-post-f-title{ font-size:14px; font-weight:700; margin-bottom:4px; }
+.cs-post-f-desc{ font-size:12.5px; color:var(--tv-text-muted); line-height:1.5; }
+
+.cs-post-mockups {
+  display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+}
+.cs-post-mockup {
+  width: clamp(140px, 16vw, 196px);
+  border-radius:var(--tv-rm); overflow:hidden; box-shadow:var(--tv-shadow-sm);
+  border:1px solid var(--tv-border); background:#e8e4df;
+}
+.cs-post-mockup img{ width:100%; display:block; }
+@media(max-width:520px){
+  .cs-post-features{ grid-template-columns:1fr; }
+}
+
+/* ================================================================
+   10 INTERACTION & MOTION
+   ================================================================ */
+.cs-motion-grid {
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:clamp(18px, 3vw, 28px);
+  margin-top:52px;
+}
+@media(max-width:768px){ .cs-motion-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:480px){ .cs-motion-grid{ grid-template-columns:1fr; } }
+
+.cs-motion-card {
+  background:var(--tv-white); border-radius:var(--tv-rm);
+  border:1px solid var(--tv-border); overflow:hidden;
+  transition:transform .3s ease;
+}
+.cs-motion-card:hover{ transform:translateY(-3px); }
+.cs-motion-img{ width:100%; aspect-ratio:9/16; object-fit:cover; display:block; }
+.cs-motion-body{ padding:16px 18px 20px; }
+.cs-motion-title{ font-size:14px; font-weight:800; margin-bottom:4px; }
+.cs-motion-purpose{ font-size:12px; color:var(--tv-teal); font-weight:600; }
+.cs-motion-purpose::before{ content:'→ '; }
+
+/* ================================================================
+   11 FULL DEMO
+   ================================================================ */
+.cs-demo-section {
+  background:var(--tv-dark); color:#fff; text-align:center;
+  padding: clamp(40px, 4vw, 72px) 0;
+}
+.cs-demo-title {
+  font-size: clamp(36px, 6vw, 64px); font-weight: 900; letter-spacing: -1.5px;
+  margin-bottom: 12px;
+}
+.cs-demo-subtitle{ font-size: clamp(16px, 2vw, 22px); color: rgba(255,255,255,.5); margin-bottom:24px; }
+
+.cs-video-wrapper {
+  max-width:680px; margin:0 auto; border-radius:var(--tv-rxl);
+  overflow:hidden; box-shadow: 0 40px 80px rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.08);
+  background:#000; position:relative;
+}
+.cs-video-wrapper video{ width:100%; display:block; max-height:52vh; object-fit:contain; background:#000; }
+.cs-video-controls {
+  position:absolute; bottom:0; left:0; right:0;
+  padding:20px 24px;
+  background:linear-gradient(transparent, rgba(0,0,0,.7));
+  display:flex; align-items:center; gap:16px;
+}
+.cs-v-btn{
+  width:42px; height:42px; border-radius:50%; border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08); color:#fff; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s;
+}
+.cs-v-btn:hover{ background:rgba(255,255,255,.18); }
+.cs-v-progress{
+  flex:1; height:4px; border-radius:2px; background:rgba(255,255,255,.15);
+  position:relative; cursor:pointer;
+}
+.cs-v-progress-bar{
+  height:100%; border-radius:2px; background:var(--tv-teal);
+  width:35%; transition:width .1s linear;
+}
+.cs-v-time{ font-size:12px; color:rgba(255,255,255,.5); font-weight:500; min-width:80px; text-align:right; }
+
+/* ================================================================
+   12 DESIGN LANGUAGE
+   ================================================================ */
+.cs-dl-grid {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:24px; margin-top:48px;
+}
+.cs-dl-card {
+  background:var(--tv-white); border-radius:var(--tv-rm);
+  border:1px solid var(--tv-border); padding:28px 24px;
+}
+.cs-dl-card-title{ font-size:14px; font-weight:800; margin-bottom:18px; letter-spacing:.3px; }
+
+/* Color swatches */
+.cs-swatches{ display:flex; gap:10px; flex-wrap:wrap; }
+.cs-swatch{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+}
+.cs-swatch-color{
+  width:48px; height:48px; border-radius:12px; border:1px solid var(--tv-border);
+}
+.cs-swatch-label{ font-size:10px; color:var(--tv-text-muted); font-weight:600; }
+
+/* Component samples */
+.cs-comp-sample {
+  background:var(--tv-bg-alt); border-radius:var(--tv-rs); padding:16px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.cs-comp-btn-primary{
+  display:inline-block; padding:12px 28px; border-radius:999px;
+  background:linear-gradient(135deg, var(--tv-cta-from), var(--tv-cta-to));
+  color:#fff; font-size:14px; font-weight:700; text-align:center;
+  border:none; cursor:pointer;
+}
+.cs-comp-btn-outline{
+  display:inline-block; padding:12px 28px; border-radius:999px;
+  border:2px solid var(--tv-teal); color:var(--tv-teal);
+  font-size:14px; font-weight:700; text-align:center;
+  background:transparent; cursor:pointer;
+}
+.cs-comp-tag{
+  display:inline-block; font-size:11px; font-weight:700; padding:4px 14px;
+  border-radius:999px; background:rgba(43,179,192,.1); color:var(--tv-teal);
+}
+.cs-comp-tag-pink{ background:rgba(247,168,196,.15); color:#D47A9E; }
+.cs-comp-tag-gold{ background:rgba(212,165,116,.12); color:#A07850; }
+
+/* Typography sample */
+.cs-typo-sample{ display:flex; flex-direction:column; gap:8px; }
+.cs-typo-display{ font-size:32px; font-weight:900; letter-spacing:-.5px; }
+.cs-typo-h2{ font-size:22px; font-weight:800; }
+.cs-typo-body{ font-size:15px; color:var(--tv-text-secondary); }
+.cs-typo-caption{ font-size:12px; color:var(--tv-text-muted); }
+
+/* ================================================================
+   13 FINAL DESIGN VALUE
+   ================================================================ */
+.cs-value-grid {
+  display:grid; grid-template-columns: repeat(2, 1fr); gap:clamp(24px, 4vw, 40px);
+  margin-top:56px;
+}
+@media(max-width:640px){ .cs-value-grid{ grid-template-columns:1fr; } }
+
+.cs-value-card {
+  background:var(--tv-white); border-radius:var(--tv-rl);
+  border:1px solid var(--tv-border); padding:36px 32px;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.cs-value-card:hover{ transform:translateY(-4px); box-shadow:var(--tv-shadow-md); }
+.cs-value-num {
+  font-size:13px; font-weight:900; color:var(--tv-coral); margin-bottom:14px;
+  letter-spacing:1px;
+}
+.cs-value-title{ font-size:20px; font-weight:900; letter-spacing:-.3px; margin-bottom:10px; }
+.cs-value-desc{ font-size:14px; color:var(--tv-text-muted); line-height:1.65; }
+
+/* Closing statement */
+.cs-closing {
+  text-align:center; margin-top:80px; padding-top:48px;
+  border-top:1px solid var(--tv-border);
+}
+.cs-closing-brand{
+  font-size: clamp(28px, 4vw, 44px); font-weight: 900; letter-spacing: -1px;
+  margin-bottom:12px;
+}
+.cs-closing-line{
+  font-size: clamp(15px, 2vw, 20px); color:var(--tv-text-muted);
+  font-weight:400; font-style: italic;
+}
+
+/* ================================================================
+   REVEAL ANIMATION (IntersectionObserver)
+   ================================================================ */
+.cs-reveal {
+  opacity:0; transform: translateY(28px);
+  filter: none;
+  transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1), filter .7s cubic-bezier(.22,1,.36,1);
+}
+.cs-reveal.revealed {
+  opacity:1; transform: translateY(0); filter: blur(0);
+}
+.cs-reveal-delay-1{ transition-delay:.1s; }
+.cs-reveal-delay-2{ transition-delay:.2s; }
+.cs-reveal-delay-3{ transition-delay:.3s; }
+.cs-reveal-delay-4{ transition-delay:.4s; }
+.cs-reveal-delay-5{ transition-delay:.5s; }
+
+/* ================================================================
+   NAV OVERRIDE for case study page
+   ================================================================ */
+.page-dark .header { background: rgba(3,2,19,.92); backdrop-filter: blur(12px); }
+.page-dark .nav-link { color: rgba(255,255,255,.7); }
+.page-dark .nav-link:hover { color: #fff; }
+.page-dark .logo { color: #fff; }
+
+/* Back link style override */
+.detail-back {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:13px; font-weight:600; color:var(--tv-text-muted);
+  text-decoration:none; padding:10px 0; margin-bottom:40px;
+  transition:color .2s;
+}
+.detail-back:hover{ color:var(--tv-text); }
+
+/* Footer for case study */
+.cs-footer {
+  background:var(--tv-dark); color:rgba(255,255,255,.4);
+  text-align:center; padding:48px 20px; font-size:13px;
+}
+.cs-footer a{ color:rgba(255,255,255,.6); text-decoration:none; }
+.cs-footer a:hover{ color:#fff; }
+
+</style>
+</head>
+
+<body class="page-dark cs-page page-loaded">
+<div class="page-topbar">
+      <a class="page-back" href="all-projects.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">ToyVerse</span>
+    </div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">梁金玲 &middot; Portfolio</a>
+    <nav class="nav">
+      <a href="index.html#works" class="nav-link">作品</a>
+      <a href="skills.html" class="nav-link">技能</a>
+      <a href="index.html#contact" class="nav-link">联系</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    
+  </div>
+
+<!-- ==============================================================
+     01  HERO
+     ============================================================== -->
+<section class="cs-hero">
+  <div class="cs-container cs-hero-inner">
+
+    <!-- Left: Text -->
+    <div>
+      <div class="cs-hero-badge">
+        <span class="cs-hero-badge-dot"></span>
+        CASE STUDY &mdash; 2026
+      </div>
+      <h1 class="cs-hero-title">TOYVERSE</h1>
+      <p class="cs-hero-subtitle">IP-driven Collectible Commerce Experience</p>
+      <p class="cs-hero-cn">潮玩 IP 电商体验设计</p>
+
+      <div class="cs-keywords">
+        <span class="cs-kw">UX / UI</span>
+        <span class="cs-kw">Interaction</span>
+        <span class="cs-kw">IP System</span>
+        <span class="cs-kw">AI Search</span>
+        <span class="cs-kw">E-commerce</span>
+        <span class="cs-kw">Motion</span>
+      </div>
+
+      <!-- Scroll-to-demo hint -->
+      <a href="#cs-demo" class="cs-hero-video-hint">
+        <span class="cs-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        Watch Full Demo
+      </a>
+    </div>
+
+    <!-- Right: Phone Mockup + Floating IPs -->
+    <div class="cs-hero-visual">
+      <!-- Floating IPs -->
+      <div class="cs-ip-float"><img src="assets/toyverse/ip/toy-nova-main.webp" alt="NOVA" /></div>
+      <div class="cs-ip-float"><img src="assets/toyverse/ip/toy-zed-main.webp" alt="ZED" /></div>
+      <div class="cs-ip-float"><img src="assets/toyverse/ip/toy-luna-main.webp" alt="LUNA" /></div>
+      <div class="cs-ip-float"><img src="assets/toyverse/ip/toy-pixel-main.webp" alt="PIXEL" /></div>
+
+      <!-- Phone Mockup showing Home UI -->
+      <div class="cs-phone">
+        <div class="cs-phone-notch"></div>
+        <img class="cs-phone-screen" src="assets/toyverse/screenshots/home-full.png" alt="ToyVerse Home Screen" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==============================================================
+     02  PROJECT OVERVIEW
+     ============================================================== -->
+<section class="cs-section">
+  <div class="cs-container">
+    <span class="cs-label">02 &mdash; Project Overview</span>
+    <h2 class="cs-title">Project Overview</h2>
+    <p class="cs-subtitle">基于原创潮玩 IP 的移动端收藏电商产品，从角色视觉到完整购物链路的体验设计。</p>
+
+    <div class="cs-overview-grid">
+      <div class="cs-overview-card">
+        <div class="cs-overview-label">PROJECT</div>
+        <div class="cs-overview-value">ToyVerse<br/>波普兽 PUPO</div>
+      </div>
+      <div class="cs-overview-card">
+        <div class="cs-overview-label">TYPE</div>
+        <div class="cs-overview-value">IP-driven Mobile Commerce</div>
+      </div>
+      <div class="cs-overview-card">
+        <div class="cs-overview-label">ROLE</div>
+        <div class="cs-overview-value">UX / UI / Visual / Interaction</div>
+      </div>
+      <div class="cs-overview-card">
+        <div class="cs-overview-label">PLATFORM</div>
+        <div class="cs-overview-value">Mobile (iOS / Android)</div>
+      </div>
+      <div class="cs-overview-card">
+        <div class="cs-overview-label">FOCUS</div>
+        <ul class="cs-overview-list">
+          <li>IP Visual System</li>
+          <li>AI Search Experience</li>
+          <li>Product Discovery</li>
+          <li>Commerce Flow</li>
+          <li>Motion Design</li>
+        </ul>
+      </div>
+      <div class="cs-overview-card">
+        <div class="cs-overview-label">TECH</div>
+        <ul class="cs-overview-list">
+          <li>React / TypeScript</li>
+          <li>Vite / Tailwind CSS</li>
+          <li>Motion (Framer)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     03  DESIGN CHALLENGE
+     ============================================================== -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <span class="cs-label">03 &mdash; Design Challenge</span>
+    <h2 class="cs-title">Design Challenges</h2>
+    <p class="cs-subtitle">从真实产品能力出发，提炼三个核心设计挑战与对应解决方案。</p>
+
+    <div class="cs-challenge-grid">
+
+      <!-- Challenge 01 -->
+      <div class="cs-challenge-item cs-reveal">
+        <div class="cs-challenge-left">
+          <div class="cs-challenge-num">CHALLENGE 01</div>
+          <div class="cs-challenge-q">如何让潮玩商品浏览从"商品列表"变成具有探索感的体验？</div>
+        </div>
+        <div class="cs-challenge-right">
+          <div class="cs-solution-label">SOLUTION</div>
+          <div class="cs-solution-text">以 Home 首页为探索入口，通过 IP 角色驱动的 Banner 轮播、分类标签导航、AI 个性化推荐三层结构，将线性列表转化为可逛、可发现的沉浸式浏览体验。</div>
+          <div class="cs-solution-tags">
+            <span class="cs-st">Home Discovery</span>
+            <span class="cs-st">Category Navigation</span>
+            <span class="cs-st">AI Recommendation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 02 -->
+      <div class="cs-challenge-item cs-reveal cs-reveal-delay-1">
+        <div class="cs-challenge-left">
+          <div class="cs-challenge-num">CHALLENGE 02</div>
+          <div class="cs-challenge-q">如何让原创 IP 不只是商品图片，而成为整个产品体验的一部分？</div>
+        </div>
+        <div class="cs-challenge-right">
+          <div class="cs-solution-label">SOLUTION</div>
+          <div class="cs-solution-text">建立完整的 IP Visual System：每个角色拥有独立视觉身份（配色/造型/系列），贯穿商品卡片、详情页故事描述、稀有度体系、收藏分析等全链路，让 IP 从装饰性图片升级为结构性体验要素。</div>
+          <div class="cs-solution-tags">
+            <span class="cs-st">Character Identity</span>
+            <span class="cs-st">Visual System</span>
+            <span class="cs-st">Rarity Tiers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 03 -->
+      <div class="cs-challenge-item cs-reveal cs-reveal-delay-2">
+        <div class="cs-challenge-left">
+          <div class="cs-challenge-num">CHALLENGE 03</div>
+          <div class="cs-challenge-q">如何降低用户寻找特定潮玩的成本？</div>
+        </div>
+        <div class="cs-challenge-right">
+          <div class="cs-solution-label">SOLUTION</div>
+          <div class="cs-solution-text">引入自然语言 AI 搜索——用户用日常语言描述需求（如"适合送女生的可爱礼物"），系统理解意图后返回精准推荐并给出推荐理由，替代传统关键词搜索的认知负担。</div>
+          <div class="cs-solution-tags">
+            <span class="cs-st">Natural Language Input</span>
+            <span class="cs-st">AI Understanding</span>
+            <span class="cs-st">Smart Recommendation</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     04  IP VISUAL SYSTEM
+     ============================================================== -->
+<section class="cs-section">
+  <div class="cs-container">
+    <span class="cs-label">04 &mdash; IP Visual System</span>
+    <h2 class="cs-title">The IP System</h2>
+
+    <div class="cs-ip-intro">
+      <p class="cs-subtitle" style="margin:0 auto;">From Characters to Collectible Experiences.</p>
+      <div class="cs-ip-flow">
+        <span class="cs-ip-flow-step">Character</span>
+        <span class="cs-ip-flow-arrow">&rarr;</span>
+        <span class="cs-ip-flow-step">Visual Identity</span>
+        <span class="cs-ip-flow-arrow">&rarr;</span>
+        <span class="cs-ip-flow-step">Product</span>
+        <span class="cs-ip-flow-arrow">&rarr;</span>
+        <span class="cs-ip-flow-step">Collectible Experience</span>
+      </div>
+    </div>
+
+    <!-- 8 Character Grid -->
+    <div class="cs-ip-grid">
+
+      <!-- NOVA -->
+      <div class="cs-ip-card cs-reveal">
+        <div class="cs-ip-img-wrap"><img src="assets/toyverse/ip/toy-nova-main.webp" alt="NOVA 探索者" loading="lazy"/></div>
+        <div class="cs-ip-body">
+          <div class="cs-ip-name">NOVA 探索者</div>
+          <span class="cs-ip-series-badge series-main">主系列</span>
+          <div class="cs-ip-desc">头戴探险帽、胸前挂着黄铜指南针，永远在寻找下一片未知大陆。</div>
+          <div class="cs-ip-colors">
+            <span class="cs-ip-dot" style="background:#2BB3C0"></span>
+            <span class="cs-ip-dot" style="background:#F5EFE0"></span>
+            <span class="cs-ip-dot" style="background:#C9B68B"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LUNA -->
+      <div class="cs-ip-card cs-reveal cs-reveal-delay-1">
+        <div class="cs-ip-img-wrap"><img src="assets/toyverse/ip/toy-luna-main.webp" alt="LUNA 梦境收藏家" loading="lazy"/></div>
+        <div class="cs-ip-body">
+          <div class="cs-ip-name">LUNA 梦境收藏家</div>
+          <span class="cs-ip-series-badge series-main">主系列</span>
+          <div class="cs-ip-desc">手持星杖、半阖睡眼与胸前云朵，是夜晚床头最温柔的陪伴。</div>
+          <div class="cs-ip-colors">
+            <span class="cs-ip-dot" style="background:#B9A3E3"></span>
+            <span class="cs-ip-dot" style="background:#F7F5FB"></span>
+            <span class="cs-ip-dot" style="background:#F4E3A1"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PIXEL -->
+      <div class="cs-ip-card cs-reveal cs-reveal-delay-2">
+        <div class="cs-ip-img-wrap"><img src="assets/toyverse/ip/toy-pixel-main.webp" alt="PIXEL 机械未来" loading="lazy"/></div>
+        <div class="cs-ip-body">
+          <div class="cs-ip-name">PIXEL 机械未来</div>
+          <span class="cs-ip-series-badge series-main">主系列</span>
+          <div class="cs-ip-desc">来自 2099 的机械文明，银灰金属躯体嵌着青色能量线。</div>
+          <div class="cs-ip-colors">
+            <span class="cs-ip-dot" style="background:#C7CDD4"></span>
+            <span class="cs-ip-dot" style="background:#4A4F57"></span>
+            <span class="cs-ip-dot" style="background:#46E0E6"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOMO -->
+      <div class="cs-ip-card cs-reveal cs-reveal-delay-3">
+        <div class="cs-ip-img-wrap"><img src="assets/toyverse/ip/toy-momo-main.webp" alt="MOMO 甜点幻想家" loading="lazy"/></div>
+        <div class="cs-ip-body">
+          <div class="cs-ip-name">MOMO 甜点幻想家</div>
+          <span class="cs-ip-series-badge series-main">主系列</span>
+          <div class="cs-ip-desc">把整个世界都当作甜品店。头顶软冰淇淋与粉嫩腮红。</div>
+          <div class="cs-ip-colors">
+            <span class="cs-ip-dot" style="background:#F7A8C4"></span>
+            <span class="cs-ip-dot" style="background:#FBEEDC"></span>
+            <span class="cs-ip-dot" style="background:#8A5A3B"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KAI -->
+      <div class="cs-ip-card cs-reveal cs-reveal-delay-4">
+        <div class="cs-ip-img-wrap"><img src="assets/toyverse/ip/toy-kai-main.webp" alt="KAI 街头玩家" loading="lazy"/></div>
+        <div class="cs-ip-body">
+          <div class="cs-ip-name">KAI 街头玩家</div>
+          <span class="cs-ip-series-badge series-main">主系列</span>
+          <div class="cs-ip-desc">踩大头鞋在街角涂鸦，反扣棒球帽与胸口星星贴纸。</div>
+          <div class="cs-ip-colors">
+            <span class="cs-ip-dot" style="background:#FF8C42"></span>
+            <span class="cs-ip-dot" style="background:#2D2D2D"></span>
+            <span class="cs-ip-dot" style="background:#FAFAFA"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOO -->
+      <div class="cs-ip-card cs-reveal">
+        <div class="cs-ip-img-wrap"><img src="assets/toyverse/ip/toy-boo-main.webp" alt="BOO 太空玩家" loading="lazy"/></div>
+        <div class="cs-ip-body">
+          <div class="cs-ip-name">BOO 太空玩家</div>
+          <span class="cs-ip-series-badge series-main">主系列</span>
+          <div class="cs-ip-desc">穿着圆鼓鼓宇航服，透明头盔里盛着一整片星空。</div>
+          <div class="cs-ip-colors">
+            <span class="cs-ip-dot" style="background:#F0F4F8"></span>
+            <span class="cs-ip-dot" style="background:#5B9BD5"></span>
+            <span class="cs-ip-dot" style="background:#C0C8D0"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MILO -->
+      <div class="cs-ip-card cs-reveal cs-reveal-delay-1">
+        <div class="cs-ip-img-wrap"><img src="assets/toyverse/ip/toy-milo-main.webp" alt="MILO 治愈兔" loading="lazy"/></div>
+        <div class="cs-ip-body">
+          <div class="cs-ip-name">MILO 治愈兔</div>
+          <span class="cs-ip-series-badge series-main">主系列</span>
+          <div class="cs-ip-desc">垂着长长兔耳，胸口一颗小红心，是软触感乙烯基捏出来的安抚精灵。</div>
+          <div class="cs-ip-colors">
+            <span class="cs-ip-dot" style="background:#7DD3B8"></span>
+            <span class="cs-ip-dot" style="background:#F5F0E8"></span>
+            <span class="cs-ip-dot" style="background:#FF7B7B"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZED -->
+      <div class="cs-ip-card cs-reveal cs-reveal-delay-2">
+        <div class="cs-ip-img-wrap"><img src="assets/toyverse/ip/toy-zed-main.webp" alt="ZED 虹彩稀有" loading="lazy"/></div>
+        <div class="cs-ip-body">
+          <div class="cs-ip-name">ZED 虹彩稀有</div>
+          <span class="cs-ip-series-badge series-rare">稀有款</span>
+          <div class="cs-ip-desc">隐藏稀有款，通体虹彩珠光随光线流转，头戴小金冠。</div>
+          <div class="cs-ip-colors">
+            <span class="cs-ip-dot" style="background:#D4A574"></span>
+            <span class="cs-ip-dot" style="background:#6EC8E0"></span>
+            <span class="cs-ip-dot" style="background:#E87EB3"></span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end .cs-ip-grid -->
+
+    <!-- ZED Spotlight -->
+    <div class="cs-zed-spotlight cs-reveal">
+      <div class="cs-zed-left">
+        <span class="cs-zed-tag">&#9733; RARE EDITION</span>
+        <h3 class="cs-zed-name">ZED 虹彩稀有</h3>
+        <p class="cs-zed-desc">波普兽全系列仅极少数藏家拥有的隐藏稀有款。通体虹彩珠光材质随观察角度流转变色，头戴标志性小金冠，代表收藏体系的最高稀缺层级。在 AI 搜索结果中以限定价格和稀有标签突出展示。</p>
+      </div>
+      <div class="cs-zed-right">
+        <img class="cs-zed-img" src="assets/toyverse/products/toy-zed-hero.webp" alt="ZED 稀有款 Hero" loading="lazy"/>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==============================================================
+     05  DISCOVERY EXPERIENCE
+     ============================================================== -->
+<section class="cs-section cs-section--alt cs-section--compact">
+  <div class="cs-container">
+    <span class="cs-label">05 &mdash; Discovery Experience</span>
+    <h2 class="cs-title">Discovery</h2>
+    <p class="cs-subtitle">Home 作为主要发现入口，Category 作为辅助筛选层。</p>
+
+    <div class="cs-discovery-layout">
+      <!-- Home + Category as compact phone cards, side by side -->
+      <div class="cs-discovery-screens">
+        <div class="cs-disc-phone cs-reveal">
+          <img src="assets/toyverse/screenshots/home-full.png" alt="ToyVerse Home Page" loading="lazy"/>
+          <span class="cs-mockup-label">Home &mdash; Full View</span>
+        </div>
+        <div class="cs-disc-phone cs-reveal cs-reveal-delay-1">
+          <img src="assets/toyverse/screenshots/category.png" alt="Category Browse" loading="lazy"/>
+          <span class="cs-mockup-label">Category &mdash; Browse</span>
+        </div>
+      </div>
+
+      <!-- Keywords as a single horizontal row -->
+      <div class="cs-discovery-keywords cs-reveal cs-reveal-delay-2">
+        <div class="cs-dk-item">
+          <span class="cs-dk-num">01</span>
+          <div><div class="cs-dk-text">IP Discovery</div><div class="cs-dk-sub">Banner 轮播 + 角色驱动入口</div></div>
+        </div>
+        <div class="cs-dk-item">
+          <span class="cs-dk-num">02</span>
+          <div><div class="cs-dk-text">Category Exploration</div><div class="cs-dk-sub">主系列 / 盲盒 / 限定款 / 稀有款</div></div>
+        </div>
+        <div class="cs-dk-item">
+          <span class="cs-dk-num">03</span>
+          <div><div class="cs-dk-text">AI Recommendation</div><div class="cs-dk-sub">个性化推荐 + 智能搭配</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     06  AI SEARCH
+     ============================================================== -->
+<section class="cs-section">
+  <div class="cs-container">
+    <span class="cs-label">06 &mdash; AI Search</span>
+    <h2 class="cs-title">AI Search</h2>
+    <p class="cs-subtitle">Search less. Discover more.<br/>自然语言输入 &rarr; AI 理解 &rarr; 智能推荐。</p>
+
+    <div class="cs-ai-flow">
+      <!-- Step 1: Input -->
+      <div class="cs-ai-step cs-reveal">
+        <img class="cs-ai-step-img" src="assets/toyverse/screenshots/ai-search-input.png" alt="AI Search Input" loading="lazy"/>
+        <div class="cs-ai-step-body">
+          <div class="cs-ai-step-num">STATE 01</div>
+          <div class="cs-ai-step-title">Natural Language Input</div>
+          <div class="cs-ai-step-desc">用户用日常语言描述需求，无需记忆商品名称或关键词。</div>
+        </div>
+      </div>
+
+      <div class="cs-ai-arrow">&rarr;</div>
+
+      <!-- Step 2: Loading -->
+      <div class="cs-ai-step cs-reveal cs-reveal-delay-1">
+        <img class="cs-ai-step-img" src="assets/toyverse/screenshots/ai-search-loading.png" alt="AI Analyzing" loading="lazy"/>
+        <div class="cs-ai-step-body">
+          <div class="cs-ai-step-num">STATE 02</div>
+          <div class="cs-ai-step-title">AI Understanding</div>
+          <div class="cs-ai-step-desc">系统分析用户意图，显示"AI 分析中..."加载状态。</div>
+        </div>
+      </div>
+
+      <div class="cs-ai-arrow">&rarr;</div>
+
+      <!-- Step 3: Results -->
+      <div class="cs-ai-step cs-reveal cs-reveal-delay-2">
+        <img class="cs-ai-step-img" src="assets/toyverse/screenshots/ai-search-results.png" alt="AI Results" loading="lazy"/>
+        <div class="cs-ai-step-body">
+          <div class="cs-ai-step-num">STATE 03</div>
+          <div class="cs-ai-step-title">Smart Recommendations</div>
+          <div class="cs-ai-step-desc">返回匹配商品 + 推荐理由 + 预算范围 + 用户好评率。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     07  PRODUCT EXPERIENCE
+     ============================================================== -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <span class="cs-label">07 &mdash; Product Experience</span>
+    <h2 class="cs-title">Product Detail</h2>
+    <p class="cs-subtitle">从商品故事到购买决策的完整信息架构。</p>
+
+    <div class="cs-product-main">
+      <!-- Left: Main product mockup -->
+      <div class="cs-product-hero-mockup cs-reveal">
+        <img src="assets/toyverse/screenshots/product-hero.png" alt="Product Detail Hero" loading="lazy"/>
+      </div>
+
+      <!-- Right: Details + specs + auxiliary -->
+      <div class="cs-product-details-col">
+        <!-- Specs card -->
+        <div class="cs-product-detail-card cs-reveal cs-reveal-delay-1">
+          <div class="cs-h4" style="margin-bottom:14px;">Product Specifications</div>
+          <img src="assets/toyverse/screenshots/product-details.png" alt="Product Details Tab" style="border-radius:var(--tv-rs);" loading="lazy"/>
+          <div style="margin-top:14px;">
+            <div class="cs-product-spec-row"><span class="cs-spec-label">商品分类</span><span class="cs-spec-value">主系列</span></div>
+            <div class="cs-product-spec-row"><span class="cs-spec-label">品牌</span><span class="cs-spec-value">TOYVERSE 波普兽</span></div>
+            <div class="cs-product-spec-row"><span class="cs-spec-label">材质</span><span class="cs-spec-value">优质 PVC / ABS</span></div>
+            <div class="cs-product-spec-row"><span class="cs-spec-label">尺寸</span><span class="cs-spec-value">约 8&ndash;12cm</span></div>
+            <div class="cs-product-spec-row"><span class="cs-spec-label">包装</span><span class="cs-spec-value">原装盒装</span></div>
+            <div class="cs-product-spec-row"><span class="cs-spec-label">产地</span><span class="cs-spec-value">中国</span></div>
+          </div>
+        </div>
+
+        <!-- Recommendations card -->
+        <div class="cs-product-detail-card cs-reveal cs-reveal-delay-2">
+          <div class="cs-h4" style="margin-bottom:14px;">Related Recommendations</div>
+          <img src="assets/toyverse/screenshots/product-recommendations.png" alt="Product Recommendations" style="border-radius:var(--tv-rs);" loading="lazy"/>
+        </div>
+
+        <!-- Auxiliary images strip -->
+        <div class="cs-product-strip cs-reveal cs-reveal-delay-3">
+          <img src="assets/toyverse/products/toy-material-closeup.webp" alt="Material Closeup" loading="lazy"/>
+          <img src="assets/toyverse/products/toy-blindbox-package.webp" alt="Blind Box Package" loading="lazy"/>
+          <img src="assets/toyverse/products/toy-nova-glow.webp" alt="Nova Glow Effect" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     08  COMMERCE FLOW
+     ============================================================== -->
+<section class="cs-section">
+  <div class="cs-container">
+    <span class="cs-label">08 &mdash; Commerce Flow</span>
+    <h2 class="cs-title">Commerce Flow</h2>
+    <p class="cs-subtitle">从加购到支付成功的完整转化路径。</p>
+
+    <div class="cs-commerce-timeline">
+
+      <!-- Step 1: Add to Cart -->
+      <div class="cs-commerce-step cs-reveal">
+        <div class="cs-commerce-marker active">01</div>
+        <div class="cs-commerce-body">
+          <div class="cs-commerce-step-title">Add to Cart</div>
+          <div class="cs-commerce-step-desc">数量选择 + AI 推荐搭配 + 已省金额提示</div>
+          <div class="cs-commerce-mockup">
+            <img src="assets/toyverse/screenshots/cart.png" alt="Cart" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Confirm Order -->
+      <div class="cs-commerce-step cs-reveal cs-reveal-delay-1">
+        <div class="cs-commerce-marker active">02</div>
+        <div class="cs-commerce-body">
+          <div class="cs-commerce-step-title">Confirm Order</div>
+          <div class="cs-commerce-step-desc">收货地址 + 商品清单 + 配送方式选择</div>
+          <div class="cs-commerce-mockup">
+            <img src="assets/toyverse/screenshots/confirm-order.png" alt="Confirm Order" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Checkout -->
+      <div class="cs-commerce-step cs-reveal cs-reveal-delay-2">
+        <div class="cs-commerce-marker">03</div>
+        <div class="cs-commerce-body">
+          <div class="cs-commerce-step-title">Checkout</div>
+          <div class="cs-commerce-step-desc">支付方式 + 优惠券 + 实付金额汇总</div>
+          <div class="cs-commerce-mockup">
+            <img src="assets/toyverse/screenshots/checkout-full.png" alt="Checkout" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Payment -->
+      <div class="cs-commerce-step cs-reveal cs-reveal-delay-3">
+        <div class="cs-commerce-marker">04</div>
+        <div class="cs-commerce-body">
+          <div class="cs-commerce-step-title">Payment</div>
+          <div class="cs-commerce-step-desc">微信 / 支付宝 / 银行卡</div>
+          <div class="cs-commerce-mockup">
+            <img src="assets/toyverse/screenshots/checkout-payment.png" alt="Payment" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Success -->
+      <div class="cs-commerce-step cs-reveal cs-reveal-delay-4">
+        <div class="cs-commerce-marker">05</div>
+        <div class="cs-commerce-body">
+          <div class="cs-commerce-step-title">Success</div>
+          <div class="cs-commerce-step-desc">订单确认 + Confetti 庆祝动效 + 返回首页引导</div>
+          <div class="cs-commerce-mockup">
+            <img src="assets/toyverse/screenshots/payment-success-confetti.png" alt="Payment Success" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6: Track Order -->
+      <div class="cs-commerce-step cs-reveal cs-reveal-delay-5">
+        <div class="cs-commerce-marker">06</div>
+        <div class="cs-commerce-body">
+          <div class="cs-commerce-step-title">Track Order</div>
+          <div class="cs-commerce-step-desc">查看物流 + 评价</div>
+          <div class="cs-commerce-mockup">
+            <img src="assets/toyverse/screenshots/orders-all.png" alt="Orders" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     09  POST-PURCHASE EXPERIENCE
+     ============================================================== -->
+<section class="cs-section cs-section--alt cs-section--compact">
+  <div class="cs-container">
+    <span class="cs-label">09 &mdash; Post-Purchase</span>
+    <h2 class="cs-title">Post-Purchase Experience</h2>
+    <p class="cs-subtitle">购买之后，用户仍然可以管理、追踪、收藏、探索。</p>
+
+    <div class="cs-post-grid">
+      <!-- Left: Features -->
+      <div class="cs-post-features">
+        <div class="cs-post-feature cs-reveal">
+          <div class="cs-post-icon manage">&#128203;</div>
+          <div>
+            <div class="cs-post-f-title">Manage Orders</div>
+            <div class="cs-post-f-desc">多状态订单管理（待发货 / 运输中 / 已送达），支持评价与查看物流。</div>
+          </div>
+        </div>
+        <div class="cs-post-feature cs-reveal cs-reveal-delay-1">
+          <div class="cs-post-icon track">&#128666;</div>
+          <div>
+            <div class="cs-post-f-title">Track Shipments</div>
+            <div class="cs-post-f-desc">实时物流追踪，配送方式可选（标准 / 极速）。</div>
+          </div>
+        </div>
+        <div class="cs-post-feature cs-reveal cs-reveal-delay-2">
+          <div class="cs-post-icon collect">&#10084;</div>
+          <div>
+            <div class="cs-post-f-title">Collect &amp; Favorite</div>
+            <div class="cs-post-f-desc">收藏夹 + 浏览足迹统计，记录个人收藏偏好。</div>
+          </div>
+        </div>
+        <div class="cs-post-feature cs-reveal cs-reveal-delay-3">
+          <div class="cs-post-icon explore">&#9919;</div>
+          <div>
+            <div class="cs-post-f-title">AI Collection Analysis</div>
+            <div class="cs-post-f-desc">基于已收藏/已购商品的 AI 分析，推荐同系列或互补角色，形成收藏闭环。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Mockups -->
+      <div class="cs-post-mockups">
+        <div class="cs-post-mockup cs-reveal">
+          <img src="assets/toyverse/screenshots/profile.png" alt="Profile with AI Collection Analysis" loading="lazy"/>
+        </div>
+        <div class="cs-post-mockup cs-reveal cs-reveal-delay-1">
+          <img src="assets/toyverse/screenshots/orders-delivered.png" alt="Order Status" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     10  INTERACTION & MOTION
+     ============================================================== -->
+<section class="cs-section">
+  <div class="cs-container">
+    <span class="cs-label">10 &mdash; Interaction &amp; Motion</span>
+    <h2 class="cs-title">Key Interactions</h2>
+    <p class="cs-subtitle">每一个动效都回答："这个动画为什么存在？"</p>
+
+    <div class="cs-motion-grid">
+
+      <!-- Motion 01: Payment Success Confetti -->
+      <div class="cs-motion-card cs-reveal">
+        <img class="cs-motion-img" src="assets/toyverse/screenshots/payment-success-confetti.png" alt="Confetti Celebration" loading="lazy"/>
+        <div class="cs-motion-body">
+          <div class="cs-motion-title">Confetti Celebration</div>
+          <div class="cs-motion-purpose">支付成功后的正向情感反馈，强化完成感与愉悦感。</div>
+        </div>
+      </div>
+
+      <!-- Motion 02: AI Search Loading -->
+      <div class="cs-motion-card cs-reveal cs-reveal-delay-1">
+        <img class="cs-motion-img" src="assets/toyverse/screenshots/ai-search-loading.png" alt="AI Loading State" loading="lazy"/>
+        <div class="cs-motion-body">
+          <div class="cs-motion-title">AI Loading Indicator</div>
+          <div class="cs-motion-purpose">降低等待焦虑，传达"系统正在思考"的智能感。</div>
+        </div>
+      </div>
+
+      <!-- Motion 03: Cart State Change -->
+      <div class="cs-motion-card cs-reveal cs-reveal-delay-2">
+        <img class="cs-motion-img" src="assets/toyverse/screenshots/cart.png" alt="Cart Interaction" loading="lazy"/>
+        <div class="cs-motion-body">
+          <div class="cs-motion-title">Cart State Feedback</div>
+          <div class="cs-motion-purpose">数量增减、选中态变化、实时价格更新提供即时操作确认。</div>
+        </div>
+      </div>
+
+      <!-- Motion 04: Page Transitions -->
+      <div class="cs-motion-card cs-reveal cs-reveal-delay-3">
+        <img class="cs-motion-img" src="assets/toyverse/screenshots/home-full.png" alt="Page Transition" loading="lazy"/>
+        <div class="cs-motion-body">
+          <div class="cs-motion-title">Page Navigation</div>
+          <div class="cs-motion-purpose">底部 Tab 栏切换配合内容过渡，保持空间连续性。</div>
+        </div>
+      </div>
+
+      <!-- Motion 05: CTA Pulse -->
+      <div class="cs-motion-card cs-reveal cs-reveal-delay-4">
+        <img class="cs-motion-img" src="assets/toyverse/screenshots/product-hero.png" alt="CTA Button" loading="lazy"/>
+        <div class="cs-motion-body">
+          <div class="cs-motion-title">CTA Gradient Button</div>
+          <div class="cs-motion-purpose">珊瑚渐变主按钮在深色/浅色背景下均保持高识别度与点击吸引力。</div>
+        </div>
+      </div>
+
+      <!-- Motion 06: Order Status Pills -->
+      <div class="cs-motion-card cs-reveal cs-reveal-delay-5">
+        <img class="cs-motion-img" src="assets/toyverse/screenshots/orders-all.png" alt="Status Indicators" loading="lazy"/>
+        <div class="cs-motion-body">
+          <div class="cs-motion-title">Status Color Coding</div>
+          <div class="cs-motion-purpose">已送达(绿) / 运输中(蓝) / 待发货(橙)，一眼识别订单状态。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     11  FULL DEMO
+     ============================================================== -->
+<section class="cs-demo-section" id="cs-demo">
+  <div class="cs-container">
+    <span class="cs-label" style="color:var(--tv-coral);">11 &mdash; Full Demo</span>
+    <h2 class="cs-demo-title">Play With ToyVerse</h2>
+    <p class="cs-demo-subtitle">Explore the complete collectible commerce experience.</p>
+
+    <div class="cs-video-wrapper">
+      <video id="demoVideo" preload="metadata" muted controlsList="nodownload"
+             poster="assets/toyverse/screenshots/home-full.png">
+        <source src="assets/toyverse/video/demo.mp4" type="video/mp4" />
+        您的浏览器不支持视频播放。
+      </video>
+      <!-- Custom overlay hint (removed when user interacts) -->
+      <div id="videoOverlay" style="
+        position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+        background:rgba(0,0,0,.35); cursor:pointer; z-index:2; transition:opacity .4s;
+      " onclick="playDemo()">
+        <div style="
+          width:72px; height:72px; border-radius:50%; background:rgba(255,255,255,.15);
+          backdrop-filter:blur(8px); border:2px solid rgba(255,255,255,.3);
+          display:flex; align-items:center; justify-content:center;
+        ">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     12  DESIGN LANGUAGE
+     ============================================================== -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <span class="cs-label">12 &mdash; Design Language</span>
+    <h2 class="cs-title">Design Language</h2>
+    <p class="cs-subtitle">所有设计规则从现有 ToyVerse UI 中提取，未做任何新增或修改。</p>
+
+    <div class="cs-dl-grid">
+
+      <!-- Colors -->
+      <div class="cs-dl-card cs-reveal">
+        <div class="cs-dl-card-title">Color Palette</div>
+        <div class="cs-swatches">
+          <div class="cs-swatch"><div class="cs-swatch-color" style="background:#030213;"></div><span class="cs-swatch-label">Dark</span></div>
+          <div class="cs-swatch"><div class="cs-swatch-color" style="background:#2BB3C0;"></div><span class="cs-swatch-label">Teal</span></div>
+          <div class="cs-swatch"><div class="cs-swatch-color" style="background:#B9A3E3;"></div><span class="cs-swatch-label">Lavender</span></div>
+          <div class="cs-swatch"><div class="cs-swatch-color" style="background:#F7A8C4;"></div><span class="cs-swatch-label">Pink</span></div>
+          <div class="cs-swatch"><div class="cs-swatch-color" style="background:#FF9B6A;"></div><span class="cs-swatch-label">Coral</span></div>
+          <div class="cs-swatch"><div class="cs-swatch-color" style="background:#D4A574;"></div><span class="cs-swatch-label">Gold</span></div>
+          <div class="cs-swatch"><div class="cs-swatch-color" style="background:#7DD3B8;"></div><span class="cs-swatch-label">Mint</span></div>
+          <div class="cs-swatch"><div class="cs-swatch-color" style="background:#FAF8F5;"></div><span class="cs-swatch-label">BG Warm</span></div>
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <div class="cs-dl-card cs-reveal cs-reveal-delay-1">
+        <div class="cs-dl-card-title">Typography</div>
+        <div class="cs-typo-sample">
+          <div class="cs-typo-display">TOYVERSE Aa</div>
+          <div class="cs-typo-h2">Section Heading</div>
+          <div class="cs-typo-body">Body text in Inter + Noto Sans SC fallback.</div>
+          <div class="cs-typo-caption">CAPTION / 12px / MUTED</div>
+        </div>
+      </div>
+
+      <!-- Components: Buttons -->
+      <div class="cs-dl-card cs-reveal cs-reveal-delay-2">
+        <div class="cs-dl-card-title">Buttons &amp; CTA</div>
+        <div class="cs-comp-sample">
+          <button class="comp-demo cs-comp-btn-primary">Primary CTA</button>
+          <button class="comp-demo cs-comp-btn-outline">Outline Action</button>
+        </div>
+      </div>
+
+      <!-- Components: Tags -->
+      <div class="cs-dl-card cs-reveal cs-reveal-delay-3">
+        <div class="cs-dl-card-title">Tags &amp; Badges</div>
+        <div class="cs-comp-sample">
+          <span class="comp-demo cs-comp-tag">主系列</span>
+          <span class="comp-demo cs-comp-tag cs-comp-tag-pink">限定款</span>
+          <span class="comp-demo cs-comp-tag cs-comp-tag-gold">稀有</span>
+          <br/><br/>
+          <span class="comp-demo cs-comp-tag">热卖</span>
+          <span class="comp-demo cs-comp-tag">新品</span>
+          <span class="comp-demo cs-comp-tag">治愈系</span>
+        </div>
+      </div>
+
+      <!-- Components: Cards -->
+      <div class="cs-dl-card cs-reveal cs-reveal-delay-4">
+        <div class="cs-dl-card-title">Product Card</div>
+        <div class="cs-comp-sample" style="padding:0; overflow:hidden;">
+          <img src="assets/toyverse/screenshots/home-ai-rec.png" alt="Product Card Example" style="width:100%; border-radius:var(--tv-rs) var(--tv-rs) 0 0;" loading="lazy"/>
+          <div style="padding:14px 16px;">
+            <div style="font-size:14px;font-weight:800;">PUPO&middot;NOVA 探索者</div>
+            <div style="font-size:12px;color:var(--tv-text-muted);">TOYVERSE 波普兽 &middot; &#11088; 4.8</div>
+            <div style="font-size:16px;font-weight:800;color:var(--tv-coral);margin-top:4px;">&yen;79</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spacing & Radius -->
+      <div class="cs-dl-card cs-reveal cs-reveal-delay-5">
+        <div class="cs-dl-card-title">Spacing &amp; Radius</div>
+        <div class="cs-comp-sample">
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <div style="width:40px;height:40px;background:var(--tv-teal);border-radius:var(--tv-rs);"></div>
+            <div style="width:40px;height:40px;background:var(--tv-lavender);border-radius:var(--tv-rm);"></div>
+            <div style="width:40px;height:40px;background:var(--tv-pink);border-radius:var(--tv-rl);"></div>
+            <div style="width:40px;height:40px;background:var(--tv-coral);border-radius:var(--tv-rxl);"></div>
+            <div style="width:40px;height:40px;background:var(--tv-gold);border-radius:999px;"></div>
+          </div>
+          <div style="margin-top:14px; font-size:12px; color:var(--tv-text-muted);">
+            SM 10px &middot; MD 16px &middot; LG 22px &middot; XL 32px &middot; Pill 999px
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================================================
+     13  FINAL DESIGN VALUE
+     ============================================================== -->
+<section class="cs-section">
+  <div class="cs-container">
+    <span class="cs-label">13 &mdash; Final Value</span>
+    <h2 class="cs-title">Design Value</h2>
+    <p class="cs-subtitle">四个核心设计价值总结。</p>
+
+    <div class="cs-value-grid">
+
+      <div class="value-card cs-value-card cs-reveal">
+        <div class="cs-value-num">01</div>
+        <div class="cs-value-title">IP AS EXPERIENCE</div>
+        <div class="cs-value-desc">IP 从角色视觉延伸到商品与产品体验。通过完整的 Visual System（配色/造型/系列/稀有度），让每个角色不仅是商品图，而是贯穿发现、决策、购买、收藏的结构性体验要素。</div>
+      </div>
+
+      <div class="value-card cs-value-card cs-reveal cs-reveal-delay-1">
+        <div class="cs-value-num">02</div>
+        <div class="cs-value-title">DISCOVERY AS INTERACTION</div>
+        <div class="cs-value-desc">让潮玩浏览具有探索感。Home Banner 轮播 + 分类标签 + AI 推荐，三层递进式发现结构，将传统商品列表转化为可逛、可惊喜的沉浸式体验。</div>
+      </div>
+
+      <div class="value-card cs-value-card cs-reveal cs-reveal-delay-2">
+        <div class="cs-value-num">03</div>
+        <div class="cs-value-title">AI AS SEARCH ASSISTANT</div>
+        <div class="cs-value-desc">通过自然语言搜索降低商品发现成本。用户说人话，AI 理解意图，返回带理由的精准推荐——不编造技术原理，只呈现真实存在的交互价值。</div>
+      </div>
+
+      <div class="value-card cs-value-card cs-reveal cs-reveal-delay-3">
+        <div class="cs-value-num">04</div>
+        <div class="cs-value-title">COMMERCE AS PLAY</div>
+        <div class="cs-value-desc">通过反馈（Confetti）、动效（Loading 态）、状态变化（Cart 实时更新）、色彩编码（订单状态）增强购物体验的趣味性与确定性，让交易过程本身成为一种享受。</div>
+      </div>
+
+    </div>
+
+    <!-- Closing -->
+    <div class="cs-closing cs-reveal">
+      <div class="cs-closing-brand">TOYVERSE</div>
+      <div class="cs-closing-line">From collectible products<br/>to collectible experiences.</div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<footer class="cs-footer">
+  <p>&copy; 2026 梁金玲 &middot; Portfolio &middot; ToyVerse Case Study</p>
+  
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SCRIPTS: Reveal Animation + Video Player -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+  'use strict';
+
+  // ---- Reveal on scroll (IntersectionObserver) ----
+  var reveals = document.querySelectorAll('.cs-reveal');
+  if ('IntersectionObserver' in window && reveals.length) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el){ observer.observe(el); });
+  } else {
+    // Fallback: show everything immediately
+    reveals.forEach(function(el){ el.classList.add('revealed'); });
+  }
+
+  // ---- Demo Video Player ----
+  window.playDemo = function() {
+    var video = document.getElementById('demoVideo');
+    var overlay = document.getElementById('videoOverlay');
+    if (!video || !overlay) return;
+    overlay.style.opacity = '0';
+    setTimeout(function(){ overlay.style.display='none'; }, 400);
+    video.play().catch(function(){ /* autoplay may be blocked */ });
+  };
+
+})();
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
