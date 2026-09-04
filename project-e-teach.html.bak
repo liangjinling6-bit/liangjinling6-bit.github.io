@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>易教智慧课堂 | 梁金玲 Portfolio</title>
+  <meta name="description" content="易教智慧课堂 UI/UX 设计项目详情 - B 端教育产品设计系统与核心页面优化。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-light">
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">梁金玲 · Portfolio</a>
+      <nav class="nav">
+        <a href="index.html#works" class="nav-link">作品</a>
+        <a href="index.html#about" class="nav-link">关于</a>
+        <a href="index.html#contact" class="nav-link">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a href="index.html#works" class="detail-back">← 返回作品集</a>
+
+    <header class="detail-header" style="padding-top: calc(var(--header-height) + var(--space-8));">
+      <p class="detail-label" style="color: var(--color-primary);">UI / UX Design · 2026</p>
+      <h1 class="detail-title">易教智慧课堂</h1>
+      <div class="detail-tags">
+        <span class="tag">B 端产品</span>
+        <span class="tag">UI 设计</span>
+        <span class="tag">设计系统</span>
+        <span class="tag">交互优化</span>
+      </div>
+      <p class="detail-desc">
+        面向 K12 教育的智慧课堂管理后台，通过信息架构重组与 UI 视觉优化，提升教师备课、课堂互动与学情分析效率，打造清晰、高效、可扩展的教学数字化体验。
+      </p>
+    </header>
+
+    <figure class="detail-hero">
+      <img src="assets/images/project-e-teach.png" alt="易教智慧课堂主界面" />
+    </figure>
+
+    <section class="light-section">
+      <div class="container-narrow" style="margin: 0 auto;">
+        <h2 class="light-section-title">项目背景</h2>
+        <p class="detail-desc">
+          随着教育信息化推进，教师需要在多个系统间切换完成备课、授课与作业批改。易教智慧课堂旨在整合教学全流程，通过统一平台降低操作成本，让教师更专注于教学本身。
+        </p>
+        <div class="info-row">
+          <div class="info-item">
+            <h4>角色</h4>
+            <p>UI 设计师</p>
+          </div>
+          <div class="info-item">
+            <h4>周期</h4>
+            <p>10 周</p>
+          </div>
+          <div class="info-item">
+            <h4>工具</h4>
+            <p>Figma / AE</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="light-section">
+      <h2 class="light-section-title">用户问题分析</h2>
+      <div class="light-grid">
+        <div class="light-card">
+          <h3>教师 Teacher</h3>
+          <p>备课资源分散，课堂互动工具入口深，难以实时掌握学生专注度与理解情况。</p>
+        </div>
+        <div class="light-card">
+          <h3>学生 Student</h3>
+          <p>课后复习缺少结构化资料，作业反馈周期长，学习动力难以持续。</p>
+        </div>
+        <div class="light-card">
+          <h3>教务 System</h3>
+          <p>数据统计维度单一，缺少可视化看板，难以支撑教学决策。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="light-section">
+      <h2 class="light-section-title">设计策略</h2>
+      <div class="light-grid">
+        <div class="light-card">
+          <h3>信息架构优化</h3>
+          <p>以「备课 - 授课 - 作业 - 学情」为主轴重组导航，减少页面跳转层级，关键功能三步可达。</p>
+        </div>
+        <div class="light-card">
+          <h3>UI 视觉优化</h3>
+          <p>建立以蓝色为主色的设计系统，统一卡片、表格、按钮等组件规范，提升界面可读性与品牌一致性。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="light-section">
+      <h2 class="light-section-title">核心页面展示</h2>
+      <div class="detail-gallery cols-2">
+        <img src="assets/images/project-ui.png" alt="UI 组件与界面展示" />
+        <img src="assets/images/project-e-teach.png" alt="易教智慧课堂核心页面" />
+      </div>
+    </section>
+    <!-- 上下篇导航 -->
+    <nav class="project-nav">
+      <a href="project-town.html" class="project-nav-item">
+        <span class="project-nav-label">&#8592; 上一个项目</span>
+        <span class="project-nav-title">文旅古镇视觉设计</span>
+      </a>
+      <a href="project-vending.html" class="project-nav-item next">
+        <span class="project-nav-label">下一个项目 &#8594;</span>
+        <span class="project-nav-title">校园自助贩卖机 · 点单界面</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer-cta" style="margin-top: 0;">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">Let's Work Together</h2>
+      <p class="footer-cta-desc">继续浏览更多作品，或直接与我开始合作。</p>
+      <div class="footer-cta-contacts">
+        <a href="all-projects.html">查看全部作品</a>
+        <a href="index.html#contact">联系我</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
