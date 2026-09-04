@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>儿童成长乐园 · Animal Growth Garden | 梁金玲 Portfolio</title>
+  <meta name="description" content="儿童成长乐园 Animal Growth Garden 项目案例 - Animal IP、游戏化成长体系、植物成长、动效反馈、AIGC 工作流与儿童成长 App Product Extension。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .animal-case {
+      background:
+        radial-gradient(1100px 520px at 90% -5%, rgba(120, 150, 90, 0.10), transparent 60%),
+        linear-gradient(180deg, #FBF9F3 0%, #F3F1E9 42%, #FAF8F2 100%);
+      color: #262B22;
+      min-height: 100vh;
+    }
+
+    .animal-case .header {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(38, 43, 34, 0.08);
+    }
+
+    .ac-main {
+      max-width: 1240px;
+      padding-bottom: 96px;
+    }
+
+    .ac-kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6E7D48;
+      margin-bottom: 10px;
+    }
+
+    .ac-section {
+      padding: 76px 0 8px;
+      scroll-margin-top: 100px;
+    }
+
+    .ac-sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .ac-num {
+      flex: none;
+      font-family: "Inter", sans-serif;
+      font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+      font-weight: 800;
+      color: #A7AAA0;
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+
+    .ac-title {
+      font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: #262B22;
+      letter-spacing: -0.02em;
+    }
+
+    .ac-subtitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6E7D48;
+      line-height: 1.5;
+    }
+
+    .ac-desc {
+      max-width: 760px;
+      color: #55584F;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .ac-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 12px 36px rgba(38, 43, 34, 0.06);
+    }
+
+    .ac-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #262B22;
+      margin-bottom: 8px;
+    }
+
+    .ac-card p {
+      font-size: 14px;
+      color: #55584F;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .ac-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .ac-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: #F1F3EE;
+      color: #4A5231;
+      border: 1px solid rgba(110, 125, 72, 0.16);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ---------- 01 Hero ---------- */
+    .ac-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+      padding: 92px 0 60px;
+    }
+
+    .ac-hero h1 {
+      font-size: clamp(3rem, 6vw, 5.4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.04;
+      color: #262B22;
+      margin: 0 0 14px;
+    }
+
+    .ac-hero-intro {
+      max-width: 560px;
+      font-size: 17px;
+      color: #55584F;
+      line-height: 1.9;
+      margin-top: 22px;
+    }
+
+    .ac-hero-visual {
+      display: grid;
+      gap: 14px;
+    }
+
+    .ac-hero-visual-main {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 22px 60px rgba(38, 43, 34, 0.16);
+      display: block;
+    }
+
+    .ac-hero-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .ac-hero-strip img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+
+    /* ---------- Grids ---------- */
+    .ac-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .ac-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .ac-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+    /* ---------- 04 IP Design System ---------- */
+    .ac-ip-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .ac-ip-layout .ac-card {
+      padding: 18px;
+    }
+
+    .ac-ip-spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .ac-ip-spec-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(38, 43, 34, 0.08);
+    }
+
+    .ac-ip-spec-item b {
+      font-size: 12px;
+      color: #6E7D48;
+    }
+
+    .ac-ip-spec-item span {
+      font-size: 12px;
+      color: #55584F;
+      line-height: 1.5;
+    }
+
+    .ac-ip-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .ac-ip-card {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .ac-ip-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .ac-ip-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .ac-ip-card figcaption {
+      padding: 8px 10px 10px;
+    }
+
+    .ac-ip-card b {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: #262B22;
+      margin-bottom: 4px;
+    }
+
+    .ac-ip-card span {
+      font-size: 10px;
+      color: #777A6F;
+      line-height: 1.5;
+    }
+
+    .ac-ip-spec-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .ac-ip-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .ac-ip-meta span {
+      display: inline-flex;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #F1F3EE;
+      color: #4A5231;
+      border: 1px solid rgba(110, 125, 72, 0.14);
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    /* ---------- 05 Growth / Plant ---------- */
+    .ac-growth-card {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .ac-growth-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ac-growth-body {
+      padding: 18px 20px 22px;
+    }
+
+    .ac-growth-stage {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6E7D48;
+      margin-bottom: 6px;
+    }
+
+    .ac-growth-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #262B22;
+      margin-bottom: 8px;
+    }
+
+    .ac-growth-card p {
+      font-size: 14px;
+      color: #55584F;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .ac-plant-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .ac-plant-card {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .ac-plant-stages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      padding: 4px;
+      background: linear-gradient(135deg, #F4F1E6, #E9E2C9);
+    }
+
+    .ac-plant-stage {
+      margin: 0;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: #FFFFFF;
+    }
+
+    .ac-plant-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ac-plant-stage-tag {
+      position: absolute;
+      left: 6px;
+      bottom: 6px;
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #3E4528;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+    }
+
+    .ac-plant-card figcaption {
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #4A5231;
+      text-align: center;
+    }
+
+    /* ---------- 06 Motion ---------- */
+    .ac-motion-card {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .ac-motion-card .ac-gif-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      padding: 6px;
+      background: #E8F5E0;
+    }
+
+    .ac-motion-card .ac-gif-row img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .ac-motion-card figcaption {
+      padding: 12px 14px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #4A5231;
+    }
+
+    .ac-motion-note {
+      margin: 18px 0 0;
+      font-size: 14px;
+      color: #777A6F;
+      line-height: 1.8;
+    }
+
+    /* ---------- 07 UI Integration ---------- */
+    .ac-ui-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .ac-ui-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid rgba(38, 43, 34, 0.08);
+    }
+
+    .ac-ui-card div {
+      padding: 16px 18px 18px;
+    }
+
+    .ac-ui-card h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #262B22;
+      margin-bottom: 6px;
+    }
+
+    .ac-ui-card p {
+      font-size: 13px;
+      color: #55584F;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ---------- 07 UI Layout (主图 + 亮点) ---------- */
+    .ac-ui-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 380px) 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .ac-ui-hero {
+      margin: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 18px 48px rgba(38, 43, 34, 0.14);
+      background: #FFFFFF;
+    }
+
+    .ac-ui-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .ac-ui-features {
+      display: grid;
+      gap: 14px;
+    }
+
+    .ac-ui-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .ac-ui-feature:hover {
+      transform: translateX(4px);
+      box-shadow: 0 12px 28px rgba(38, 43, 34, 0.10);
+    }
+
+    .ac-ui-feature-num {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: #FFFFFF;
+      background: linear-gradient(135deg, #6E7D48, #3E4528);
+      border-radius: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .ac-ui-feature h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #262B22;
+      margin: 2px 0 4px;
+    }
+
+    .ac-ui-feature p {
+      font-size: 13px;
+      color: #55584F;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .ac-ui-layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .ac-ui-hero {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+    }
+
+    /* ---------- 07 Badges (集章奖励) ---------- */
+    .ac-badge-block {
+      margin-top: 36px;
+      padding: 28px 28px 32px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #FFF8E7 0%, #F4ECDC 100%);
+      border: 1px solid rgba(194, 145, 65, 0.18);
+      box-shadow: 0 16px 44px rgba(120, 84, 36, 0.10);
+    }
+
+    .ac-badge-head {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .ac-badge-kicker {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #B07A2E;
+      margin: 0 0 6px;
+      font-weight: 700;
+    }
+
+    .ac-badge-title {
+      font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+      font-weight: 800;
+      color: #262B22;
+      margin: 0 0 10px;
+    }
+
+    .ac-badge-desc {
+      font-size: 14px;
+      color: #6B5A3A;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    .ac-badge-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px 16px;
+      justify-items: center;
+    }
+
+    .ac-badge-item {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .ac-badge-item img {
+      width: 100%;
+      max-width: 130px;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(120, 84, 36, 0.18));
+      transition: transform 0.35s ease;
+    }
+
+    .ac-badge-item:hover {
+      transform: translateY(-6px);
+    }
+
+    .ac-badge-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .ac-badge-item figcaption {
+      font-size: 13px;
+      font-weight: 700;
+      color: #5A4A2C;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---------- 08 AIGC Workflow ---------- */
+    .ac-flow-card {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 22px;
+      padding: 22px;
+      position: relative;
+    }
+
+    .ac-flow-card b {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #E0780A;
+      margin-bottom: 8px;
+    }
+
+    .ac-flow-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #262B22;
+      margin-bottom: 6px;
+    }
+
+    .ac-flow-card p {
+      font-size: 14px;
+      color: #55584F;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ---------- 09 Final Showcase ---------- */
+    .ac-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .ac-showcase-grid img {
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 16px 44px rgba(38, 43, 34, 0.12);
+    }
+
+    .ac-showcase-video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 16px 44px rgba(38, 43, 34, 0.12);
+      margin: 16px auto 0;
+      background: #000;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+
+    /* ---------- 10 Design Value ---------- */
+    .ac-value-statement {
+      margin-top: 28px;
+      padding: 26px 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #3E4528, #6E7D48);
+      color: #fff;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      font-weight: 800;
+      line-height: 1.7;
+      box-shadow: 0 18px 50px rgba(62, 69, 40, 0.18);
+    }
+
+    @media (max-width: 1024px) {
+      .ac-hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-top: 72px;
+      }
+
+      .ac-ip-layout,
+      .ac-grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .ac-plant-grid,
+      .ac-motion-card .ac-gif-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ac-ip-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .ac-badge-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ac-grid-2,
+      .ac-grid-3,
+      .ac-grid-4,
+      .ac-plant-grid,
+      .ac-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ac-ip-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .ac-badge-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .ac-hero-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .ac-sec-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    /* ---------- Product Extension ---------- */
+    .ac-product-sub {
+      margin-top: 46px;
+    }
+
+    .ac-product-head {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .ac-product-num {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6E7D48;
+    }
+
+    .ac-product-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #262B22;
+    }
+
+    .ac-product-desc {
+      max-width: 720px;
+      color: #55584F;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .ac-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .ac-flow-node {
+      display: inline-flex;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #F1F3EE;
+      color: #4A5231;
+      border: 1px solid rgba(110, 125, 72, 0.16);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .ac-flow-arrow {
+      color: #A7AAA0;
+      font-weight: 800;
+    }
+
+    .ac-app-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .ac-app-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 24px;
+      padding: 12px;
+      box-shadow: 0 14px 38px rgba(38, 43, 34, 0.10);
+    }
+
+    .ac-phone {
+      background: #11161B;
+      border-radius: 22px;
+      padding: 8px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .ac-phone img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .ac-app-card figcaption {
+      padding: 10px 4px 4px;
+      text-align: center;
+    }
+
+    .ac-app-card figcaption b {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      color: #262B22;
+      margin-bottom: 4px;
+    }
+
+    .ac-app-card figcaption span {
+      display: block;
+      font-size: 12px;
+      color: #777A6F;
+      line-height: 1.55;
+    }
+
+    .ac-app-feature {
+      display: grid;
+      grid-template-columns: minmax(260px, 380px) 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .ac-app-feature .ac-phone {
+      max-width: 360px;
+      width: 100%;
+    }
+
+    .ac-app-feature-copy {
+      display: grid;
+      gap: 12px;
+    }
+
+    .ac-app-feature h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #262B22;
+      margin: 0;
+    }
+
+    .ac-app-feature p {
+      font-size: 14px;
+      color: #55584F;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .ac-app-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .ac-app-detail-grid img {
+      width: 100%;
+      aspect-ratio: 3 / 5;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 12px 32px rgba(38, 43, 34, 0.12);
+    }
+
+    .ac-reward-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .ac-reward-list span {
+      display: inline-flex;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #FFF8E7;
+      border: 1px solid rgba(194, 145, 65, 0.22);
+      color: #6B5A3A;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .ac-garden-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .ac-garden-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(38, 43, 34, 0.08);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 8px 24px rgba(38, 43, 34, 0.06);
+    }
+
+    .ac-garden-card b {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      color: #262B22;
+      margin-bottom: 5px;
+    }
+
+    .ac-garden-card span {
+      display: block;
+      font-size: 12px;
+      color: #777A6F;
+      line-height: 1.55;
+    }
+
+    .ac-garden-gif-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .ac-garden-gif-row img {
+      width: 84px;
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(38, 43, 34, 0.14);
+    }
+
+    .ac-value-extension {
+      margin-top: 14px;
+      font-size: 15px;
+      color: #55584F;
+      line-height: 1.9;
+    }
+
+    @media (max-width: 1024px) {
+      .ac-app-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ac-app-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .ac-app-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ac-garden-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .ac-app-grid,
+      .ac-app-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="page-light animal-case">
+<div class="page-topbar">
+    <a class="page-back" href="all-projects.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">儿童成长乐园</span>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">梁金玲 &#183; Portfolio</a>
+      <nav class="nav">
+        <a href="index.html#works" class="nav-link">作品</a>
+        <a href="skills.html" class="nav-link">技能</a>
+        <a href="index.html#contact" class="nav-link">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container ac-main">
+
+    <!-- 01 Hero -->
+    <header class="ac-hero">
+      <div>
+        <p class="ac-kicker">Animal Growth Garden &#183; Gamified Children Growth App</p>
+        <h1>儿童成长乐园</h1>
+        <p class="ac-subtitle">Animal IP × Gamified Growth Experience</p>
+        <p class="ac-hero-intro">从动物 IP 视觉体系出发，建立角色与植物成长体系，通过动效让角色获得生命感，并将 IP 延展到儿童移动端产品，形成学习、任务、积分、成长、成就、奖励的完整游戏化体验。</p>
+        <div class="ac-tag-row">
+          <span class="ac-tag">IP Visual Design</span>
+          <span class="ac-tag">Motion Design</span>
+          <span class="ac-tag">Gamification</span>
+          <span class="ac-tag">AIGC Workflow</span>
+        </div>
+      </div>
+      <div class="ac-hero-visual">
+        <img class="ac-hero-visual-main" src="assets/images/project-animal.png" alt="动物成长乐园项目主视觉" />
+        <div class="ac-hero-strip">
+          <img src="assets/images/project-animal-stage1.png" alt="动物成长阶段 幼年" />
+          <img src="assets/images/project-animal-stage2.png" alt="动物成长阶段 少年" />
+          <img src="assets/images/project-animal-stage3.png" alt="动物成长阶段 成年" />
+        </div>
+      </div>
+    </header>
+
+    <!-- 02 Project Overview -->
+    <section class="ac-section" id="overview">
+      <div class="ac-sec-head">
+        <span class="ac-num">02</span>
+        <div>
+          <p class="ac-kicker">Project Overview</p>
+          <h2 class="ac-title">项目概览</h2>
+        </div>
+      </div>
+      <div class="ac-grid-4">
+        <article class="ac-card">
+          <h3>Design Goal</h3>
+          <p>让用户通过收集、互动、成长与解锁，建立与角色之间的情感连接。</p>
+        </article>
+        <article class="ac-card">
+          <h3>Target User</h3>
+          <p>儿童 / 年轻用户 / 游戏化产品用户，适合具备成长、收集与奖励机制的产品场景。</p>
+        </article>
+        <article class="ac-card">
+          <h3>Project Output</h3>
+          <p>9 个动物 IP、3 阶段成长系统、动物动态 GIF、植物成长系统、徽章与成就视觉、UI 场景延展。</p>
+        </article>
+        <article class="ac-card">
+          <h3>Role</h3>
+          <p>UI / Visual Design &#183; IP Visual Design &#183; Motion Design &#183; AIGC</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 Design Challenge -->
+    <section class="ac-section" id="challenge">
+      <div class="ac-sec-head">
+        <span class="ac-num">03</span>
+        <div>
+          <p class="ac-kicker">Design Challenge</p>
+          <h2 class="ac-title">设计挑战</h2>
+        </div>
+      </div>
+      <div class="ac-grid-3">
+        <article class="ac-card">
+          <h3>01 &#183; 角色如何建立辨识度？</h3>
+          <p>通过动物形态、配色、性格、装饰和标志动作建立角色识别，让每个 IP 都有稳定的记忆点。</p>
+        </article>
+        <article class="ac-card">
+          <h3>02 &#183; 成长过程如何被看见？</h3>
+          <p>通过幼年、少年、成年建立明确的视觉成长反馈，让用户能感知自己的行为带来变化。</p>
+        </article>
+        <article class="ac-card">
+          <h3>03 &#183; 动效如何增强获得感？</h3>
+          <p>通过微动效、互动反馈和解锁动画，让角色从静态视觉资产变成产品体验的一部分。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 04 IP Design System -->
+    <section class="ac-section" id="ip-system">
+      <div class="ac-sec-head">
+        <span class="ac-num">04</span>
+        <div>
+          <p class="ac-kicker">IP Design System</p>
+          <h2 class="ac-title">IP Design System</h2>
+          <p class="ac-desc">9 个角色，共享统一的视觉语言，同时保持独立性格。</p>
+        </div>
+      </div>
+      <div class="ac-ip-layout">
+        <article class="ac-card">
+          <h3>Character System</h3>
+          <p>9 个角色共享统一的造型比例、表情语言、配饰逻辑与动作状态，形成可扩展的角色系统。</p>
+          <div class="ac-tag-row">
+            <span class="ac-tag">9 Roles</span>
+            <span class="ac-tag">Unified Language</span>
+            <span class="ac-tag">Motion Ready</span>
+          </div>
+        </article>
+        <article class="ac-card">
+          <h3>Character Language</h3>
+          <p>通过统一的比例、表情、体态、配饰与色彩语言，让每个角色既有系统感，又有独立记忆点。</p>
+          <div class="ac-ip-spec-list">
+            <div class="ac-ip-spec-item"><b>头身比例</b><span>统一 Q 版比例，放大头部与眼睛，增强亲和力。</span></div>
+            <div class="ac-ip-spec-item"><b>表情语言</b><span>通过眉眼、嘴型和腮红传递情绪。</span></div>
+            <div class="ac-ip-spec-item"><b>体态</b><span>圆润轮廓与低重心，强化陪伴感。</span></div>
+            <div class="ac-ip-spec-item"><b>配饰</b><span>用围巾、徽章、装饰物标记角色身份。</span></div>
+            <div class="ac-ip-spec-item"><b>色彩</b><span>角色主色与乐园环境协调，保持高识别度。</span></div>
+            <div class="ac-ip-spec-item"><b>动作</b><span>用耳朵、尾巴、四肢小幅度动作增加生命力。</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="ac-ip-grid">
+          <figure class="ac-ip-card"><img src="assets/images/animals/1-1.gif" alt="动物角色 01" loading="lazy" /><figcaption><b>角色 01</b><span>亲和 · 圆润 · 标志动作</span><div class="ac-ip-meta"><span>主视觉</span><span>待机</span><span>互动</span></div></figcaption></figure>
+          <figure class="ac-ip-card"><img src="assets/images/animals/2-1.gif" alt="动物角色 02" loading="lazy" /><figcaption><b>角色 02</b><span>活泼 · 好奇 · 探索动作</span><div class="ac-ip-meta"><span>主视觉</span><span>探索</span><span>互动</span></div></figcaption></figure>
+          <figure class="ac-ip-card"><img src="assets/images/animals/3-1.gif" alt="动物角色 03" loading="lazy" /><figcaption><b>角色 03</b><span>温柔 · 陪伴 · 互动动作</span><div class="ac-ip-meta"><span>陪伴</span><span>待机</span><span>反馈</span></div></figcaption></figure>
+          <figure class="ac-ip-card"><img src="assets/images/animals/4-1.gif" alt="动物角色 04" loading="lazy" /><figcaption><b>角色 04</b><span>守护 · 稳定 · 成长动作</span><div class="ac-ip-meta"><span>守护</span><span>成长</span><span>反馈</span></div></figcaption></figure>
+          <figure class="ac-ip-card"><img src="assets/images/animals/5-1.gif" alt="动物角色 05" loading="lazy" /><figcaption><b>角色 05</b><span>开朗 · 陪伴 · 标志动作</span><div class="ac-ip-meta"><span>陪伴</span><span>待机</span><span>互动</span></div></figcaption></figure>
+          <figure class="ac-ip-card"><img src="assets/images/animals/6-1.gif" alt="动物角色 06" loading="lazy" /><figcaption><b>角色 06</b><span>治愈 · 温暖 · 互动动作</span><div class="ac-ip-meta"><span>治愈</span><span>互动</span><span>反馈</span></div></figcaption></figure>
+          <figure class="ac-ip-card"><img src="assets/images/animals/7-1.gif" alt="动物角色 07" loading="lazy" /><figcaption><b>角色 07</b><span>勇敢 · 探索 · 成长动作</span><div class="ac-ip-meta"><span>探索</span><span>成长</span><span>反馈</span></div></figcaption></figure>
+          <figure class="ac-ip-card"><img src="assets/images/animals/8-1.gif" alt="动物角色 08" loading="lazy" /><figcaption><b>角色 08</b><span>聪慧 · 观察 · 标志动作</span><div class="ac-ip-meta"><span>观察</span><span>待机</span><span>互动</span></div></figcaption></figure>
+          <figure class="ac-ip-card"><img src="assets/images/animals/9-1.gif" alt="动物角色 09" loading="lazy" /><figcaption><b>角色 09</b><span>乐观 · 互动 · 陪伴动作</span><div class="ac-ip-meta"><span>乐观</span><span>互动</span><span>反馈</span></div></figcaption></figure>
+        </div>
+    </section>
+
+    <!-- 05 Growth Narrative -->
+    <section class="ac-section" id="growth">
+      <div class="ac-sec-head">
+        <span class="ac-num">05</span>
+        <div>
+          <p class="ac-kicker">Growth Narrative</p>
+          <h2 class="ac-title">成长叙事</h2>
+          <p class="ac-desc">从被照顾，到探索，再到守护。</p>
+        </div>
+      </div>
+      <div class="ac-grid-3">
+        <figure class="ac-growth-card">
+          <img src="assets/images/project-animal-stage1.png" alt="动物成长阶段 幼年" />
+          <figcaption class="ac-growth-body">
+            <span class="ac-growth-stage">Stage 01 &#183; 幼年</span>
+            <h3>被照顾</h3>
+            <p>圆润、柔软、依赖，强调初入乐园时的萌动与陪伴感。</p>
+          </figcaption>
+        </figure>
+        <figure class="ac-growth-card">
+          <img src="assets/images/project-animal-stage2.png" alt="动物成长阶段 少年" />
+          <figcaption class="ac-growth-body">
+            <span class="ac-growth-stage">Stage 02 &#183; 少年</span>
+            <h3>去探索</h3>
+            <p>活跃、好奇、成长，通过体态与动作变化表达探索中的生命力。</p>
+          </figcaption>
+        </figure>
+        <figure class="ac-growth-card">
+          <img src="assets/images/project-animal-stage3.png" alt="动物成长阶段 成年" />
+          <figcaption class="ac-growth-body">
+            <span class="ac-growth-stage">Stage 03 &#183; 成年</span>
+            <h3>去守护</h3>
+            <p>成熟、稳定、守护，通过配饰与姿态强化角色身份和陪伴价值。</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Plant Growth System -->
+    <section class="ac-section" id="plant">
+      <div class="ac-sec-head">
+        <span class="ac-num">05.5</span>
+        <div>
+          <p class="ac-kicker">Plant Growth System</p>
+          <h2 class="ac-title">植物成长系统</h2>
+          <p class="ac-desc">Animal Growth + Plant Growth，双线成长体系。</p>
+        </div>
+      </div>
+      <div class="ac-plant-grid">
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/1-1.png" alt="向日葵花园 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/1-2.png" alt="向日葵花园 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/1-3.png" alt="向日葵花园 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>向日葵花园</figcaption>
+        </figure>
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/2-1.png" alt="百合花丛 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/2-2.png" alt="百合花丛 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/2-3.png" alt="百合花丛 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>百合花丛</figcaption>
+        </figure>
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/3-1.png" alt="虞美人田 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/3-2.png" alt="虞美人田 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/3-3.png" alt="虞美人田 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>虞美人田</figcaption>
+        </figure>
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/4-1.png" alt="绣球玫瑰 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/4-2.png" alt="绣球玫瑰 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/4-3.png" alt="绣球玫瑰 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>绣球玫瑰</figcaption>
+        </figure>
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/5-1.png" alt="郁金香园 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/5-2.png" alt="郁金香园 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/5-3.png" alt="郁金香园 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>郁金香园</figcaption>
+        </figure>
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/6-1.png" alt="勿忘我原野 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/6-2.png" alt="勿忘我原野 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/6-3.png" alt="勿忘我原野 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>勿忘我原野</figcaption>
+        </figure>
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/7-1.png" alt="薰衣草田 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/7-2.png" alt="薰衣草田 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/7-3.png" alt="薰衣草田 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>薰衣草田</figcaption>
+        </figure>
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/8-1.png" alt="彩色郁金香 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/8-2.png" alt="彩色郁金香 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/8-3.png" alt="彩色郁金香 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>彩色郁金香</figcaption>
+        </figure>
+        <figure class="ac-plant-card">
+          <div class="ac-plant-stages">
+            <figure class="ac-plant-stage"><img src="assets/images/plants/9-1.png" alt="波斯菊花海 幼年期" loading="lazy" /><span class="ac-plant-stage-tag">幼年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/9-2.png" alt="波斯菊花海 青年期" loading="lazy" /><span class="ac-plant-stage-tag">青年</span></figure>
+            <figure class="ac-plant-stage"><img src="assets/images/plants/9-3.png" alt="波斯菊花海 成熟期" loading="lazy" /><span class="ac-plant-stage-tag">成熟</span></figure>
+          </div>
+          <figcaption>波斯菊花海</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 06 Motion & Interaction -->
+    <section class="ac-section" id="motion">
+      <div class="ac-sec-head">
+        <span class="ac-num">06</span>
+        <div>
+          <p class="ac-kicker">Motion &amp; Interaction</p>
+          <h2 class="ac-title">动效与交互</h2>
+          <p class="ac-desc">让角色从视觉资产变成产品体验。</p>
+        </div>
+      </div>
+      <div class="ac-grid-3">
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/1-1.gif" alt="角色 01 动效 1" loading="lazy" />
+            <img src="assets/images/animals/1-2.gif" alt="角色 01 动效 2" loading="lazy" />
+            <img src="assets/images/animals/1-3.gif" alt="角色 01 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 01 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/2-1.gif" alt="角色 02 动效 1" loading="lazy" />
+            <img src="assets/images/animals/2-2.gif" alt="角色 02 动效 2" loading="lazy" />
+            <img src="assets/images/animals/2-3.gif" alt="角色 02 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 02 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/3-1.gif" alt="角色 03 动效 1" loading="lazy" />
+            <img src="assets/images/animals/3-2.gif" alt="角色 03 动效 2" loading="lazy" />
+            <img src="assets/images/animals/3-3.gif" alt="角色 03 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 03 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/4-1.gif" alt="角色 04 动效 1" loading="lazy" />
+            <img src="assets/images/animals/4-2.gif" alt="角色 04 动效 2" loading="lazy" />
+            <img src="assets/images/animals/4-3.gif" alt="角色 04 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 04 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/5-1.gif" alt="角色 05 动效 1" loading="lazy" />
+            <img src="assets/images/animals/5-2.gif" alt="角色 05 动效 2" loading="lazy" />
+            <img src="assets/images/animals/5-3.gif" alt="角色 05 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 05 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/6-1.gif" alt="角色 06 动效 1" loading="lazy" />
+            <img src="assets/images/animals/6-2.gif" alt="角色 06 动效 2" loading="lazy" />
+            <img src="assets/images/animals/6-3.gif" alt="角色 06 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 06 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/7-1.gif" alt="角色 07 动效 1" loading="lazy" />
+            <img src="assets/images/animals/7-2.gif" alt="角色 07 动效 2" loading="lazy" />
+            <img src="assets/images/animals/7-3.gif" alt="角色 07 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 07 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/8-1.gif" alt="角色 08 动效 1" loading="lazy" />
+            <img src="assets/images/animals/8-2.gif" alt="角色 08 动效 2" loading="lazy" />
+            <img src="assets/images/animals/8-3.gif" alt="角色 08 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 08 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+        <figure class="ac-motion-card">
+          <div class="ac-gif-row">
+            <img src="assets/images/animals/9-1.gif" alt="角色 09 动效 1" loading="lazy" />
+            <img src="assets/images/animals/9-2.gif" alt="角色 09 动效 2" loading="lazy" />
+            <img src="assets/images/animals/9-3.gif" alt="角色 09 动效 3" loading="lazy" />
+          </div>
+          <figcaption>角色 09 &#183; Idle / Interaction / Feedback</figcaption>
+        </figure>
+      </div>
+      <p class="ac-motion-note">微动效通过眨眼、耳朵摆动、尾巴摆动、身体起伏与配饰变化，服务于 UI 反馈与产品体验，而不是为了炫技。</p>
+    </section>
+
+    <!-- 07 Product Extension -->
+    <section class="ac-section" id="ui-integration">
+      <div class="ac-sec-head">
+        <span class="ac-num">07</span>
+        <div>
+          <p class="ac-kicker">Product Extension</p>
+          <h2 class="ac-title">Product Extension · 儿童成长 App</h2>
+          <p class="ac-desc">保留原有 IP、成长、动效与 UI 体系，并将角色进一步延展为儿童移动端产品，形成学习、任务、积分、成长、成就、奖励的完整游戏化体验。</p>
+        </div>
+      </div>
+      <div class="ac-product-sub">
+        <div class="ac-product-head">
+          <span class="ac-product-num">07.01</span>
+          <h3 class="ac-product-title">Existing UI Integration</h3>
+        </div>
+        <p class="ac-product-desc">原有 IP 视觉体系已经进入数字产品场景，以下保留现有 UI 主界面、产品场景与动物徽章。</p>
+      </div>
+      <div class="ac-ui-layout">
+        <figure class="ac-ui-hero">
+          <img src="assets/images/project-animal-ui-demo.png" alt="动物成长乐园 学生农场主界面 UI 落地" />
+        </figure>
+        <div class="ac-ui-features">
+          <article class="ac-ui-feature">
+            <span class="ac-ui-feature-num">01</span>
+            <div>
+              <h3>Character Badge</h3>
+              <p>角色徽章用于收集、身份与等级表达，强化用户归属感。</p>
+            </div>
+          </article>
+          <article class="ac-ui-feature">
+            <span class="ac-ui-feature-num">02</span>
+            <div>
+              <h3>Achievement</h3>
+              <p>成就系统用角色、徽章和成长阶段记录用户里程碑。</p>
+            </div>
+          </article>
+          <article class="ac-ui-feature">
+            <span class="ac-ui-feature-num">03</span>
+            <div>
+              <h3>Game Reward</h3>
+              <p>把日常行为转化为可感知的积分、奖励与互动反馈。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- 动物集章奖励 -->
+      <div class="ac-badge-block">
+        <div class="ac-badge-head">
+          <p class="ac-badge-kicker">Achievement Badge</p>
+          <h3 class="ac-badge-title">动物集章奖励</h3>
+          <p class="ac-badge-desc">完成日常任务与成长里程碑即可解锁对应动物徽章，集齐 9 枚解锁专属图鉴奖励与限定装饰。</p>
+        </div>
+        <div class="ac-badge-grid">
+          <figure class="ac-badge-item"><img src="assets/images/badges/1.png" alt="企鹅徽章" loading="lazy" /><figcaption>企鹅</figcaption></figure>
+          <figure class="ac-badge-item"><img src="assets/images/badges/2.png" alt="柴犬徽章" loading="lazy" /><figcaption>柴犬</figcaption></figure>
+          <figure class="ac-badge-item"><img src="assets/images/badges/3.png" alt="考拉徽章" loading="lazy" /><figcaption>考拉</figcaption></figure>
+          <figure class="ac-badge-item"><img src="assets/images/badges/4.png" alt="绵羊徽章" loading="lazy" /><figcaption>绵羊</figcaption></figure>
+          <figure class="ac-badge-item"><img src="assets/images/badges/5.png" alt="狐狸徽章" loading="lazy" /><figcaption>狐狸</figcaption></figure>
+          <figure class="ac-badge-item"><img src="assets/images/badges/6.png" alt="狮子徽章" loading="lazy" /><figcaption>狮子</figcaption></figure>
+          <figure class="ac-badge-item"><img src="assets/images/badges/7.png" alt="兔子徽章" loading="lazy" /><figcaption>兔子</figcaption></figure>
+          <figure class="ac-badge-item"><img src="assets/images/badges/8.png" alt="老虎徽章" loading="lazy" /><figcaption>老虎</figcaption></figure>
+          <figure class="ac-badge-item"><img src="assets/images/badges/9.png" alt="熊猫徽章" loading="lazy" /><figcaption>熊猫</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- 07.02 From IP to Product -->
+      <div class="ac-product-sub">
+        <div class="ac-product-head">
+          <span class="ac-product-num">07.02</span>
+          <h3 class="ac-product-title">From IP to Product</h3>
+        </div>
+        <p class="ac-product-desc">将原有动物 IP 和成长叙事进一步延伸至移动端，形成可持续使用的儿童游戏化成长体验。</p>
+        <div class="ac-flow">
+          <span class="ac-flow-node">Animal IP</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Character Growth</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Growth System</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Learning</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Tasks</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Points</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Achievement</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Reward</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Personalized Character</span>
+        </div>
+      </div>
+
+      <!-- 07.03 Mobile App -->
+      <div class="ac-product-sub">
+        <div class="ac-product-head">
+          <span class="ac-product-num">07.03</span>
+          <h3 class="ac-product-title">Mobile App</h3>
+        </div>
+        <p class="ac-product-desc">选择 4 个核心场景，展示儿童成长 App 如何承接 IP、学习、任务、成长与奖励闭环。</p>
+        <div class="ac-app-grid">
+          <figure class="ac-app-card">
+            <div class="ac-phone"><img src="assets/images/animal-app/学生积分动物园一览.png" alt="儿童成长 App 动物乐园首页" loading="lazy" /></div>
+            <figcaption><b>Animal Garden</b><span>动物乐园 · 今日成长 · 快捷任务</span></figcaption>
+          </figure>
+          <figure class="ac-app-card">
+            <div class="ac-phone"><img src="assets/images/animal-app/学习中心-添加科目.png" alt="儿童成长 App 学习中心" loading="lazy" /></div>
+            <figcaption><b>Learning Center</b><span>学习中心 · 个性化科目</span></figcaption>
+          </figure>
+          <figure class="ac-app-card">
+            <div class="ac-phone"><img src="assets/images/animal-app/添加任务.png" alt="儿童成长 App 今日任务" loading="lazy" /></div>
+            <figcaption><b>Today Tasks</b><span>系统任务 · 我的任务</span></figcaption>
+          </figure>
+          <figure class="ac-app-card">
+            <div class="ac-phone"><img src="assets/images/animal-app/成长阶段.png" alt="儿童成长 App 成长与奖励" loading="lazy" /></div>
+            <figcaption><b>Growth &amp; Reward</b><span>成长等级 · 成就 · 奖励</span></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 07.04 Animal Garden -->
+      <div class="ac-product-sub ac-app-feature">
+        <div class="ac-phone">
+          <img src="assets/images/animal-app/学生积分动物园一览.png" alt="Animal Garden 动物乐园界面" loading="lazy" />
+        </div>
+        <div class="ac-app-feature-copy">
+          <span class="ac-product-num">07.04</span>
+          <h3>Animal Garden</h3>
+          <p>将动物 IP 从静态角色转化为可探索、可互动的成长空间，继续使用现有动物 GIF 与成长素材。</p>
+          <div class="ac-garden-cards">
+            <article class="ac-garden-card">
+              <b>动物乐园</b>
+              <span>App 首页主空间，承载角色陪伴与成长状态。</span>
+            </article>
+            <article class="ac-garden-card">
+              <b>动态动物 GIF</b>
+              <span>复用现有角色动效，让角色拥有生命感。</span>
+            </article>
+            <article class="ac-garden-card">
+              <b>用户成长状态</b>
+              <span>展示当前等级、积分与成长阶段。</span>
+            </article>
+            <article class="ac-garden-card">
+              <b>今日成长</b>
+              <span>呈现当日学习、任务与奖励进度。</span>
+            </article>
+            <article class="ac-garden-card">
+              <b>快捷任务</b>
+              <span>从首页快速进入今日任务与学习中心。</span>
+            </article>
+          </div>
+          <div class="ac-flow">
+            <span class="ac-flow-node">动物乐园</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">动态动物 GIF</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">用户成长状态</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">今日成长</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">快捷任务</span>
+          </div>
+          <div class="ac-garden-gif-row">
+            <img src="assets/images/animals/1-1.gif" alt="动物角色动效示例" />
+            <span class="ac-product-desc" style="font-size:12px;">角色动效复用：待机 / 互动 / 反馈</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07.05 Learning Center -->
+      <div class="ac-product-sub ac-app-feature">
+        <div class="ac-phone">
+          <img src="assets/images/animal-app/学习中心-添加科目.png" alt="Learning Center 学习中心界面" loading="lazy" />
+        </div>
+        <div class="ac-app-feature-copy">
+          <span class="ac-product-num">07.05</span>
+          <h3>Learning Center</h3>
+          <p>学生可以根据自己的学习需求创建个性化学习内容。科目使用对应插画 / 图标，动物作为陪伴角色，不占用科目图标。</p>
+          <div class="ac-reward-list">
+            <span>语文</span><span>数学</span><span>科学</span><span>艺术</span><span>探索</span><span>＋ 添加科目</span>
+          </div>
+          <div class="ac-flow">
+            <span class="ac-flow-node">添加科目</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">选择图标</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">选择颜色</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">设置学习目标</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">保存</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07.06 Today Tasks -->
+      <div class="ac-product-sub ac-app-feature">
+        <div class="ac-phone">
+          <img src="assets/images/animal-app/添加任务.png" alt="Today Tasks 今日任务界面" loading="lazy" />
+        </div>
+        <div class="ac-app-feature-copy">
+          <span class="ac-product-num">07.06</span>
+          <h3>Today Tasks</h3>
+          <p>孩子不仅可以完成系统任务，还可以创建属于自己的任务，让成长行为更个性化。</p>
+          <div class="ac-flow">
+            <span class="ac-flow-node">任务名称</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">完成时间</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">奖励积分</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">创建任务</span>
+          </div>
+          <div class="ac-flow">
+            <span class="ac-flow-node">任务完成</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">获得积分</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">成长值增加</span><span class="ac-flow-arrow">&#8594;</span>
+            <span class="ac-flow-node">等级进度更新</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07.07 Growth & Reward -->
+      <div class="ac-product-sub">
+        <div class="ac-product-head">
+          <span class="ac-product-num">07.07</span>
+          <h3 class="ac-product-title">Growth &amp; Reward</h3>
+        </div>
+        <p class="ac-product-desc">将成长等级、积分、动物徽章、成就、商城与动物装扮连接起来，形成完整成长闭环。</p>
+        <div class="ac-flow">
+          <span class="ac-flow-node">Learning + Tasks</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Points</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Growth</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Achievement</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Reward</span><span class="ac-flow-arrow">&#8594;</span>
+          <span class="ac-flow-node">Character Customization</span>
+        </div>
+        <div class="ac-app-detail-grid">
+          <img src="assets/images/animal-app/成长阶段.png" alt="成长阶段界面" loading="lazy" />
+          <img src="assets/images/animal-app/荣誉墙.png" alt="荣誉墙界面" loading="lazy" />
+          <img src="assets/images/animal-app/购买道具.png" alt="购买道具界面" loading="lazy" />
+        </div>
+        <div class="ac-reward-list">
+          <span>学习小能手</span><span>阅读达人</span><span>坚强之星</span><span>探索新世界</span><span>互动之星</span><span>帮助小天使</span>
+        </div>
+        <div class="ac-reward-list">
+          <span>花环</span><span>绿叶披风</span><span>小背包</span><span>星星项链</span><span>太阳眼镜</span><span>魔法棒</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 AIGC Workflow -->
+    <section class="ac-section" id="aigc">
+      <div class="ac-sec-head">
+        <span class="ac-num">08</span>
+        <div>
+          <p class="ac-kicker">AIGC Workflow</p>
+          <h2 class="ac-title">AIGC 设计工作流</h2>
+          <p class="ac-desc">AI Exploration &#8594; Art Direction &#8594; Design System &#8594; UI Integration</p>
+        </div>
+      </div>
+      <div class="ac-grid-4">
+        <article class="ac-flow-card">
+          <b>01 Explore</b>
+          <h3>探索</h3>
+          <p>AI 辅助探索动物形态、风格与视觉方向。</p>
+        </article>
+        <article class="ac-flow-card">
+          <b>02 Select</b>
+          <h3>筛选</h3>
+          <p>人工筛选符合产品定位的角色方向。</p>
+        </article>
+        <article class="ac-flow-card">
+          <b>03 Refine</b>
+          <h3>规范</h3>
+          <p>统一比例、色彩、表情、配饰与视觉规范。</p>
+        </article>
+        <article class="ac-flow-card">
+          <b>04 Apply</b>
+          <h3>应用</h3>
+          <p>最终进入 UI、动效、徽章与产品场景。</p>
+        </article>
+      </div>
+      <p class="ac-motion-note">AIGC 是设计工具，而不是最终设计本身。</p>
+    </section>
+
+    <!-- 09 Final Showcase -->
+    <section class="ac-section" id="showcase">
+      <div class="ac-sec-head">
+        <span class="ac-num">09</span>
+        <div>
+          <p class="ac-kicker">Final Showcase</p>
+          <h2 class="ac-title">最终展示</h2>
+        </div>
+      </div>
+      <div class="ac-showcase-grid">
+        <img src="assets/images/project-animal.png" alt="儿童成长乐园完整角色主视觉" />
+        <img src="assets/images/project-animal-ui-demo.png" alt="原有 UI 产品界面" />
+        <img src="assets/images/animal-app/学生积分动物园一览.png" alt="儿童成长 App 动物乐园首页" />
+        <video class="ac-showcase-video" src="assets/images/animal-app/伴学星球界面视频演示.mp4" autoplay loop muted playsinline preload="auto" aria-label="儿童成长 App 界面视频演示"></video>
+      </div>
+      <video class="ac-showcase-video" src="assets/videos/animal-final-showcase.mp4" autoplay loop muted playsinline preload="auto" aria-label="动物成长乐园最终展示视频"></video>
+    </section>
+
+    <!-- 10 Design Value -->
+    <section class="ac-section" id="value">
+      <div class="ac-sec-head">
+        <span class="ac-num">10</span>
+        <div>
+          <p class="ac-kicker">Design Value</p>
+          <h2 class="ac-title">设计价值</h2>
+        </div>
+      </div>
+      <div class="ac-grid-4">
+        <article class="ac-card">
+          <h3>Emotional Connection</h3>
+          <p>通过角色成长建立情感连接。</p>
+        </article>
+        <article class="ac-card">
+          <h3>Growth Feedback</h3>
+          <p>让用户行为获得可视化反馈。</p>
+        </article>
+        <article class="ac-card">
+          <h3>IP Scalability</h3>
+          <p>建立可以持续扩展的角色系统。</p>
+        </article>
+        <article class="ac-card">
+          <h3>UI Integration</h3>
+          <p>让 IP 真正进入产品体验。</p>
+        </article>
+      </div>
+      <div class="ac-value-statement">让每一次成长，都变成用户看得见、感受得到的奖励。</div>
+      <p class="ac-value-extension"><strong>From Character to Experience</strong> &#8212; 从角色视觉，到成长叙事，再到数字产品，形成完整的儿童成长体验。</p>
+    </section>
+
+    <nav class="project-nav">
+      <a href="project-creative.html" class="project-nav-item">
+        <span class="project-nav-label">&#8592; 上一个项目</span>
+        <span class="project-nav-title">文化创意与数字视觉作品</span>
+      </a>
+      <a href="project-cultural.html" class="project-nav-item next">
+        <span class="project-nav-label">下一个项目 &#8594;</span>
+        <span class="project-nav-title">文化创意 × 数字视觉</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer-cta" style="margin-top: var(--space-24);">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">下一个项目更精彩</h2>
+      <p class="footer-cta-desc">继续浏览更多作品，或直接与我开始合作。</p>
+      <div class="footer-cta-contacts">
+        <a href="all-projects.html">查看全部作品</a>
+        <a href="index.html#contact">联系我</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
