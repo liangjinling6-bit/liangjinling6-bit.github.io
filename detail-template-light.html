@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>项目名称 | 梁金玲 Portfolio</title>
+  <meta name="description" content="项目简介，用于 SEO 与分享预览。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<!-- 给 body 添加 page-light 类，即可启用浅色详情页主题 -->
+<body class="page-light">
+<div class="page-topbar">
+    <a class="page-back" href="all-projects.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">项目中文标题</span>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">梁金玲 · Portfolio</a>
+      <nav class="nav">
+        <a href="index.html#works" class="nav-link">作品</a>
+        <a href="index.html#contact" class="nav-link">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. 项目标题区 -->
+    <header class="detail-header" style="padding-top: calc(var(--header-height) + var(--space-8));">
+      <p class="detail-label" style="color: var(--color-primary);">UI / UX Design · 2026</p>
+      <h1 class="detail-title">项目中文标题</h1>
+      <div class="detail-tags">
+        <span class="tag">UI 设计</span>
+        <span class="tag">交互设计</span>
+        <span class="tag">设计系统</span>
+      </div>
+      <p class="detail-desc">
+        在这里填写项目背景、核心挑战与设计目标的概述。浅色模板适合 UI/UX、产品设计、B 端系统类项目。
+      </p>
+    </header>
+
+    <!-- 2. 项目主图 -->
+    <figure class="detail-hero">
+      <img src="assets/images/project-e-teach.png" alt="项目主视觉" />
+    </figure>
+
+    <!-- 3. 项目背景 -->
+    <section class="light-section">
+      <div class="container-narrow" style="margin: 0 auto;">
+        <h2 class="light-section-title">项目背景</h2>
+        <p class="detail-desc">
+          描述项目发起背景、用户痛点与业务目标。可以结合数据说明问题的严重性，以及设计方案如何解决这些问题。
+        </p>
+        <div class="info-row">
+          <div class="info-item">
+            <h4>角色</h4>
+            <p>UI 设计师</p>
+          </div>
+          <div class="info-item">
+            <h4>周期</h4>
+            <p>8 周</p>
+          </div>
+          <div class="info-item">
+            <h4>工具</h4>
+            <p>Figma / AE</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 用户问题分析 -->
+    <section class="light-section">
+      <h2 class="light-section-title">用户问题分析</h2>
+      <div class="light-grid">
+        <div class="light-card">
+          <h3>痛点一</h3>
+          <p>描述用户在现有流程中遇到的具体问题。</p>
+        </div>
+        <div class="light-card">
+          <h3>痛点二</h3>
+          <p>描述第二个核心痛点及其影响。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 设计策略 -->
+    <section class="light-section">
+      <h2 class="light-section-title">设计策略</h2>
+      <div class="light-grid">
+        <div class="light-card">
+          <h3>信息架构优化</h3>
+          <p>重新梳理功能层级，降低用户认知负荷。</p>
+        </div>
+        <div class="light-card">
+          <h3>UI 视觉优化</h3>
+          <p>统一设计语言，建立清晰的可操作反馈。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 核心页面展示 -->
+    <section class="light-section">
+      <h2 class="light-section-title">核心页面展示</h2>
+      <div class="detail-gallery cols-2">
+        <img src="assets/images/project-ui.png" alt="页面展示 1" />
+        <img src="assets/images/project-e-teach.png" alt="页面展示 2" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-cta" style="margin-top: 0;">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <h2 class="footer-cta-title">Let's Work Together</h2>
+      <p class="footer-cta-desc">继续浏览更多作品，或直接与我开始合作。</p>
+      <div class="footer-cta-contacts">
+        <a href="all-projects.html">查看全部作品</a>
+        <a href="index.html#contact">联系我</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 梁金玲 Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
