@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CULTURAL VISUAL MOTION | 梁金玲 Portfolio</title>
+  <meta name="description" content="文化视觉动态化设计 — AIGC影像叙事 × 西兰卡普纹样动态化，探索文化内容在当代数字媒介中的动态表达。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/project-cultural-motion.css" />
+</head>
+<body class="page-cultural-motion page-loaded">
+<div class="page-topbar">
+      <a class="page-back" href="all-projects.html"><span class="page-back__arrow">&#8592;</span> 返回</a><span class="page-topbar__title">CULTURAL VISUAL MOTION</span>
+    </div>
+
+<!-- ═══════════════════════════════════════════════════
+     GLOBAL HEADER
+     ═══════════════════════════════════════════════════ -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">梁金玲 · Portfolio</a>
+    <nav class="nav">
+      <a href="index.html#works" class="nav-link">作品</a>
+      <a href="index.html#contact" class="nav-link">联系</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     STICKY PROJECT NAV
+     ═══════════════════════════════════════════════════ -->
+<nav class="cvm-nav" id="cvmNav">
+  <span class="cvm-nav-brand">CULTURAL VISUAL MOTION</span>
+  <div class="cvm-nav-links">
+    <a href="#overview" class="cvm-nav-link active" data-section="overview">OVERVIEW</a>
+    <a href="#approach" class="cvm-nav-link" data-section="approach">APPROACH</a>
+    <a href="#case-aigc" class="cvm-nav-link" data-section="case-aigc">AIGC</a>
+    <a href="#case-xilankapu" class="cvm-nav-link" data-section="case-xilankapu">XILANKAPU</a>
+    <a href="#languages" class="cvm-nav-link" data-section="languages">LANGUAGES</a>
+    <a href="#showcase" class="cvm-nav-link" data-section="showcase">SHOWCASE</a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    
+  </div>
+
+<!-- ═══════════════════════════════════════════════════
+     01 HERO
+     ═══════════════════════════════════════════════════ -->
+<section class="cvm-hero" id="hero">
+  <!-- Background Number -->
+  <span class="cvm-hero-num">01</span>
+
+  <div class="cvm-hero-inner">
+
+    <!-- Left: Typography -->
+    <div class="cvm-hero-text">
+      <span class="cvm-hero-tag cvm-reveal">PORTFOLIO CASE STUDY</span>
+      <h1 class="cvm-hero-title">
+        <span class="cvm-reveal cvm-delay-1">CULTURAL</span>
+        <span class="cvm-reveal cvm-delay-2">VISUAL</span>
+        <span class="cvm-reveal cvm-delay-3">MOTION</span>
+      </h1>
+      <p class="cvm-hero-subtitle cvm-reveal cvm-delay-4">文化视觉动态化设计</p>
+      <div class="cvm-hero-divider cvm-reveal cvm-delay-4"></div>
+      <p class="cvm-hero-desc cvm-reveal cvm-delay-5">
+        AIGC STORYTELLING<br/>
+        <span class="cvm-cross">×</span><br/>
+        CULTURAL MOTION
+      </p>
+      <p class="cvm-hero-note cvm-reveal cvm-delay-6">
+        通过AIGC影像与动态图形，<br/>探索文化内容在当代数字媒介中的动态表达。
+      </p>
+    </div>
+
+    <!-- Right: Dual Video Composition -->
+    <div class="cvm-hero-visual">
+      <!-- Main Video: AIGC Film -->
+      <figure class="cvm-hero-main-video">
+        <video id="heroAigcVideo" muted loop autoplay playsinline preload="auto"
+               poster="assets/cultural-motion/aigc/storyboard-strip.png"
+               onclick="toggleVideoPlay('heroAigcVideo')">
+          <source src="assets/cultural-motion/aigc/aigc-film.mp4" type="video/mp4" />
+        </video>
+        <div class="cvm-hero-video-ui">
+          <span class="cvm-hv-case">CASE 01</span>
+          <span class="cvm-hv-title">AIGC VISUAL STORYTELLING</span>
+          <button class="cvm-hv-play-btn" onclick="toggleVideoPlay('heroAigcVideo')" aria-label="Play/Pause"></button>
+        </div>
+      </figure>
+
+      <!-- Secondary Video: Xilankapu Motion (Floating Card) -->
+      <figure class="cvm-hero-sub-video">
+        <video id="heroXlkVideo" muted loop autoplay playsinline preload="auto"
+               poster="assets/cultural-motion/xilankapu/figma-scarf-design.png"
+               onclick="toggleVideoPlay('heroXlkVideo')">
+          <source src="assets/cultural-motion/xilankapu/xilankapu-motion.mp4" type="video/mp4" />
+        </video>
+        <div class="cvm-hero-sub-ui">
+          <span class="cvm-hvs-case">CASE 02</span>
+          <span class="cvm-hvs-title">XILANKAPU MOTION</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Bottom: Scroll Indicator -->
+  <div class="cvm-hero-scroll cvm-reveal cvm-delay-7">
+    <span>01 / 07</span>
+    <span class="cvm-scroll-line"></span>
+    <span>SCROLL TO EXPLORE ↓</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     02 PROJECT OVERVIEW
+     ═══════════════════════════════════════════════════ -->
+<section class="cvm-section" id="overview">
+  <span class="cvm-section-num">02</span>
+  <div class="container">
+    <span class="cvm-label cvm-reveal">02 / PROJECT OVERVIEW</span>
+
+    <div class="cvm-overview-grid cvm-reveal">
+      <div class="cvm-overview-item">
+        <span class="cvm-oi-label">PROJECT</span>
+        <span class="cvm-oi-value">Cultural Visual Motion</span>
+      </div>
+      <div class="cvm-overview-item">
+        <span class="cvm-oi-label">TYPE</span>
+        <span class="cvm-oi-value">Visual Design / Motion Design / AIGC</span>
+      </div>
+      <div class="cvm-overview-item">
+        <span class="cvm-oi-label">OUTPUT</span>
+        <span class="cvm-oi-value">AIGC Short Film / Motion Graphic</span>
+      </div>
+      <div class="cvm-overview-item">
+        <span class="cvm-oi-label">TOOLS</span>
+        <span class="cvm-oi-value">AIGC / After Effects</span>
+      </div>
+      <div class="cvm-overview-item">
+        <span class="cvm-oi-label">ROLE</span>
+        <span class="cvm-oi-value">Visual / Motion Design</span>
+      </div>
+    </div>
+
+    <div class="cvm-overview-proposition cvm-reveal">
+      <h3 class="cvm-prop-title">TWO WAYS TO MOVE CULTURE</h3>
+      <p class="cvm-prop-zh">探索文化内容在数字媒介中的两种动态表达方式。</p>
+    </div>
+
+    <p class="cvm-overview-desc cvm-reveal">
+      本项目通过AIGC影像叙事与西兰卡普纹样动态化两个案例，<br/>
+      分别从「影像叙事」和「动态图形」两个方向，<br/>
+      探索文化视觉的当代表达。
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     03 VISUAL APPROACH
+     ═══════════════════════════════════════════════════ -->
+<section class="cvm-section cvm-section-alt" id="approach">
+  <span class="cvm-section-num">03</span>
+  <div class="container">
+    <span class="cvm-label cvm-reveal">03 / VISUAL APPROACH</span>
+
+    <h2 class="cvm-approach-title cvm-reveal">
+      TWO WAYS<br/>TO MOVE CULTURE
+    </h2>
+
+    <div class="cvm-approach-split">
+      <!-- Left: Cinematic -->
+      <div class="cvm-approach-col cvm-reveal">
+        <span class="cvm-ac-num">01</span>
+        <h3 class="cvm-ac-heading">CINEMATIC</h3>
+        <p class="cvm-ac-sub">AIGC VISUAL STORYTELLING</p>
+        <div class="cvm-ac-keywords">
+          <span>CHARACTER</span>
+          <span>STORY</span>
+          <span>SCENE</span>
+          <span>CAMERA</span>
+          <span>ATMOSPHERE</span>
+        </div>
+        <p class="cvm-ac-desc">
+          通过人物、分镜与动态影像建立视觉叙事，<br/>
+          将文化氛围转化为具有电影感的数字影像。
+        </p>
+      </div>
+
+      <!-- Right: Graphic -->
+      <div class="cvm-approach-col cvm-reveal">
+        <span class="cvm-ac-num">02</span>
+        <h3 class="cvm-ac-heading">GRAPHIC</h3>
+        <p class="cvm-ac-sub">XILANKAPU MOTION</p>
+        <div class="cvm-ac-keywords">
+          <span>PATTERN</span>
+          <span>SHAPE</span>
+          <span>COLOR</span>
+          <span>RHYTHM</span>
+          <span>LOOP</span>
+        </div>
+        <p class="cvm-ac-desc">
+          以西兰卡普纹样为视觉基础，<br/>
+          通过动态图形的运动与节奏探索传统纹样的数字化表达。
+        </p>
+      </div>
+    </div>
+
+    <!-- Flow Diagram -->
+    <div class="cvm-approach-flow cvm-reveal">
+      <span class="cvm-flow-node">CULTURE</span>
+      <span class="cvm-flow-arrow">↓</span>
+      <span class="cvm-flow-node">VISUAL</span>
+      <span class="cvm-flow-arrow">↓</span>
+      <span class="cvm-flow-node">MOTION</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     04 CASE 01 — AIGC VISUAL STORYTELLING
+     ═══════════════════════════════════════════════════ -->
+<section class="cvm-section" id="case-aigc">
+  <span class="cvm-section-num">04</span>
+  <div class="container">
+    <span class="cvm-label cvm-reveal">04 / CASE 01</span>
+    <h2 class="cvm-case-title cvm-reveal">
+      AIGC VISUAL<br/>STORYTELLING
+    </h2>
+    <p class="cvm-case-subtitle cvm-reveal">AIGC视频制作</p>
+    <p class="cvm-case-desc cvm-reveal">
+      通过人物、分镜与动态影像，<br/>
+      探索具有东方视觉氛围的数字影像表达。
+    </p>
+
+    <!-- 4.1 CHARACTER -->
+    <div class="cvm-character-block cvm-reveal">
+      <div class="cvm-char-img-wrap">
+        <img src="assets/cultural-motion/aigc/character-fullbody.png"
+             alt="Character — AIGC Full Body Design"
+             loading="lazy" />
+      </div>
+      <div class="cvm-char-text">
+        <span class="cvm-char-label">CHARACTER</span>
+        <p class="cvm-char-desc">
+          以人物视觉作为影像叙事中的核心视觉元素。<br/>
+          人物造型承载着整个叙事的东方美学基调。
+        </p>
+      </div>
+    </div>
+
+    <!-- 4.2 STORYBOARD -->
+    <div class="cvm-storyboard-block cvm-reveal">
+      <div class="cvm-sb-header">
+        <span class="cvm-sb-label">STORYBOARD</span>
+        <span class="cvm-sb-desc">分镜叙事结构</span>
+      </div>
+      <figure class="cvm-sb-figure">
+        <img src="assets/cultural-motion/aigc/storyboard-numbered.png"
+             alt="Storyboard — Shot Sequence"
+             loading="lazy" />
+        <figcaption class="cvm-sb-caption">
+          完整分镜序列 — 从场景建立到动作高潮的镜头编排
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- 4.3 FINAL VIDEO -->
+    <div class="cvm-final-video-block cvm-reveal">
+      <div class="cvm-fv-header">
+        <span class="cvm-fv-label">FINAL AIGC FILM</span>
+      </div>
+      <figure class="cvm-fv-player">
+        <video id="caseAigcVideo" muted loop autoplay playsinline preload="auto"
+               poster="assets/cultural-motion/aigc/storyboard-strip.png"
+               onclick="toggleVideoPlay('caseAigcVideo')">
+          <source src="assets/cultural-motion/aigc/aigc-film.mp4" type="video/mp4" />
+        </video>
+        <div class="cvm-fv-controls">
+          <button class="cvm-fv-btn" onclick="toggleVideoPlay('caseAigcVideo')" aria-label="Play/Pause">
+            <span class="cvm-fv-icon-play"></span>
+            <span class="cvm-fv-icon-pause"></span>
+          </button>
+          <button class="cvm-fv-btn" onclick="toggleMute('caseAigcVideo')" aria-label="Mute/Unmute">
+            <span class="cvm-fv-icon-mute"></span>
+            <span class="cvm-fv-icon-unmute"></span>
+          </button>
+        </div>
+      </figure>
+      <div class="cvm-fv-tags">
+        <span>AIGC</span>
+        <span>CHARACTER</span>
+        <span>STORYBOARD</span>
+        <span>MOTION</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     05 CASE 02 — XILANKAPU MOTION
+     ═══════════════════════════════════════════════════ -->
+<section class="cvm-section cvm-section-alt" id="case-xilankapu">
+  <span class="cvm-section-num">05</span>
+  <div class="container">
+    <span class="cvm-label cvm-reveal">05 / CASE 02</span>
+    <h2 class="cvm-case-title cvm-reveal">
+      XILANKAPU<br/>MOTION
+    </h2>
+    <p class="cvm-case-subtitle cvm-reveal">西兰卡普纹样动态化设计</p>
+    <p class="cvm-case-desc cvm-reveal">
+      以西兰卡普纹样为视觉基础，<br/>
+      探索传统图形在数字媒介中的动态表达。
+    </p>
+
+    <!-- 5.1 CONCEPT -->
+    <div class="cvm-concept-block cvm-reveal">
+      <div class="cvm-concept-flow">
+        <span class="cvm-cf-node">TRADITIONAL PATTERN</span>
+        <span class="cvm-cf-arrow">↓</span>
+        <span class="cvm-cf-node">MOTION</span>
+        <span class="cvm-cf-arrow">↓</span>
+        <span class="cvm-cf-node">DIGITAL EXPRESSION</span>
+      </div>
+      <p class="cvm-concept-text">
+        将传统纹样从静态视觉转化为动态图形，<br/>
+        通过运动、节奏与循环建立新的数字视觉体验。
+      </p>
+    </div>
+
+    <!-- 5.2 MOTION FRAMES -->
+    <div class="cvm-frames-block cvm-reveal">
+      <div class="cvm-fr-header">
+        <span class="cvm-fr-label">MOTION FRAMES</span>
+        <span class="cvm-fr-desc">AE动画分镜帧</span>
+      </div>
+      <div class="cvm-frames-grid">
+        <figure class="cvm-frame-item">
+          <img src="assets/cultural-motion/xilankapu/ae-frame-01.jpg"
+               alt="Motion Frame 01" loading="lazy" />
+          <span class="cvm-frame-label">FRAME 01</span>
+        </figure>
+        <figure class="cvm-frame-item">
+          <img src="assets/cultural-motion/xilankapu/ae-frame-02.jpg"
+               alt="Motion Frame 02" loading="lazy" />
+          <span class="cvm-frame-label">FRAME 02</span>
+        </figure>
+        <figure class="cvm-frame-item">
+          <img src="assets/cultural-motion/xilankapu/ae-frame-03.jpg"
+               alt="Motion Frame 03" loading="lazy" />
+          <span class="cvm-frame-label">FRAME 03</span>
+        </figure>
+      </div>
+      <p class="cvm-frames-note">静态画面 → 变化过程 → 动态结果</p>
+    </div>
+
+    <!-- 5.3 Figma Scarf Design -->
+    <div class="cvm-scarf-block cvm-reveal">
+      <figure class="cvm-scarf-figure">
+        <img src="assets/cultural-motion/xilankapu/figma-scarf-design.png"
+             alt="Figma Scarf Design — 西兰卡普丝巾纹样设计"
+             loading="lazy" />
+        <figcaption>FIGMA — 西兰卡普丝巾纹样设计稿</figcaption>
+      </figure>
+    </div>
+
+    <!-- 5.4 FINAL MOTION VIDEO -->
+    <div class="cvm-final-video-block cvm-reveal">
+      <div class="cvm-fv-header">
+        <span class="cvm-fv-label">FINAL MOTION</span>
+      </div>
+      <figure class="cvm-fv-player">
+        <video id="caseXlkVideo" muted loop autoplay playsinline preload="auto"
+               poster="assets/cultural-motion/xilankapu/figma-scarf-design.png"
+               onclick="toggleVideoPlay('caseXlkVideo')">
+          <source src="assets/cultural-motion/xilankapu/xilankapu-motion.mp4" type="video/mp4" />
+        </video>
+        <div class="cvm-fv-controls">
+          <button class="cvm-fv-btn" onclick="toggleVideoPlay('caseXlkVideo')" aria-label="Play/Pause">
+            <span class="cvm-fv-icon-play"></span>
+            <span class="cvm-fv-icon-pause"></span>
+          </button>
+          <button class="cvm-fv-btn" onclick="toggleMute('caseXlkVideo')" aria-label="Mute/Unmute">
+            <span class="cvm-fv-icon-mute"></span>
+            <span class="cvm-fv-icon-unmute"></span>
+          </button>
+        </div>
+      </figure>
+      <div class="cvm-fv-tags">
+        <span>XILANKAPU</span>
+        <span>PATTERN</span>
+        <span>MOTION GRAPHIC</span>
+        <span>AFTER EFFECTS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     06 TWO VISUAL LANGUAGES
+     ═══════════════════════════════════════════════════ -->
+<section class="cvm-section cvm-section-languages" id="languages">
+  <span class="cvm-section-num">06</span>
+  <div class="container">
+    <span class="cvm-label cvm-label-light cvm-reveal">06 / TWO VISUAL LANGUAGES</span>
+
+    <h2 class="cvm-lang-title cvm-reveal">
+      ONE CULTURE.<br/>TWO VISUAL LANGUAGES.
+    </h2>
+
+    <div class="cvm-lang-compare cvm-reveal">
+      <!-- Left: AIGC Video -->
+      <div class="cvm-lang-side">
+        <h3 class="cvm-lang-name">AIGC VIDEO</h3>
+        <ul class="cvm-lang-list">
+          <li>CINEMATIC</li>
+          <li>CHARACTER</li>
+          <li>STORY</li>
+          <li>CAMERA</li>
+          <li>ATMOSPHERE</li>
+        </ul>
+      </div>
+
+      <!-- Center Bridge -->
+      <div class="cvm-lang-center">
+        <span class="cvm-lang-bridge">CULTURAL</span>
+        <span class="cvm-lang-bridge">VISUAL</span>
+        <span class="cvm-lang-bridge">MOTION</span>
+      </div>
+
+      <!-- Right: Xilankapu Motion -->
+      <div class="cvm-lang-side">
+        <h3 class="cvm-lang-name">XILANKAPU MOTION</h3>
+        <ul class="cvm-lang-list">
+          <li>GRAPHIC</li>
+          <li>PATTERN</li>
+          <li>SHAPE</li>
+          <li>RHYTHM</li>
+          <li>LOOP</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cvm-lang-summary cvm-reveal">
+      <p class="cvm-lang-from">FROM STORYTELLING<br/>TO GRAPHIC MOTION</p>
+      <p class="cvm-lang-zh">
+        从影像叙事到动态图形，<br/>
+        以不同的视觉语言探索文化内容的数字化表达。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     07 FINAL SHOWCASE
+     ═══════════════════════════════════════════════════ -->
+<section class="cvm-section cvm-section-final" id="showcase">
+  <span class="cvm-section-num">07</span>
+  <div class="container">
+    <span class="cvm-label cvm-label-light cvm-reveal">07 / FINAL SHOWCASE</span>
+
+    <h2 class="cvm-final-title cvm-reveal">
+      CULTURE<br/>IN MOTION.
+    </h2>
+
+    <div class="cvm-final-dual cvm-reveal">
+      <!-- Final 01: AIGC -->
+      <figure class="cvm-final-item">
+        <span class="cvm-final-num">01</span>
+        <span class="cvm-final-name">AIGC VISUAL STORYTELLING</span>
+        <video id="finalAigcVideo" muted loop autoplay playsinline preload="auto"
+               poster="assets/cultural-motion/aigc/storyboard-strip.png"
+               onclick="toggleVideoPlay('finalAigcVideo')">
+          <source src="assets/cultural-motion/aigc/aigc-film.mp4" type="video/mp4" />
+        </video>
+        <div class="cvm-final-v-controls">
+          <button onclick="toggleVideoPlay('finalAigcVideo')" aria-label="Play/Pause">▶</button>
+          <button onclick="toggleMute('finalAigcVideo')" aria-label="Mute">🔇</button>
+        </div>
+      </figure>
+
+      <!-- Final 02: Xilankapu -->
+      <figure class="cvm-final-item">
+        <span class="cvm-final-num">02</span>
+        <span class="cvm-final-name">XILANKAPU MOTION</span>
+        <video id="finalXlkVideo" muted loop autoplay playsinline preload="auto"
+               poster="assets/cultural-motion/xilankapu/figma-scarf-design.png"
+               onclick="toggleVideoPlay('finalXlkVideo')">
+          <source src="assets/cultural-motion/xilankapu/xilankapu-motion.mp4" type="video/mp4" />
+        </video>
+        <div class="cvm-final-v-controls">
+          <button onclick="toggleVideoPlay('finalXlkVideo')" aria-label="Play/Pause">▶</button>
+          <button onclick="toggleMute('finalXlkVideo')" aria-label="Mute">🔇</button>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cvm-final-statement cvm-reveal">
+      <p class="cvm-final-en">
+        REINTERPRETING CULTURE<br/>
+        THROUGH CONTEMPORARY<br/>
+        DIGITAL VISUAL LANGUAGE.
+      </p>
+      <p class="cvm-final-zh">让文化内容从静态视觉走向动态表达。</p>
+    </div>
+
+    <p class="cvm-end-mark cvm-reveal">END OF PROJECT</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 梁金玲 · Cultural Visual Motion</p>
+  </div>
+</footer>
+
+<script src="js/project-cultural-motion.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
